@@ -1,6 +1,6 @@
 <div align="center">
 
-[![banner](https://github.com/VectorNetworkProject/TheMix/blob/master/resources/banner/VectorNetwork.png?raw=true)](https://www.vector-network.tk)
+[![banner](https://github.com/VectorNetworkProject/TheMix/blob/master/assets/banner/VectorNetwork.png?raw=true)](https://www.vector-network.tk)
 
 [![GitHub forks](https://img.shields.io/github/forks/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/network)
 [![GitHub issues](https://img.shields.io/github/issues/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/issues)
