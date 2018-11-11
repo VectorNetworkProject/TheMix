@@ -13,8 +13,12 @@ use pocketmine\plugin\PluginBase;
 
 class TheMix extends PluginBase
 {
+    /* @var TheMix $instance */
+    private static $instance = null;
+
     public function onLoad()
     {
+        self::$instance = $this;
         $this->getLogger()->notice("Loading System...");
     }
 
@@ -26,5 +30,10 @@ class TheMix extends PluginBase
     public function onDisable()
     {
         $this->getLogger()->notice("Unload System...");
+    }
+
+    public static function getInstance(): TheMix
+    {
+        return self::$instance;
     }
 }
