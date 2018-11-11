@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\provider;
 
 
 use pocketmine\utils\Config;
+use VectorNetworkProject\TheMix\lib\database\Provider;
 
 class JSON extends Provider
 {

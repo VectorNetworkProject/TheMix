@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\provider;
+namespace VectorNetworkProject\TheMix\lib\database;
 
 
 use VectorNetworkProject\TheMix\TheMix;
