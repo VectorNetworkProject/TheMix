@@ -9,6 +9,8 @@
 namespace VectorNetworkProject\TheMix\provider;
 
 
+use VectorNetworkProject\TheMix\TheMix;
+
 abstract class Provider
 {
     public function createTable()
@@ -64,5 +66,10 @@ abstract class Provider
     public function getKeys()
     {
         throw new \Error("Missing method 'getKeys'");
+    }
+
+    protected static function getPath(string $folder, string $type): string
+    {
+        return TheMix::getInstance()->getDataFolder() . '/' . $folder . '/' . $type . '/';
     }
 }
