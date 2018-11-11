@@ -4,8 +4,8 @@
 
 [![GitHub forks](https://img.shields.io/github/forks/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/network)
 [![GitHub issues](https://img.shields.io/github/issues/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/issues)
-[![GitHub license](https://img.shields.io/github/license/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/stargazers)
+[![GitHub license](https://img.shields.io/github/license/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/blob/master/LICENSE)
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/VectorNetworkProject/TheMix.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix)
 [![PoggitCI](https://img.shields.io/badge/PoggitCI-Passing-brightgreen.svg?style=for-the-badge)](https://poggit.pmmp.io/ci/VectorNetworkProject/TheMix/~)
 
