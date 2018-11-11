@@ -1,2 +1,2 @@
-# The-Mix
+# The Mix
 Original game of VectorNetwork

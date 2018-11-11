@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/fuyutsuki/libform" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/binaryutils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/math" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/nbt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/pocketmine-mp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/raklib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/snooze" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pocketmine/spl" vcs="Git" />
+  </component>
+</project>

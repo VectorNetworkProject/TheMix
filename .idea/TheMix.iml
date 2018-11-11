@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fgrosse/phpasn1" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fuyutsuki/libform" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mdanter/ecc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/binaryutils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/nbt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/pocketmine-mp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/raklib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/snooze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/spl" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
