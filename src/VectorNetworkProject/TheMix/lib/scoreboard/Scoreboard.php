@@ -23,7 +23,7 @@ class Scoreboard
     /**
      * @param Player $player
      */
-    public static function addScoreboard(Player $player): void
+    public static function addBoard(Player $player): void
     {
         $packet = new SetDisplayObjectivePacket();
         $packet->displayName = "§l§6The §aM§ci§ex§7";
@@ -39,7 +39,7 @@ class Scoreboard
      * @param Player $player
      * @return bool
      */
-    public static function hasScoreboard(Player $player): bool
+    public static function hasBoard(Player $player): bool
     {
         return (isset(self::$scoreboards[$player->getName()]))
             ? true
@@ -70,7 +70,7 @@ class Scoreboard
     /**
      * @param Player $player
      */
-    public static function deleteScoreboard(Player $player): void
+    public static function removeBoard(Player $player): void
     {
         $packet = new RemoveObjectivePacket();
         $packet->objectiveName = "objective";
