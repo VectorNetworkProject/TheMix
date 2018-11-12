@@ -12,6 +12,7 @@ namespace VectorNetworkProject\TheMix;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
+use VectorNetworkProject\TheMix\command\TpsCommand;
 
 class TheMix extends PluginBase
 {
@@ -63,7 +64,8 @@ class TheMix extends PluginBase
     private function registerCommands(): void
     {
         $commands = [
-            new PingCommand($this)
+            new PingCommand($this),
+            new TpsCommand($this)
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }
