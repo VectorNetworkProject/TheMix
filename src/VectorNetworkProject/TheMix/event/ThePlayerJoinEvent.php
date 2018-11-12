@@ -22,7 +22,7 @@ class ThePlayerJoinEvent implements Listener
     public function event(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
-        $scoreboard = new Scoreboard(TheMix::getInstance()->getServer()->getPluginManager()->getPlugin("ScoreboardsPE")->getPlugin(), "§l§6The §aM§ci§ex §7- §6Vector§bNetwork", ScoreboardAction::CREATE);
+        $scoreboard = new Scoreboard(TheMix::getInstance()->getServer()->getPluginManager()->getPlugin("ScoreboardsPE")->getPlugin(), "§l§7- §6The §aM§ci§ex §7-", ScoreboardAction::CREATE);
         $scoreboard->create(ScoreboardDisplaySlot::SIDEBAR, ScoreboardSort::DESCENDING);
         $scoreboard->addDisplay($player);
         TheMix::getInstance()->getScheduler()->scheduleRepeatingTask(new UpdateScoreboardTask($scoreboard, $player), 20);
