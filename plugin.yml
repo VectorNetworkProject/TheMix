@@ -1,7 +1,6 @@
 name: TheMix
 main: VectorNetworkProject\TheMix\TheMix
 api: 3.0.0
-prefix: TheMix
 
 description: "Original game of VectorNetwork"
 website: "https://vector-network.tk"
