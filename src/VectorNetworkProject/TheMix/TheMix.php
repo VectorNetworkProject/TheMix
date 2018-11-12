@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix;
 
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
 
 class TheMix extends PluginBase
@@ -26,7 +27,16 @@ class TheMix extends PluginBase
     public function onEnable()
     {
         $this->registerCommands();
-        $this->getLogger()->notice("Loaded System!!");
+        $this->getLogger()->notice(TextFormat::GREEN . "
+
+████████╗██╗  ██╗███████╗    ███╗   ███╗██╗██╗  ██╗
+╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║██║╚██╗██╔╝
+   ██║   ███████║█████╗      ██╔████╔██║██║ ╚███╔╝ 
+   ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║██║ ██╔██╗ 
+   ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██║██╔╝ ██╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝
+
+        ");
     }
 
     public function onDisable()
