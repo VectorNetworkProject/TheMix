@@ -11,13 +11,11 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
-use VectorNetworkProject\TheMix\lib\scoreboard\Scoreboard;
 
 class ThePlayerQuitEvent implements Listener
 {
     public function event(PlayerQuitEvent $event)
     {
         $player = $event->getPlayer();
-        Scoreboard::removeBoard($player);
     }
 }

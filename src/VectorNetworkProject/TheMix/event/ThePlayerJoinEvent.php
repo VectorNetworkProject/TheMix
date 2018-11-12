@@ -11,13 +11,20 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use VectorNetworkProject\TheMix\lib\scoreboard\Scoreboard;
+use Miste\scoreboardspe\API\{
+    Scoreboard, ScoreboardDisplaySlot, ScoreboardSort, ScoreboardAction
+};
+use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
+use VectorNetworkProject\TheMix\TheMix;
 
 class ThePlayerJoinEvent implements Listener
 {
     public function event(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
-        Scoreboard::addBoard($player);
+        $scoreboard = new Scoreboard(TheMix::getInstance()->getServer()->getPluginManager()->getPlugin("ScoreboardsPE")->getPlugin(), "§l§eTHE VECTOR PIT", ScoreboardAction::CREATE);
+        $scoreboard->create(ScoreboardDisplaySlot::SIDEBAR, ScoreboardSort::DESCENDING);
+        $scoreboard->addDisplay($player);
+        TheMix::getInstance()->getScheduler()->scheduleRepeatingTask(new UpdateScoreboardTask($scoreboard, $player), 20);
     }
 }
