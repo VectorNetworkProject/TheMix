@@ -110,7 +110,7 @@ class JSON extends Provider
      * @param string $key
      * @return bool
      */
-    public function has(string $key): bool
+    public function exists(string $key): bool
     {
         $config = new Config($this->path . $this->file, Config::JSON);
         return $config->exists($key)
