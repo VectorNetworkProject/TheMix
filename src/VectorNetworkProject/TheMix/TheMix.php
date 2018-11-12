@@ -13,7 +13,9 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
 use VectorNetworkProject\TheMix\command\TpsCommand;
+use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
+use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
 use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
 
 class TheMix extends PluginBase
@@ -74,5 +76,7 @@ class TheMix extends PluginBase
     {
         $plm = $this->getServer()->getPluginManager();
         $plm->registerEvents(new ThePlayerLoginEvent(), $this);
+        $plm->registerEvents(new ThePlayerJoinEvent(), $this);
+        $plm->registerEvents(new ThePlayerQuitEvent(), $this);
     }
 }
