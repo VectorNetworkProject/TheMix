@@ -34,7 +34,7 @@ class UpdateScoreboardTask extends Task
         if (!$this->player->isOnline()) $this->getHandler()->cancel();
         $scoreboard = $this->scoreboard;
         $scoreboard->setLine($this->player, 0, '§7' . date("Y/m/d H:i:s"));
-        $scoreboard->setLine($this->player, 2, "Players: " . count(Server::getInstance()->getOnlinePlayers()) . "/" . Server::getInstance()->getMaxPlayers());
-        $scoreboard->setLine($this->player, 3, "§ewww.vector-network.tk     ");
+        $scoreboard->setLine($this->player, 2, "§7Players: " . count(Server::getInstance()->getOnlinePlayers()) . "/" . Server::getInstance()->getMaxPlayers());
+        $scoreboard->setLine($this->player, 4, "§ewww.vector-network.tk     ");
     }
 }
