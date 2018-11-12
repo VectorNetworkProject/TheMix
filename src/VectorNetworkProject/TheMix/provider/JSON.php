@@ -42,7 +42,7 @@ class JSON extends Provider
      */
     public function createTable(array $table = []): void
     {
-        @mkdir($this->path);
+        @mkdir($this->path, 0755, true);
         $config = new Config($this->path . $this->file, Config::JSON, $table);
         $config->save();
     }
