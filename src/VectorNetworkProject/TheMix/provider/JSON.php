@@ -75,7 +75,7 @@ class JSON extends Provider
 
     /**
      * @param string $key
-     * @return mixed
+     * @return bool|mixed
      */
     public function get(string $key)
     {
