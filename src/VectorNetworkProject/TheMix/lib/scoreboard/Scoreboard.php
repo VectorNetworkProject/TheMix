@@ -53,7 +53,7 @@ class Scoreboard
      */
     public static function setLine(Player $player, int $line, string $text): void
     {
-        if (!isset(self::$scoreboards[$player->getName()])) return;
+        if (!self::hasBoard($player)) return;
         if ($line < 1 || $line > 15) return;
         $entry = new ScorePacketEntry();
         $entry->objectiveName = "objective";
@@ -75,6 +75,6 @@ class Scoreboard
         $packet = new RemoveObjectivePacket();
         $packet->objectiveName = "objective";
         $player->sendDataPacket($packet);
-        if (isset(self::$scoreboards[($player->getName())])) unset(self::$scoreboards[$player->getName()]);
+        if (self::hasBoard($player)) unset(self::$scoreboards[$player->getName()]);
     }
 }

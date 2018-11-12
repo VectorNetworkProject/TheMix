@@ -14,6 +14,7 @@ use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
 use VectorNetworkProject\TheMix\command\TpsCommand;
 use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
+use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
 
 class TheMix extends PluginBase
 {
@@ -30,6 +31,7 @@ class TheMix extends PluginBase
     {
         $this->registerCommands();
         $this->registerEvents();
+        $this->getScheduler()->scheduleRepeatingTask(new UpdateScoreboardTask(), 20);
         $this->getLogger()->notice(TextFormat::AQUA . '
 
 
