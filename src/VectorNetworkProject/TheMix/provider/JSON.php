@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\provider;
 
 
 use pocketmine\utils\Config;
+use pocketmine\utils\MainLogger;
 use VectorNetworkProject\TheMix\lib\database\Provider;
 
 class JSON extends Provider
@@ -45,6 +46,7 @@ class JSON extends Provider
         @mkdir($this->path, 0755, true);
         $config = new Config($this->path . $this->file, Config::JSON, $table);
         $config->save();
+        MainLogger::getLogger()->debug("[PROVIDER] Create ".$this->file);
     }
 
     /**
@@ -58,13 +60,11 @@ class JSON extends Provider
     }
 
     /**
-     * @return bool
+     * @return void
      */
-    public function deleteTable(): bool
+    public function deleteTable(): void
     {
-        return unlink($this->path . $this->file)
-            ? true
-            : false;
+        unlink($this->path . $this->file);
     }
 
     /**
