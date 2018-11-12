@@ -11,14 +11,15 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
-use VectorNetworkProject\TheMix\DataBase;
 use VectorNetworkProject\TheMix\provider\DataFile;
+use VectorNetworkProject\TheMix\provider\JSON;
 
 class ThePlayerLoginEvent implements Listener
 {
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
-        DataBase::JsonUserSetting($player->getXuid(), DataFile::PLAYER_LEVEL)->init();
+        $db = new JSON($player->getXuid(), DataFile::PLAYER_LEVEL);
+        $db->init();
     }
 }

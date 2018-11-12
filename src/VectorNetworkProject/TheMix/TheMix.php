@@ -59,14 +59,6 @@ class TheMix extends PluginBase
         return self::$instance;
     }
 
-    /**
-     * @return DataBase
-     */
-    public static function getDataBase(): DataBase
-    {
-        return new DataBase();
-    }
-
     private function registerCommands(): void
     {
         $commands = [
