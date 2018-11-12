@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix;
 
 
 use pocketmine\plugin\PluginBase;
+use VectorNetworkProject\TheMix\command\PingCommand;
 
 class TheMix extends PluginBase
 {
@@ -24,6 +25,7 @@ class TheMix extends PluginBase
 
     public function onEnable()
     {
+        $this->registerCommands();
         $this->getLogger()->notice("Loaded System!!");
     }
 
@@ -32,8 +34,27 @@ class TheMix extends PluginBase
         $this->getLogger()->notice("Unload System...");
     }
 
+    /**
+     * @return TheMix
+     */
     public static function getInstance(): TheMix
     {
         return self::$instance;
+    }
+
+    /**
+     * @return DataBase
+     */
+    public static function getDataBase(): DataBase
+    {
+        return new DataBase();
+    }
+
+    private function registerCommands(): void
+    {
+        $commands = [
+            new PingCommand($this)
+        ];
+        $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }
 }
