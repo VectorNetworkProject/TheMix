@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\command;
 
-
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\plugin\Plugin;
@@ -26,7 +25,8 @@ class TpsCommand extends PluginCommand
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
-        $sender->sendMessage(TextFormat::GREEN . 'TPS: ' . Server::getInstance()->getTicksPerSecond() . '/20');
+        $sender->sendMessage(TextFormat::GREEN.'TPS: '.Server::getInstance()->getTicksPerSecond().'/20');
+
         return true;
     }
 }

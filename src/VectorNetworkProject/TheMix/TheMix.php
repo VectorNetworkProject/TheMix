@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix;
 
-
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
@@ -25,14 +24,14 @@ class TheMix extends PluginBase
     public function onLoad()
     {
         self::$instance = $this;
-        $this->getLogger()->notice("Loading System...");
+        $this->getLogger()->notice('Loading System...');
     }
 
     public function onEnable()
     {
         $this->registerCommands();
         $this->registerEvents();
-        $this->getLogger()->notice(TextFormat::AQUA . '
+        $this->getLogger()->notice(TextFormat::AQUA.'
 
 
         ███        ▄█    █▄       ▄████████        ▄▄▄▄███▄▄▄▄    ▄█  ▀████    ▐████▀ 
@@ -50,13 +49,13 @@ class TheMix extends PluginBase
 
     public function onDisable()
     {
-        $this->getLogger()->notice("Unload System...");
+        $this->getLogger()->notice('Unload System...');
     }
 
     /**
      * @return TheMix
      */
-    public static function getInstance(): TheMix
+    public static function getInstance(): self
     {
         return self::$instance;
     }
@@ -65,7 +64,7 @@ class TheMix extends PluginBase
     {
         $commands = [
             new PingCommand($this),
-            new TpsCommand($this)
+            new TpsCommand($this),
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }

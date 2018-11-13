@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\provider;
 
-
 use pocketmine\utils\Config;
 use VectorNetworkProject\TheMix\lib\database\Provider;
 
@@ -22,22 +21,24 @@ class YAML extends Provider
 
     /**
      * JSON constructor.
+     *
      * @param string $file
      */
     public function __construct(string $file = 'config')
     {
         $this->path = self::getPath('configs', 'yaml');
-        $this->file = $file . '.yml';
+        $this->file = $file.'.yml';
     }
 
     /**
      * @param array $table
+     *
      * @return void
      */
     public function createTable(array $table = []): void
     {
         @mkdir($this->path);
-        $config = new Config($this->path . $this->file, Config::YAML, $table);
+        $config = new Config($this->path.$this->file, Config::YAML, $table);
         $config->save();
     }
 
@@ -46,7 +47,7 @@ class YAML extends Provider
      */
     public function hasTable(): bool
     {
-        return file_exists($this->path . $this->file)
+        return file_exists($this->path.$this->file)
             ? true
             : false;
     }
@@ -56,29 +57,31 @@ class YAML extends Provider
      */
     public function deleteTable(): bool
     {
-        return unlink($this->path . $this->file)
+        return unlink($this->path.$this->file)
             ? true
             : false;
     }
 
     /**
-     * @param string $key
+     * @param string     $key
      * @param bool|mixed $data
      */
     public function set(string $key, $data): void
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
         $config->set($key, $data);
         $config->save();
     }
 
     /**
      * @param string $key
+     *
      * @return mixed
      */
     public function get(string $key)
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
+
         return $config->get($key);
     }
 
@@ -87,7 +90,8 @@ class YAML extends Provider
      */
     public function getAll(): array
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
+
         return $config->getAll();
     }
 
@@ -96,17 +100,20 @@ class YAML extends Provider
      */
     public function getKeys(): array
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
+
         return $config->getAll(true);
     }
 
     /**
      * @param string $key
+     *
      * @return bool
      */
     public function exists(string $key): bool
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
+
         return $config->exists($key)
             ? true
             : false;
@@ -114,11 +121,12 @@ class YAML extends Provider
 
     /**
      * @param string $key
+     *
      * @return void
      */
     public function remove(string $key): void
     {
-        $config = new Config($this->path . $this->file, Config::YAML);
+        $config = new Config($this->path.$this->file, Config::YAML);
         $config->remove($key);
     }
 }
