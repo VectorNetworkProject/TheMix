@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\command;
 
-
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\Player;
@@ -27,10 +26,12 @@ class PingCommand extends PluginCommand
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!$sender instanceof Player) {
-            $sender->sendMessage(TextFormat::RED . "このコマンドはプレイヤーのみ実行可能です。");
+            $sender->sendMessage(TextFormat::RED.'このコマンドはプレイヤーのみ実行可能です。');
+
             return true;
         }
-        $sender->sendMessage(TextFormat::RED . $sender->getPing() . TextFormat::YELLOW . "ms");
+        $sender->sendMessage(TextFormat::RED.$sender->getPing().TextFormat::YELLOW.'ms');
+
         return true;
     }
 }

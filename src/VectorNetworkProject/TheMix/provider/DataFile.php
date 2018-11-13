@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\provider;
 
-
 interface DataFile
 {
     public const PLAYER_LEVEL = 'Level';

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 

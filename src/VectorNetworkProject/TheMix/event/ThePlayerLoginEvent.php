@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
 use VectorNetworkProject\TheMix\provider\DataFile;

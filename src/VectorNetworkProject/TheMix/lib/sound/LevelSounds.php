@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\lib\sound;
 
-
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Player;
 
@@ -16,6 +15,7 @@ class LevelSounds
 {
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function LevelUp(Player $player): void
@@ -29,6 +29,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Anvil(Player $player): void
@@ -41,6 +42,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Travle(Player $player): void
@@ -53,6 +55,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function EndPortalSpawn(Player $player): void
@@ -65,6 +68,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Portal(Player $player): void
@@ -77,6 +81,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Thunder(Player $player): void
@@ -89,6 +94,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Remedy(Player $player): void
@@ -101,6 +107,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Launch(Player $player): void
@@ -113,6 +120,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Blast(Player $player): void
@@ -125,6 +133,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function LargeBlast(Player $player): void
@@ -137,6 +146,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Twinklt(Player $player): void

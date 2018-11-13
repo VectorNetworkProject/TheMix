@@ -8,12 +8,9 @@
 
 namespace VectorNetworkProject\TheMix\task;
 
-
+use Miste\scoreboardspe\API\Scoreboard;
 use pocketmine\Player;
 use pocketmine\scheduler\Task;
-use Miste\scoreboardspe\API\{
-    Scoreboard, ScoreboardDisplaySlot, ScoreboardSort, ScoreboardAction
-};
 use pocketmine\Server;
 
 class UpdateScoreboardTask extends Task
@@ -31,10 +28,12 @@ class UpdateScoreboardTask extends Task
 
     public function onRun(int $currentTick)
     {
-        if (!$this->player->isOnline()) $this->getHandler()->cancel();
+        if (!$this->player->isOnline()) {
+            $this->getHandler()->cancel();
+        }
         $scoreboard = $this->scoreboard;
-        $scoreboard->setLine($this->player, 0, '§7' . date("Y/m/d H:i:s"));
-        $scoreboard->setLine($this->player, 2, "§7Players: " . count(Server::getInstance()->getOnlinePlayers()) . "/" . Server::getInstance()->getMaxPlayers());
-        $scoreboard->setLine($this->player, 4, "§ewww.vector-network.tk     ");
+        $scoreboard->setLine($this->player, 0, '§7'.date('Y/m/d H:i:s'));
+        $scoreboard->setLine($this->player, 2, '§7Players: '.count(Server::getInstance()->getOnlinePlayers()).'/'.Server::getInstance()->getMaxPlayers());
+        $scoreboard->setLine($this->player, 4, '§ewww.vector-network.tk     ');
     }
 }
