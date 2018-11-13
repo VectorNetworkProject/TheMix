@@ -104,7 +104,7 @@ class YAML extends Provider
      * @param string $key
      * @return bool
      */
-    public function has(string $key): bool
+    public function exists(string $key): bool
     {
         $config = new Config($this->path . $this->file, Config::YAML);
         return $config->exists($key)

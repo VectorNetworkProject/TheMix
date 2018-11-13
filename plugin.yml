@@ -1,11 +1,12 @@
 name: TheMix
 main: VectorNetworkProject\TheMix\TheMix
 api: 3.0.0
-prefix: TheMix
+softdepend:
+- ScoreboardsPE
 
 description: "Original game of VectorNetwork"
 website: "https://vector-network.tk"
-version: 0.0.1
+version: 0.0.2
 authors:
 - InkoHX
 - MazaiCrafty

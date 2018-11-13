@@ -12,6 +12,10 @@ namespace VectorNetworkProject\TheMix;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\command\PingCommand;
+use VectorNetworkProject\TheMix\command\TpsCommand;
+use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
+use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
+use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
 
 class TheMix extends PluginBase
 {
@@ -27,16 +31,21 @@ class TheMix extends PluginBase
     public function onEnable()
     {
         $this->registerCommands();
-        $this->getLogger()->notice(TextFormat::GREEN . "
+        $this->registerEvents();
+        $this->getLogger()->notice(TextFormat::AQUA . '
 
-████████╗██╗  ██╗███████╗    ███╗   ███╗██╗██╗  ██╗
-╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║██║╚██╗██╔╝
-   ██║   ███████║█████╗      ██╔████╔██║██║ ╚███╔╝ 
-   ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║██║ ██╔██╗ 
-   ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██║██╔╝ ██╗
-   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝
 
-        ");
+        ███        ▄█    █▄       ▄████████        ▄▄▄▄███▄▄▄▄    ▄█  ▀████    ▐████▀ 
+    ▀█████████▄   ███    ███     ███    ███      ▄██▀▀▀███▀▀▀██▄ ███    ███▌   ████▀  
+       ▀███▀▀██   ███    ███     ███    █▀       ███   ███   ███ ███▌    ███  ▐███    
+        ███   ▀  ▄███▄▄▄▄███▄▄  ▄███▄▄▄          ███   ███   ███ ███▌    ▀███▄███▀    
+        ███     ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀          ███   ███   ███ ███▌    ████▀██▄     
+        ███       ███    ███     ███    █▄       ███   ███   ███ ███    ▐███  ▀███    
+        ███       ███    ███     ███    ███      ███   ███   ███ ███   ▄███     ███▄  
+       ▄████▀     ███    █▀      ██████████       ▀█   ███   █▀  █▀   ████       ███▄ 
+
+
+        ');
     }
 
     public function onDisable()
@@ -52,19 +61,20 @@ class TheMix extends PluginBase
         return self::$instance;
     }
 
-    /**
-     * @return DataBase
-     */
-    public static function getDataBase(): DataBase
-    {
-        return new DataBase();
-    }
-
     private function registerCommands(): void
     {
         $commands = [
-            new PingCommand($this)
+            new PingCommand($this),
+            new TpsCommand($this)
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
+    }
+
+    private function registerEvents(): void
+    {
+        $plm = $this->getServer()->getPluginManager();
+        $plm->registerEvents(new ThePlayerLoginEvent(), $this);
+        $plm->registerEvents(new ThePlayerJoinEvent(), $this);
+        $plm->registerEvents(new ThePlayerQuitEvent(), $this);
     }
 }

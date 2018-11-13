@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\provider;
 
 
 use pocketmine\utils\Config;
+use pocketmine\utils\MainLogger;
 use VectorNetworkProject\TheMix\lib\database\Provider;
 
 class JSON extends Provider
@@ -31,15 +32,21 @@ class JSON extends Provider
         $this->file = $file . '.json';
     }
 
+    public function init(array $data = []): void
+    {
+        if (!$this->hasTable()) $this->createTable($data);
+    }
+
     /**
      * @param array $table
      * @return void
      */
     public function createTable(array $table = []): void
     {
-        @mkdir($this->path);
+        @mkdir($this->path, 0755, true);
         $config = new Config($this->path . $this->file, Config::JSON, $table);
         $config->save();
+        MainLogger::getLogger()->debug("[PROVIDER] Create ".$this->file);
     }
 
     /**
@@ -53,13 +60,11 @@ class JSON extends Provider
     }
 
     /**
-     * @return bool
+     * @return void
      */
-    public function deleteTable(): bool
+    public function deleteTable(): void
     {
-        return unlink($this->path . $this->file)
-            ? true
-            : false;
+        unlink($this->path . $this->file);
     }
 
     /**
@@ -105,7 +110,7 @@ class JSON extends Provider
      * @param string $key
      * @return bool
      */
-    public function has(string $key): bool
+    public function exists(string $key): bool
     {
         $config = new Config($this->path . $this->file, Config::JSON);
         return $config->exists($key)
