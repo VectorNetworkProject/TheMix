@@ -14,6 +14,8 @@
 [![Discord](https://img.shields.io/discord/439355544063705088.svg?style=for-the-badge)](https://discord.gg/EF2G5dh)
 [![ServerAdd](https://img.shields.io/badge/Server-Add-brightgreen.svg?style=for-the-badge)](minecraft://?addExternalServer=VectorNetwork|play.vector-network.tk:19132)
 
+[![HitCount](http://hits.dwyl.io/VectorNetworkProject/TheMix.svg)](http://hits.dwyl.io/VectorNetworkProject/TheMix)
+
 # The Mix
 Original game of VectorNetwork
 </div>
