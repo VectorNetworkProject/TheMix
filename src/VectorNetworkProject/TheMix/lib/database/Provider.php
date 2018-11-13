@@ -8,13 +8,12 @@
 
 namespace VectorNetworkProject\TheMix\lib\database;
 
-
 use VectorNetworkProject\TheMix\TheMix;
 
 abstract class Provider
 {
     protected static function getPath(string $folder, string $type): string
     {
-        return TheMix::getInstance()->getDataFolder() . '/' . $folder . '/' . $type . '/';
+        return TheMix::getInstance()->getDataFolder().'/'.$folder.'/'.$type.'/';
     }
 }
