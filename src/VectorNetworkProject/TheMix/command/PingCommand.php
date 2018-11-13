@@ -16,6 +16,10 @@ use pocketmine\utils\TextFormat;
 
 class PingCommand extends PluginCommand
 {
+    /**
+     * PingCommand constructor.
+     * @param Plugin $owner
+     */
     public function __construct(Plugin $owner)
     {
         parent::__construct('ping', $owner);
@@ -23,6 +27,13 @@ class PingCommand extends PluginCommand
         $this->setPermission('the.mix.command.ping');
     }
 
+    /**
+     * @param CommandSender $sender
+     * @param string $commandLabel
+     * @param array $args
+     *
+     * @return bool
+     */
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         if (!$sender instanceof Player) {

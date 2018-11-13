@@ -16,6 +16,10 @@ use pocketmine\utils\TextFormat;
 
 class TpsCommand extends PluginCommand
 {
+    /**
+     * TpsCommand constructor.
+     * @param Plugin $owner
+     */
     public function __construct(Plugin $owner)
     {
         parent::__construct('tps', $owner);
@@ -23,6 +27,13 @@ class TpsCommand extends PluginCommand
         $this->setDescription('TicksPerSecond');
     }
 
+    /**
+     * @param CommandSender $sender
+     * @param string $commandLabel
+     * @param array $args
+     *
+     * @return bool
+     */
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
     {
         $sender->sendMessage(TextFormat::GREEN.'TPS: '.Server::getInstance()->getTicksPerSecond().'/20');
