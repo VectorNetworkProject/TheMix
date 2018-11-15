@@ -31,7 +31,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      * @param int $newlevel
      * @param bool $complete
      */
-    public function __construct(Player $player, int $oldlevel, int $newlevel, bool $complete)
+    public function __construct(Player $player, int $oldlevel, int $newlevel, bool $complete = false)
     {
         $this->player = $player;
         $this->newlevel = $newlevel;
