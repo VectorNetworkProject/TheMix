@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\game;
 
-
 use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;
 use pocketmine\Player;
@@ -16,7 +15,8 @@ use pocketmine\Player;
 class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
 {
     /* @var int */
-    private $newlevel, $oldlevel;
+    private $newlevel;
+    private $oldlevel;
     /* @var bool $complete */
     private $complete;
 
