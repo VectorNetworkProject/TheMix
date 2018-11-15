@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\level;
 
-
 use pocketmine\Player;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\event\game\PlayerLevelChangeEvent;
@@ -43,10 +42,14 @@ class Level
      */
     public static function setLevel(Player $player, int $level): void
     {
-        if (self::CheckLevel($level)) throw new \Error('数値は120以下にして下さい。');
+        if (self::CheckLevel($level)) {
+            throw new \Error('数値は120以下にして下さい。');
+        }
         $event = new PlayerLevelChangeEvent($player, self::getLevel($player), $level, self::isComplete($level));
         Server::getInstance()->getPluginManager()->callEvent($event);
-        if ($event->isCancelled()) return;
+        if ($event->isCancelled()) {
+            return;
+        }
         $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->set(self::FILE_NAME, $level);
     }
@@ -60,10 +63,14 @@ class Level
     public static function addLevel(Player $player): void
     {
         $level = self::getLevel($player);
-        if (!$level >= 120) return;
+        if (!$level >= 120) {
+            return;
+        }
         $event = new PlayerLevelChangeEvent($player, $level, $level + 1, self::isComplete($level + 1));
         Server::getInstance()->getPluginManager()->callEvent($event);
-        if (!$event->isCancelled()) return;
+        if (!$event->isCancelled()) {
+            return;
+        }
         $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->set(self::LEVEL, $level + 1);
     }
