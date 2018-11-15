@@ -16,7 +16,10 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
 {
     /* @var int */
     private $newlevel;
+
+    /* @var int $oldlevel */
     private $oldlevel;
+
     /* @var bool $complete */
     private $complete;
 

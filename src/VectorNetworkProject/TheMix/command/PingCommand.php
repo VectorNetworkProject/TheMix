@@ -18,6 +18,7 @@ class PingCommand extends PluginCommand
 {
     /**
      * PingCommand constructor.
+     *
      * @param Plugin $owner
      */
     public function __construct(Plugin $owner)

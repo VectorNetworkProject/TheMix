@@ -17,11 +17,13 @@ class UpdateScoreboardTask extends Task
 {
     /* @var Scoreboard $scoreboard */
     private $scoreboard;
+
     /* @var Player $player */
     private $player;
 
     /**
      * UpdateScoreboardTask constructor.
+     *
      * @param Scoreboard $scoreboard
      * @param Player $player
      */

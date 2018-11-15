@@ -18,6 +18,7 @@ class TpsCommand extends PluginCommand
 {
     /**
      * TpsCommand constructor.
+     *
      * @param Plugin $owner
      */
     public function __construct(Plugin $owner)
