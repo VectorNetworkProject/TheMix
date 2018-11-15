@@ -73,6 +73,8 @@ class JSON extends Provider
     /**
      * @param string     $key
      * @param bool|mixed $data
+     *
+     * @return void
      */
     public function set(string $key, $data): void
     {

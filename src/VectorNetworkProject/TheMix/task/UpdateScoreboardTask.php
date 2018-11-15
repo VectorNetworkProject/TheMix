@@ -20,12 +20,20 @@ class UpdateScoreboardTask extends Task
     /* @var Player $player */
     private $player;
 
+    /**
+     * UpdateScoreboardTask constructor.
+     * @param Scoreboard $scoreboard
+     * @param Player $player
+     */
     public function __construct(Scoreboard $scoreboard, Player $player)
     {
         $this->scoreboard = $scoreboard;
         $this->player = $player;
     }
 
+    /**
+     * @param int $currentTick
+     */
     public function onRun(int $currentTick)
     {
         if (!$this->player->isOnline()) {

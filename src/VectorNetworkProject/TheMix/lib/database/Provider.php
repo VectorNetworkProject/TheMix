@@ -12,6 +12,12 @@ use VectorNetworkProject\TheMix\TheMix;
 
 abstract class Provider
 {
+    /**
+     * @param string $folder
+     * @param string $type
+     *
+     * @return string
+     */
     protected static function getPath(string $folder, string $type): string
     {
         return TheMix::getInstance()->getDataFolder().'/'.$folder.'/'.$type.'/';
