@@ -37,7 +37,9 @@ class Level
      *
      * @param Player $player
      * @param int $level
+     *
      * @throws \Error
+     *
      * @return void
      */
     public static function setLevel(Player $player, int $level): void
@@ -58,6 +60,7 @@ class Level
      * プレイヤーのレベルを1上げます。
      *
      * @param Player $player
+     *
      * @return void
      */
     public static function addLevel(Player $player): void
@@ -79,6 +82,7 @@ class Level
      * プレイヤーのレベルを返します。
      *
      * @param Player $player
+     *
      * @return int
      */
     public static function getLevel(Player $player): int
@@ -91,6 +95,7 @@ class Level
      * レベルが120か調べる。
      *
      * @param int $level
+     *
      * @return bool
      */
     public static function isComplete(int $level): bool
@@ -104,6 +109,7 @@ class Level
      * レベルが120を超えていないか調べる。
      *
      * @param int $level
+     *
      * @return bool
      */
     private static function CheckLevel(int $level): bool
