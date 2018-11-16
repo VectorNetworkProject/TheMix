@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\level;
 
-
 use pocketmine\Player;
 
 class XP
