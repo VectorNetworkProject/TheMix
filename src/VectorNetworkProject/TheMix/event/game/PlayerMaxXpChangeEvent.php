@@ -34,7 +34,7 @@ class PlayerMaxXpChangeEvent extends PlayerEvent implements Cancellable
      *
      * @return int
      */
-    public function getMax(): int
+    public function getMaxXP(): int
     {
         return $this->max;
     }
