@@ -14,11 +14,11 @@ use pocketmine\Player;
 
 class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
 {
-    /* @var int */
-    private $newlevel;
+    /* @var int $newLevel*/
+    private $newLevel;
 
     /* @var int $oldlevel */
-    private $oldlevel;
+    private $oldLevel;
 
     /* @var bool $complete */
     private $complete;
@@ -27,15 +27,15 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      * PlayerLevelChangeEvent constructor.
      *
      * @param Player $player
-     * @param int    $oldlevel
-     * @param int    $newlevel
+     * @param int    $oldLevel
+     * @param int    $newLevel
      * @param bool   $complete
      */
-    public function __construct(Player $player, int $oldlevel, int $newlevel, bool $complete = false)
+    public function __construct(Player $player, int $oldLevel, int $newLevel, bool $complete = false)
     {
         $this->player = $player;
-        $this->newlevel = $newlevel;
-        $this->oldlevel = $oldlevel;
+        $this->newLevel = $newLevel;
+        $this->oldLevel = $oldLevel;
         $this->complete = $complete;
     }
 
@@ -46,7 +46,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      */
     public function getNewLevel(): int
     {
-        return $this->newlevel;
+        return $this->newLevel;
     }
 
     /**
@@ -56,7 +56,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      */
     public function getOldLevel(): int
     {
-        return $this->oldlevel;
+        return $this->oldLevel;
     }
 
     /**
