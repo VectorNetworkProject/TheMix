@@ -39,11 +39,9 @@ class PingCommand extends PluginCommand
     {
         if (!$sender instanceof Player) {
             $sender->sendMessage(TextFormat::RED.'このコマンドはプレイヤーのみ実行可能です。');
-
             return true;
         }
         $sender->sendMessage(TextFormat::RED.$sender->getPing().TextFormat::YELLOW.'ms');
-
         return true;
     }
 }
