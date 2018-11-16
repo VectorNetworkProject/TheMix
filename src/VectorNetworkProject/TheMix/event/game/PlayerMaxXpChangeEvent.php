@@ -12,13 +12,13 @@ use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;
 use pocketmine\Player;
 
-class PlayerChangeMaxXpEvent extends PlayerEvent implements Cancellable
+class PlayerMaxXpChangeEvent extends PlayerEvent implements Cancellable
 {
     /* @var int $max */
     private $max;
 
     /**
-     * PlayerChangeMaxXpEvent constructor.
+     * PlayerMaxXpChangeEvent constructor.
      *
      * @param Player $player
      * @param int $max
