@@ -27,9 +27,9 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      * PlayerLevelChangeEvent constructor.
      *
      * @param Player $player
-     * @param int $oldlevel
-     * @param int $newlevel
-     * @param bool $complete
+     * @param int    $oldlevel
+     * @param int    $newlevel
+     * @param bool   $complete
      */
     public function __construct(Player $player, int $oldlevel, int $newlevel, bool $complete = false)
     {
@@ -50,7 +50,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
     }
 
     /**
-     * 古いレベルを返します
+     * 古いレベルを返します.
      *
      * @return int
      */

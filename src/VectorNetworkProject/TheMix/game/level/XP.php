@@ -26,7 +26,7 @@ class XP
      * プレイヤーのXPを変更します。
      *
      * @param Player $player
-     * @param int $xp
+     * @param int    $xp
      *
      * @return void
      */
@@ -44,8 +44,8 @@ class XP
      * プレイヤーのXPを増やします。
      *
      * @param Player $player
-     * @param int $min
-     * @param int $max
+     * @param int    $min
+     * @param int    $max
      *
      * @return void
      */
@@ -70,6 +70,7 @@ class XP
     public static function getXP(Player $player): int
     {
         $db = new JSON($player->getXuid(), Level::FILE_NAME);
+
         return $db->get(self::XP);
     }
 
@@ -77,7 +78,7 @@ class XP
      * プレイヤーのMaxXPを変更します。
      *
      * @param Player $player
-     * @param int $max
+     * @param int    $max
      *
      * @return void
      */
@@ -101,6 +102,7 @@ class XP
     public static function getMaxXP(Player $player): int
     {
         $db = new JSON($player->getXuid(), Level::FILE_NAME);
+
         return $db->get(self::MAX);
     }
 }

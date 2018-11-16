@@ -30,8 +30,8 @@ class PingCommand extends PluginCommand
 
     /**
      * @param CommandSender $sender
-     * @param string $commandLabel
-     * @param array $args
+     * @param string        $commandLabel
+     * @param array         $args
      *
      * @return bool
      */
@@ -39,9 +39,11 @@ class PingCommand extends PluginCommand
     {
         if (!$sender instanceof Player) {
             $sender->sendMessage(TextFormat::RED.'このコマンドはプレイヤーのみ実行可能です。');
+
             return true;
         }
         $sender->sendMessage(TextFormat::RED.$sender->getPing().TextFormat::YELLOW.'ms');
+
         return true;
     }
 }

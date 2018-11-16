@@ -19,16 +19,16 @@ class Level
     public const FILE_NAME = 'Level';
 
     /* @var string */
-    public const LEVEL = "level";
+    public const LEVEL = 'level';
 
     public static function init(): array
     {
         return [
-            'level' => 1,
-            'xp' => 0,
-            'max' => 15,
+            'level'    => 1,
+            'xp'       => 0,
+            'max'      => 15,
             'prestige' => 0,
-            'complete' => false
+            'complete' => false,
         ];
     }
 
@@ -36,7 +36,7 @@ class Level
      * プレイヤーのレベルを設定します。
      *
      * @param Player $player
-     * @param int $level
+     * @param int    $level
      *
      * @throws \Error
      *
@@ -88,6 +88,7 @@ class Level
     public static function getLevel(Player $player): int
     {
         $db = new JSON($player->getXuid(), self::FILE_NAME);
+
         return $db->get(self::LEVEL);
     }
 

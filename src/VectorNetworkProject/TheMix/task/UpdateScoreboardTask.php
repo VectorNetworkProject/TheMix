@@ -25,7 +25,7 @@ class UpdateScoreboardTask extends Task
      * UpdateScoreboardTask constructor.
      *
      * @param Scoreboard $scoreboard
-     * @param Player $player
+     * @param Player     $player
      */
     public function __construct(Scoreboard $scoreboard, Player $player)
     {
