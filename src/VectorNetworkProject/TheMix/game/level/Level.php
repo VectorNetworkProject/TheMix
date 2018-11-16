@@ -68,7 +68,7 @@ class Level
         }
         $event = new PlayerLevelChangeEvent($player, $level, $level + 1, self::isComplete($level + 1));
         Server::getInstance()->getPluginManager()->callEvent($event);
-        if (!$event->isCancelled()) {
+        if ($event->isCancelled()) {
             return;
         }
         $db = new JSON($player->getXuid(), self::FILE_NAME);
