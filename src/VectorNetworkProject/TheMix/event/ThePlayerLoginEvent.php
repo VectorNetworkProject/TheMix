@@ -10,7 +10,7 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
-use VectorNetworkProject\TheMix\provider\DataFile;
+use VectorNetworkProject\TheMix\game\level\Level;
 use VectorNetworkProject\TheMix\provider\JSON;
 
 class ThePlayerLoginEvent implements Listener
@@ -18,7 +18,7 @@ class ThePlayerLoginEvent implements Listener
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
-        $db = new JSON($player->getXuid(), DataFile::PLAYER_LEVEL);
-        $db->init();
+        $db = new JSON($player->getXuid(), Level::FILE_NAME);
+        $db->init(Level::init());
     }
 }

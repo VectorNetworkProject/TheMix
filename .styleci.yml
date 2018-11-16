@@ -1,2 +1,2 @@
-preset: psr2
+preset: recommended
 risky: false
