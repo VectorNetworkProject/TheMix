@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\game\level;
 
 use pocketmine\Player;
 use pocketmine\Server;
+use VectorNetworkProject\TheMix\event\game\PlayerMaxXpChangeEvent;
 use VectorNetworkProject\TheMix\event\game\PlayerXpChangeEvent;
 use VectorNetworkProject\TheMix\provider\JSON;
 
@@ -22,6 +23,8 @@ class XP
     public const MAX = 'max';
 
     /**
+     * プレイヤーのXPを変更します。
+     *
      * @param Player $player
      * @param int $xp
      *
@@ -38,6 +41,8 @@ class XP
     }
 
     /**
+     * プレイヤーのXPを増やします。
+     *
      * @param Player $player
      * @param int $min
      * @param int $max
@@ -56,6 +61,8 @@ class XP
     }
 
     /**
+     * プレイヤーのXPを取得します。
+     *
      * @param Player $player
      *
      * @return int
