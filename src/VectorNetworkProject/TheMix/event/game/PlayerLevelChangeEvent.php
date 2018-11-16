@@ -54,7 +54,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
      *
      * @return int
      */
-    public function getOldlevel(): int
+    public function getOldLevel(): int
     {
         return $this->oldlevel;
     }
