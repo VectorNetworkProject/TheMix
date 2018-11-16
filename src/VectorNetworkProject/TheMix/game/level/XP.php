@@ -65,4 +65,35 @@ class XP
         $db = new JSON($player->getXuid(), Level::FILE_NAME);
         return $db->get(self::XP);
     }
+
+    /**
+     * プレイヤーのMaxXPを変更します。
+     *
+     * @param Player $player
+     * @param int $max
+     *
+     * @return void
+     */
+    public static function setMaxXP(Player $player, int $max): void
+    {
+        $event = new PlayerMaxXpChangeEvent($player, $max);
+        Server::getInstance()->getPluginManager()->callEvent($event);
+        if (!$event->isCancelled()) {
+            $db = new JSON($player->getXuid(), Level::FILE_NAME);
+            $db->set(self::MAX, $max);
+        }
+    }
+
+    /**
+     * プレイヤーのMaxXPを取得します。
+     *
+     * @param Player $player
+     *
+     * @return int
+     */
+    public static function getMaxXP(Player $player): int
+    {
+        $db = new JSON($player->getXuid(), Level::FILE_NAME);
+        return $db->get(self::MAX);
+    }
 }
