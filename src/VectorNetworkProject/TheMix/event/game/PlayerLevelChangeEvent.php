@@ -50,7 +50,7 @@ class PlayerLevelChangeEvent extends PlayerEvent implements Cancellable
     }
 
     /**
-     * 古いレベルを返します.
+     * 古いレベルを返します。
      *
      * @return int
      */
