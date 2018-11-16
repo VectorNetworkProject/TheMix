@@ -17,6 +17,12 @@ class PlayerXpChangeEvent extends PlayerEvent implements Cancellable
     /* @var int $xp */
     private $xp;
 
+    /**
+     * PlayerXpChangeEvent constructor.
+     *
+     * @param Player $player
+     * @param int $xp
+     */
     public function __construct(Player $player, int $xp)
     {
         $this->player = $player;
