@@ -19,7 +19,6 @@ before_script:
 - wget -O PocketMine-MP.phar "${1:-"https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"}"
 - mkdir plugins && wget -O plugins/PluginChecker.phar https://poggit.pmmp.io/res/PluginChecker.phar
 - mkdir unstaged
-- wget -O - https://poggit.pmmp.io/res/travisPluginTest.php | php -- unstaged
 
 script:
 - wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - MyPlot MyPlot
