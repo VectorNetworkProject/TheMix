@@ -5,10 +5,10 @@ sudo: false
 dist: trusty
 
 install:
-- "wget -O - https://poggit.pmmp.io/res/travisInstall.sh | bash -s - || true"
+- "wget -O - https://poggit.pmmp.io/res/travisInstall.sh | bash -s - https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"
 
 script:
-- "if [ -f ${TRAVIS_BUILD_DIR}/../PocketMine/unstaged/TheMix.phar ] ; then wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix ; else true ; fi"
+- "wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix"
 
 notifications:
   email: false
