@@ -7,6 +7,10 @@ dist: trusty
 install:
 - "wget -O - https://poggit.pmmp.io/res/travisInstall.sh | bash -s - https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"
 
+before_script:
+- make
+- make install
+
 script:
 - "wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix"
 
