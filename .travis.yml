@@ -19,7 +19,6 @@ before_script:
 - wget -O PocketMine-MP.phar "${1:-"https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"}"
 - mkdir plugins && wget -O plugins/DevTools.phar https://github.com/pmmp/PocketMine-DevTools/releases/download/v1.13.0/DevTools_v1.13.0.phar
 - mkdir unstaged
-- composer install
 
 script:
 - wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix
