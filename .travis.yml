@@ -1,0 +1,14 @@
+language: php
+php: ["7.2"]
+sudo: false
+os: linux
+dist: trusty
+
+install:
+- "wget -O - https://poggit.pmmp.io/res/travisInstall.sh | bash -s - || true"
+
+script:
+- "if [ -f ${TRAVIS_BUILD_DIR}/../PocketMine/unstaged/TheMix.phar ] ; then wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix ; else true ; fi"
+
+notifications:
+  email: false
