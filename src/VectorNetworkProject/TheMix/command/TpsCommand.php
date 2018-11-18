@@ -33,9 +33,9 @@ class TpsCommand extends PluginCommand
      * @param string        $commandLabel
      * @param array         $args
      *
-     * @return bool
+     * @return mixed
      */
-    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         $sender->sendMessage(TextFormat::GREEN.'TPS: '.Server::getInstance()->getTicksPerSecond().'/20');
 

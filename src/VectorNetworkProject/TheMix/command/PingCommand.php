@@ -33,9 +33,9 @@ class PingCommand extends PluginCommand
      * @param string        $commandLabel
      * @param array         $args
      *
-     * @return bool
+     * @return mixed
      */
-    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if (!$sender instanceof Player) {
             $sender->sendMessage(TextFormat::RED.'このコマンドはプレイヤーのみ実行可能です。');
