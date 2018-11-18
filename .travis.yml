@@ -17,11 +17,12 @@ before_script:
 - echo "extension=pthreads.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 - mkdir "$TRAVIS_BUILD_DIR"/../PocketMine && cd "$TRAVIS_BUILD_DIR"/../PocketMine
 - wget -O PocketMine-MP.phar "${1:-"https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"}"
-- mkdir plugins && wget -O plugins/PluginChecker.phar https://poggit.pmmp.io/res/PluginChecker.phar
+- mkdir plugins && wget -O plugins/DevTools.phar https://github.com/pmmp/PocketMine-DevTools/releases/download/v1.13.0/DevTools_v1.13.0.phar
 - mkdir unstaged
+- composer install
 
 script:
-- wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - MyPlot MyPlot
+- wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix
 - cd "$TRAVIS_BUILD_DIR"/../PocketMine/
 - "if [ -f ${TRAVIS_BUILD_DIR}/../PocketMine/unstaged/TheMix.phar ] ; then wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix ; else true ; fi"
 
