@@ -22,9 +22,9 @@ before_script:
 - wget -O plugins/libform.phar https://poggit.pmmp.io/r/45472/libform.phar
 
 script:
+- cd "$TRAVIS_BUILD_DIR"/../PocketMine/
 - "if [ -f ${TRAVIS_BUILD_DIR}/../PocketMine/unstaged/TheMix.phar ] ; then wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix ; else true ; fi"
 - wget -O - https://poggit.pmmp.io/res/travisScript.sh | bash -s - TheMix TheMix
-- cd "$TRAVIS_BUILD_DIR"/../PocketMine/
 
 notifications:
   email: false
