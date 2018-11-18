@@ -18,6 +18,7 @@ before_script:
 - mkdir "$TRAVIS_BUILD_DIR"/../PocketMine && cd "$TRAVIS_BUILD_DIR"/../PocketMine
 - wget -O PocketMine-MP.phar "${1:-"https://github.com/pmmp/PocketMine-MP/releases/download/3.3.2/PocketMine-MP.phar"}"
 - mkdir plugins && wget -O plugins/DevTools.phar https://github.com/pmmp/PocketMine-DevTools/releases/download/v1.13.0/DevTools_v1.13.0.phar
+- wget -O plugins/libform.phar https://poggit.pmmp.io/r/45472/libform_dev-24.phar
 - mkdir unstaged
 
 script:
