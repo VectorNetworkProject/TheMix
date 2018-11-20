@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\command;
+namespace VectorNetworkProject\TheMix\command\defaults;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
@@ -24,7 +24,7 @@ class TpsCommand extends PluginCommand
     public function __construct(Plugin $owner)
     {
         parent::__construct('tps', $owner);
-        $this->setPermission('the.mix.command.tps');
+        $this->setPermission('the.mix.commands.user.tps');
         $this->setDescription('TicksPerSecond');
     }
 

@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\command;
+namespace VectorNetworkProject\TheMix\command\defaults;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
@@ -25,7 +25,7 @@ class PingCommand extends PluginCommand
     {
         parent::__construct('ping', $owner);
         $this->setDescription('応答速度を計測します。');
-        $this->setPermission('the.mix.command.ping');
+        $this->setPermission('the.mix.commands.user.ping');
     }
 
     /**
