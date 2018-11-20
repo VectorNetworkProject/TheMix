@@ -10,8 +10,9 @@ namespace VectorNetworkProject\TheMix;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
-use VectorNetworkProject\TheMix\command\PingCommand;
-use VectorNetworkProject\TheMix\command\TpsCommand;
+use VectorNetworkProject\TheMix\command\defaults\PingCommand;
+use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
+use VectorNetworkProject\TheMix\command\Permissions;
 use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
@@ -29,19 +30,20 @@ class TheMix extends PluginBase
 
     public function onEnable()
     {
+        Permissions::registerPermissions();
         $this->registerCommands();
         $this->registerEvents();
         $this->getLogger()->notice(TextFormat::AQUA.'
 
 
-        ███        ▄█    █▄       ▄████████        ▄▄▄▄███▄▄▄▄    ▄█  ▀████    ▐████▀ 
-    ▀█████████▄   ███    ███     ███    ███      ▄██▀▀▀███▀▀▀██▄ ███    ███▌   ████▀  
-       ▀███▀▀██   ███    ███     ███    █▀       ███   ███   ███ ███▌    ███  ▐███    
-        ███   ▀  ▄███▄▄▄▄███▄▄  ▄███▄▄▄          ███   ███   ███ ███▌    ▀███▄███▀    
-        ███     ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀          ███   ███   ███ ███▌    ████▀██▄     
-        ███       ███    ███     ███    █▄       ███   ███   ███ ███    ▐███  ▀███    
-        ███       ███    ███     ███    ███      ███   ███   ███ ███   ▄███     ███▄  
-       ▄████▀     ███    █▀      ██████████       ▀█   ███   █▀  █▀   ████       ███▄ 
+        ███        ▄█    █▄       ▄████████        ▄▄▄▄███▄▄▄▄    ▄█  ▀████    ▐████▀
+    ▀█████████▄   ███    ███     ███    ███      ▄██▀▀▀███▀▀▀██▄ ███    ███▌   ████▀
+       ▀███▀▀██   ███    ███     ███    █▀       ███   ███   ███ ███▌    ███  ▐███
+        ███   ▀  ▄███▄▄▄▄███▄▄  ▄███▄▄▄          ███   ███   ███ ███▌    ▀███▄███▀
+        ███     ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀          ███   ███   ███ ███▌    ████▀██▄
+        ███       ███    ███     ███    █▄       ███   ███   ███ ███    ▐███  ▀███
+        ███       ███    ███     ███    ███      ███   ███   ███ ███   ▄███     ███▄
+       ▄████▀     ███    █▀      ██████████       ▀█   ███   █▀  █▀   ████       ███▄
 
 
         ');
