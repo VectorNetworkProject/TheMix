@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\command;
 
-
 use pocketmine\permission\Permission;
 use pocketmine\permission\PermissionManager;
 
