@@ -10,7 +10,7 @@ namespace VectorNetworkProject\TheMix\game\level;
 
 use pocketmine\Player;
 use pocketmine\Server;
-use VectorNetworkProject\TheMix\event\game\PlayerLevelChangeEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerLevelChangeEvent;
 use VectorNetworkProject\TheMix\provider\JSON;
 
 class Level
