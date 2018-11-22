@@ -21,15 +21,18 @@ class Level
     /* @var string */
     public const LEVEL = 'level';
 
-    public static function init(): array
+    public const MAX_LEVEL = 120;
+
+    public static function init(Player $player): void
     {
-        return [
+        $db = new JSON($player, self::FILE_NAME);
+        $db->init([
             'level'    => 1,
             'xp'       => 0,
             'max'      => 15,
             'prestige' => 0,
             'complete' => false,
-        ];
+        ]);
     }
 
     /**
@@ -53,7 +56,7 @@ class Level
             return;
         }
         $db = new JSON($player->getXuid(), self::FILE_NAME);
-        $db->set(self::FILE_NAME, $level);
+        $db->set(self::LEVEL, $level);
     }
 
     /**
@@ -101,7 +104,7 @@ class Level
      */
     public static function isComplete(int $level): bool
     {
-        return $level >= 120
+        return $level >= self::MAX_LEVEL
             ? true
             : false;
     }
@@ -115,7 +118,7 @@ class Level
      */
     private static function CheckLevel(int $level): bool
     {
-        return $level > 120
+        return $level > self::MAX_LEVEL
             ? true
             : false;
     }

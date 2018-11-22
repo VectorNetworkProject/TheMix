@@ -20,6 +20,13 @@ class PlayerBountyEvent extends PlayerEvent implements Cancellable
     /* @var bool $bounty */
     private $bounty;
 
+    /**
+     * PlayerBountyEvent constructor.
+     *
+     * @param Player $player
+     * @param int    $gold
+     * @param bool   $bounty
+     */
     public function __construct(Player $player, int $gold, bool $bounty)
     {
         $this->player = $player;
