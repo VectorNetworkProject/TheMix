@@ -25,6 +25,6 @@ VectorNetworkの新しいゲームプラグイン！
 プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)を使用しています。  
 以下のライブラリを使用しています。
 
- - [libform](https://github.com/fuyutsuki/libform)
+[libform](https://github.com/fuyutsuki/libform) - yuko fuyutsuki
 
 </div>
