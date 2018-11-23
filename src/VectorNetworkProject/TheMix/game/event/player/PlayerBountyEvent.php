@@ -14,10 +14,13 @@ use pocketmine\Player;
 
 class PlayerBountyEvent extends PlayerEvent implements Cancellable
 {
+    public const ENABLE_BOUNTY = 0;
+    public const PLUS_GOLD = 1;
+
     /* @var int $gold */
     private $gold;
 
-    /* @var bool $bounty */
+    /* @var int $bounty */
     private $bounty;
 
     /**
@@ -25,9 +28,9 @@ class PlayerBountyEvent extends PlayerEvent implements Cancellable
      *
      * @param Player $player
      * @param int    $gold
-     * @param bool   $bounty
+     * @param int    $bounty
      */
-    public function __construct(Player $player, int $gold, bool $bounty)
+    public function __construct(Player $player, int $gold, int $bounty)
     {
         $this->player = $player;
         $this->gold = $gold;
@@ -43,9 +46,9 @@ class PlayerBountyEvent extends PlayerEvent implements Cancellable
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isBounty(): bool
+    public function getType(): int
     {
         return $this->bounty;
     }
