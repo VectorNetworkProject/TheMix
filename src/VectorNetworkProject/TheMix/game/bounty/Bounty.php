@@ -12,6 +12,7 @@ namespace VectorNetworkProject\TheMix\game\bounty;
 use pocketmine\Player;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\event\player\PlayerBountyEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerBountyLostEvent;
 use VectorNetworkProject\TheMix\provider\JSON;
 
 class Bounty
@@ -94,12 +95,42 @@ class Bounty
     public static function setPlayerBounty(Player $player): void
     {
         if (self::isBounty($player)) {
-            self::setBounty($player, true);
             $gold = self::getGold($player) + 100;
-            $event = new PlayerBountyEvent($player, $gold, true);
+            $event = new PlayerBountyEvent($player, $gold, PlayerBountyEvent::PLUS_GOLD);
             Server::getInstance()->getPluginManager()->callEvent($event);
             if (!$event->isCancelled()) {
-                
+                self::setGold($player, $gold);
+            }
+        } else {
+            $event = new PlayerBountyEvent($player, 100, PlayerBountyEvent::ENABLE_BOUNTY);
+            Server::getInstance()->getPluginManager()->callEvent($event);
+            if (!$event->isCancelled()) {
+                self::setBounty($player, true);
+                self::setGold($player, 100);
+            }
+        }
+    }
+
+    /**
+     * @param Player $player
+     * @param Player|null $killer
+     */
+    public static function PlayerBountyLost(Player $player, Player $killer = null): void
+    {
+        if (!self::isBounty($player)) return;
+        if ($killer) {
+            $event = new PlayerBountyLostEvent($player, self::getGold($player));
+            Server::getInstance()->getPluginManager()->callEvent($event);
+            if (!$event->isCancelled()) {
+                self::setBounty($player, false);
+                self::setGold($player, 0);
+            }
+        } else {
+            $event = new PlayerBountyLostEvent($player, self::getGold($player), $killer, PlayerBountyLostEvent::TYPE_KILLED);
+            Server::getInstance()->getPluginManager()->callEvent($event);
+            if (!$event->isCancelled()) {
+                self::setBounty($player, false);
+                self::setGold($player, 0);
             }
         }
     }
