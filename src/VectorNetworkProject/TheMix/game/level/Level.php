@@ -25,7 +25,7 @@ class Level
 
     public static function init(Player $player): void
     {
-        $db = new JSON($player, self::FILE_NAME);
+        $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->init([
             'level'    => 1,
             'xp'       => 0,
