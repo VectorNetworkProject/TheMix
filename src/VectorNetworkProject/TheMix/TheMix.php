@@ -22,6 +22,8 @@ class TheMix extends PluginBase
     /* @var TheMix $instance */
     private static $instance = null;
 
+    public const PLUGIN_CONFIG_VERSION = 1;
+
     public function onLoad()
     {
         self::$instance = $this;

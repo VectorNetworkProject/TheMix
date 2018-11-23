@@ -31,6 +31,16 @@ class YAML extends Provider
     }
 
     /**
+     * @param array $data
+     */
+    public function init(array $data = []): void
+    {
+        if (!$this->hasTable()) {
+            $this->createTable($data);
+        }
+    }
+
+    /**
      * @param array $table
      *
      * @return void
