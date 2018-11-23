@@ -47,7 +47,7 @@ class YAML extends Provider
      */
     public function createTable(array $table = []): void
     {
-        @mkdir($this->path);
+        @mkdir($this->path, 0755, true);
         $config = new Config($this->path.$this->file, Config::YAML, $table);
         $config->save();
     }
