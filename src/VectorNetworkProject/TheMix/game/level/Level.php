@@ -48,7 +48,7 @@ class Level
     public static function setLevel(Player $player, int $level): void
     {
         if (self::CheckLevel($level)) {
-            throw new \Error('数値は120以下にして下さい。');
+            throw new \Error('数値は'.self::MAX_LEVEL.'以下にして下さい。');
         }
         $event = new PlayerLevelChangeEvent($player, self::getLevel($player), $level, self::isComplete($level));
         Server::getInstance()->getPluginManager()->callEvent($event);
@@ -69,7 +69,7 @@ class Level
     public static function addLevel(Player $player): void
     {
         $level = self::getLevel($player);
-        if (!$level >= 120) {
+        if (!$level >= self::MAX_LEVEL) {
             return;
         }
         $event = new PlayerLevelChangeEvent($player, $level, $level + 1, self::isComplete($level + 1));
