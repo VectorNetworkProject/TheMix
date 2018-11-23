@@ -29,10 +29,10 @@ class PlayerBountyLostEvent extends PlayerEvent implements Cancellable
     /**
      * PlayerBountyLostEvent constructor.
      *
-     * @param Player $killed
-     * @param int $gold
+     * @param Player      $killed
+     * @param int         $gold
      * @param Player|null $killer
-     * @param int $type
+     * @param int         $type
      */
     public function __construct(Player $killed, int $gold, Player $killer = null, int $type = self::TYPE_SUICIDE)
     {

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\event;
 
-
 class GameEvent
 {
     /**

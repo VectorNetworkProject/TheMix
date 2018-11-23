@@ -12,7 +12,6 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
 use VectorNetworkProject\TheMix\game\bounty\Bounty;
 use VectorNetworkProject\TheMix\game\level\Level;
-use VectorNetworkProject\TheMix\provider\JSON;
 
 class ThePlayerLoginEvent implements Listener
 {

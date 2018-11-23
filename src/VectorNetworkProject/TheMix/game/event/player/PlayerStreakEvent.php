@@ -8,11 +8,9 @@
 
 namespace VectorNetworkProject\TheMix\game\event\player;
 
-
 use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;
 
 class PlayerStreakEvent extends PlayerEvent implements Cancellable
 {
-
 }
