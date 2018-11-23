@@ -8,8 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\streak;
 
-
 class Streak
 {
-
 }

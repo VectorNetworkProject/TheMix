@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\bounty;
 
-
 use pocketmine\Player;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\event\player\PlayerBountyEvent;
@@ -33,8 +32,8 @@ class Bounty
     {
         $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->init([
-            'gold' => 0,
-            'bounty' => false
+            'gold'   => 0,
+            'bounty' => false,
         ]);
     }
 
@@ -42,7 +41,7 @@ class Bounty
      * プレイヤーに賭ける賞金を設定します。
      *
      * @param Player $player
-     * @param int $gold
+     * @param int    $gold
      *
      * @throws \Error
      */
@@ -65,13 +64,13 @@ class Bounty
     public static function getGold(Player $player): int
     {
         $db = new JSON($player->getXuid(), self::FILE_NAME);
+
         return $db->get(self::CONFIG_GOLD);
     }
 
     /**
      * @param Player $player
-     *
-     * @param bool $bounty
+     * @param bool   $bounty
      */
     public static function setBounty(Player $player, bool $bounty): void
     {
@@ -89,6 +88,7 @@ class Bounty
     public static function isBounty(Player $player): bool
     {
         $db = new JSON($player, self::FILE_NAME);
+
         return $db->get(self::CONFIG_BOUNTY);
     }
 
@@ -112,12 +112,14 @@ class Bounty
     }
 
     /**
-     * @param Player $player
+     * @param Player      $player
      * @param Player|null $killer
      */
     public static function PlayerBountyLost(Player $player, Player $killer = null): void
     {
-        if (!self::isBounty($player)) return;
+        if (!self::isBounty($player)) {
+            return;
+        }
         if ($killer) {
             $event = new PlayerBountyLostEvent($player, self::getGold($player));
             Server::getInstance()->getPluginManager()->callEvent($event);
