@@ -16,6 +16,7 @@ use VectorNetworkProject\TheMix\command\Permissions;
 use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase
 {
@@ -27,6 +28,7 @@ class TheMix extends PluginBase
     public function onLoad()
     {
         self::$instance = $this;
+        DefaultConfig::init();
         $this->getLogger()->notice('Loading System...');
     }
 
