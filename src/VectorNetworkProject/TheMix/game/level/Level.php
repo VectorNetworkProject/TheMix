@@ -21,6 +21,7 @@ class Level
     /* @var string */
     public const LEVEL = 'level';
 
+    /* @var int */
     public const MAX_LEVEL = 120;
 
     public static function init(Player $player): void
