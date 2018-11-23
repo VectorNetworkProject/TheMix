@@ -18,12 +18,11 @@
 [![StyleCI](https://github.styleci.io/repos/157084851/shield?branch=master)](https://github.styleci.io/repos/157084851)
 
 # The Mix
-VectorNetworkの新しいゲームプラグイン！
+VectorNetworkの新しいゲームプラグイン！  
 あなたは簡単な作業をするだけでゲームを遊ぶ事が出来る！
 
 # DEVirion
-プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)を使用しています。
-
+プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)を使用しています。  
 以下のライブラリを使用しています。
 
  - [libform](https://github.com/fuyutsuki/libform)
