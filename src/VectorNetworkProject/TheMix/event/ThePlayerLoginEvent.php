@@ -18,6 +18,7 @@ class ThePlayerLoginEvent implements Listener
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
+        $player->setAllowMovementCheats(false);
         Level::init($player);
         Bounty::init($player);
     }
