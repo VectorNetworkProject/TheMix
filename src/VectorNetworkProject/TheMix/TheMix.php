@@ -40,7 +40,7 @@ class TheMix extends PluginBase
         $this->registerCommands();
         $this->registerEvents();
         $this->getServer()->loadLevel(DefaultConfig::getStageLevelName())
-            ? $this->getLogger()->notice('Loaded stage. Name:'.DefaultConfig::getStageLevelName())
+            ? $this->getLogger()->notice('Loaded stage.')
             : $this->getServer()->generateLevel(DefaultConfig::getStageLevelName());
         $this->getLogger()->notice(TextFormat::AQUA.'
 
