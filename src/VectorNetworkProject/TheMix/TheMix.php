@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
+use tokyo\pmmp\libform\FormApi;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
@@ -35,8 +36,12 @@ class TheMix extends PluginBase
     public function onEnable()
     {
         Permissions::registerPermissions();
+        FormApi::register($this);
         $this->registerCommands();
         $this->registerEvents();
+        $this->getServer()->loadLevel(DefaultConfig::getStageLevelName())
+            ? $this->getLogger()->notice('Loaded stage. Name:'.DefaultConfig::getStageLevelName())
+            : $this->getServer()->generateLevel(DefaultConfig::getStageLevelName());
         $this->getLogger()->notice(TextFormat::AQUA.'
 
 
