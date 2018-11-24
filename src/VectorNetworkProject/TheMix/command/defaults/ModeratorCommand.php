@@ -11,7 +11,6 @@ namespace VectorNetworkProject\TheMix\command\defaults;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
-use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
@@ -71,7 +70,7 @@ class ModeratorCommand extends PluginCommand
         $form->sendToPlayer($player);
     }
 
-    public static function LevelManager(Player $player): void 
+    public static function LevelManager(Player $player): void
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
             if (FormApi::formCancelled($data)) return;
