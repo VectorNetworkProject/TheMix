@@ -51,6 +51,12 @@ class ModeratorCommand extends PluginCommand
             $sender->sendMessage(TextFormat::RED . 'プレイヤーのみ実行可能です。');
             return true;
         }
+        self::sendModeratorUI($sender);
+        return true;
+    }
+
+    public static function sendModeratorUI(Player $player): void
+    {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
             if (FormApi::formCancelled($data)) return;
             switch ($data) {
@@ -62,11 +68,10 @@ class ModeratorCommand extends PluginCommand
         $form->setTitle('Moderator Menu');
         $form->setContent('行う処理を選んで下さい。');
         $form->addButton(new Button('テレポート'));
-        $form->sendToPlayer($sender);
-        return true;
+        $form->sendToPlayer($player);
     }
 
-    public static function LevelManager(Player $player)
+    public static function LevelManager(Player $player): void 
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
             if (FormApi::formCancelled($data)) return;
@@ -77,12 +82,16 @@ class ModeratorCommand extends PluginCommand
                 case 1:
                     $player->teleport(new Position(256, 5, 256, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
                     break;
+                case 2:
+                    self::sendModeratorUI($player);
+                    break;
             }
         });
         $form->setTitle('WorldManager');
         $form->setContent('テレポートするワールドを選択して下さい。');
         $form->addButton(new Button('lobby(default world)'));
         $form->addButton(new Button('Stage'));
+        $form->addButton(new Button('戻る'));
         $form->sendToPlayer($player);
     }
 }
