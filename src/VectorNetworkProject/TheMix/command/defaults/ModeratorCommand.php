@@ -73,7 +73,9 @@ class ModeratorCommand extends PluginCommand
     public static function sendLevelManagerUI(Player $player): void
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
-            if (FormApi::formCancelled($data)) return;
+            if (FormApi::formCancelled($data)) {
+                self::sendModeratorUI($player);
+            }
             switch ($data) {
                 case 0:
                     $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
