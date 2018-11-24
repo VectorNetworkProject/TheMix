@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\command\defaults;
 
-
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\level\Position;
@@ -32,13 +31,14 @@ class ModeratorCommand extends PluginCommand
     {
         parent::__construct('moderator', $owner);
         $this->setDescription('モデレーター専用メニュー(管理権限持ちのユーザー以外使用不可能)');
-        $this->setPermission(Permissions::ADMIN . 'moderator');
+        $this->setPermission(Permissions::ADMIN.'moderator');
     }
 
     /**
      * @param CommandSender $sender
-     * @param string $commandLabel
-     * @param array $args
+     * @param string        $commandLabel
+     * @param array         $args
+     *
      * @return bool|mixed
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args)
@@ -48,14 +48,17 @@ class ModeratorCommand extends PluginCommand
         }
         $sender instanceof Player
             ? self::sendModeratorUI($sender)
-            : $sender->sendMessage(TextFormat::RED . 'プレイヤーのみ実行可能です。') ;
+            : $sender->sendMessage(TextFormat::RED.'プレイヤーのみ実行可能です。');
+
         return true;
     }
 
     public static function sendModeratorUI(Player $player): void
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
-            if (FormApi::formCancelled($data)) return;
+            if (FormApi::formCancelled($data)) {
+                return;
+            }
             switch ($data) {
                 case 0:
                     self::sendLevelManagerUI($player);
@@ -71,7 +74,9 @@ class ModeratorCommand extends PluginCommand
     public static function sendLevelManagerUI(Player $player): void
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
-            if (FormApi::formCancelled($data)) return;
+            if (FormApi::formCancelled($data)) {
+                return;
+            }
             switch ($data) {
                 case 0:
                     $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());

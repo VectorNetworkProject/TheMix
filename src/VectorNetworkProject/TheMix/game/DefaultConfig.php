@@ -29,14 +29,14 @@ class DefaultConfig
     {
         $db = new YAML();
         $db->init([
-            'version' => TheMix::PLUGIN_CONFIG_VERSION,
-            'develop-mode' => true,
+            'version'          => TheMix::PLUGIN_CONFIG_VERSION,
+            'develop-mode'     => true,
             'stage-world-name' => 'stage',
-            'event-time' => 30,
-            'red' => [
+            'event-time'       => 30,
+            'red'              => [
                 'safe' => [
-                    'x' => 353,
-                    'z' => 203,
+                    'x'        => 353,
+                    'z'        => 203,
                     'diameter' => 30,
                 ],
                 'spawn' => [
@@ -48,12 +48,12 @@ class DefaultConfig
                     'x' => 215,
                     'y' => 445,
                     'z' => 455,
-                ]
+                ],
             ],
             'blue' => [
                 'safe' => [
-                    'x' => 157,
-                    'z' => 203,
+                    'x'        => 157,
+                    'z'        => 203,
                     'diameter' => 30,
                 ],
                 'spawn' => [
@@ -65,14 +65,15 @@ class DefaultConfig
                     'x' => 215,
                     'y' => 445,
                     'z' => 455,
-                ]
-            ]
+                ],
+            ],
         ]);
     }
 
     public static function getStageLevelName(): string
     {
         $db = new YAML();
+
         return $db->get(self::STAGE_NAME);
     }
 
@@ -82,18 +83,21 @@ class DefaultConfig
     public static function getStageWorld(): ?Level
     {
         $db = new YAML();
+
         return Server::getInstance()->getLevelByName($db->get(self::STAGE_NAME));
     }
 
     public static function isDev(): bool
     {
         $db = new YAML();
+
         return $db->get(self::DEVELOP_MODE);
     }
 
     public static function getEventTime(): int
     {
         $db = new YAML();
+
         return $db->get(self::EVENT_TIME);
     }
 
@@ -101,6 +105,7 @@ class DefaultConfig
     {
         $db = new YAML();
         $safe = $db->get(self::RED);
+
         return $safe['safe'];
     }
 
@@ -108,6 +113,7 @@ class DefaultConfig
     {
         $db = new YAML();
         $safe = $db->get(self::BLUE);
+
         return $safe['safe'];
     }
 }

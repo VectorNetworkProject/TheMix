@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 use pocketmine\math\Vector2;
