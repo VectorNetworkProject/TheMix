@@ -31,13 +31,23 @@ class YAML extends Provider
     }
 
     /**
+     * @param array $data
+     */
+    public function init(array $data = []): void
+    {
+        if (!$this->hasTable()) {
+            $this->createTable($data);
+        }
+    }
+
+    /**
      * @param array $table
      *
      * @return void
      */
     public function createTable(array $table = []): void
     {
-        @mkdir($this->path);
+        @mkdir($this->path, 0755, true);
         $config = new Config($this->path.$this->file, Config::YAML, $table);
         $config->save();
     }

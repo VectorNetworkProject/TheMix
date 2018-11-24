@@ -6,13 +6,14 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\command;
+namespace VectorNetworkProject\TheMix\command\defaults;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
+use VectorNetworkProject\TheMix\command\Permissions;
 
 class PingCommand extends PluginCommand
 {
@@ -25,7 +26,7 @@ class PingCommand extends PluginCommand
     {
         parent::__construct('ping', $owner);
         $this->setDescription('応答速度を計測します。');
-        $this->setPermission('the.mix.command.ping');
+        $this->setPermission(Permissions::USER.'ping');
     }
 
     /**
@@ -33,9 +34,9 @@ class PingCommand extends PluginCommand
      * @param string        $commandLabel
      * @param array         $args
      *
-     * @return bool
+     * @return mixed
      */
-    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if (!$sender instanceof Player) {
             $sender->sendMessage(TextFormat::RED.'このコマンドはプレイヤーのみ実行可能です。');

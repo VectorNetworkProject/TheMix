@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event\game;
+namespace VectorNetworkProject\TheMix\game\event\player;
 
 use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;

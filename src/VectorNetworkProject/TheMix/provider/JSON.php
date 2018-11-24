@@ -32,6 +32,9 @@ class JSON extends Provider
         $this->file = $file.'.json';
     }
 
+    /**
+     * @param array $data
+     */
     public function init(array $data = []): void
     {
         if (!$this->hasTable()) {

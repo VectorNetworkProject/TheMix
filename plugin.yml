@@ -13,9 +13,3 @@ authors:
 - yuko fuyutsuki
 - DusKong
 - UramnOIL
-
-permissions:
-  the.mix.command.ping:
-    default: true
-  the.mix.command.tps:
-    default: true

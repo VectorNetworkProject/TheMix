@@ -10,15 +10,16 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
+use VectorNetworkProject\TheMix\game\bounty\Bounty;
 use VectorNetworkProject\TheMix\game\level\Level;
-use VectorNetworkProject\TheMix\provider\JSON;
 
 class ThePlayerLoginEvent implements Listener
 {
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
-        $db = new JSON($player->getXuid(), Level::FILE_NAME);
-        $db->init(Level::init());
+        $player->setAllowMovementCheats(false);
+        Level::init($player);
+        Bounty::init($player);
     }
 }

@@ -16,6 +16,6 @@ class ThePlayerQuitEvent implements Listener
     public function event(PlayerQuitEvent $event)
     {
         $player = $event->getPlayer();
-        $event->setQuitMessage('§7[§c退出§7] §e'.$player->getName().'が参加しました。');
+        $event->setQuitMessage('§7[§c退出§7] §e'.$player->getName().'が退出しました。');
     }
 }

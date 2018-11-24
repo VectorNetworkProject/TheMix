@@ -6,13 +6,14 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\command;
+namespace VectorNetworkProject\TheMix\command\defaults;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\plugin\Plugin;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use VectorNetworkProject\TheMix\command\Permissions;
 
 class TpsCommand extends PluginCommand
 {
@@ -24,7 +25,7 @@ class TpsCommand extends PluginCommand
     public function __construct(Plugin $owner)
     {
         parent::__construct('tps', $owner);
-        $this->setPermission('the.mix.command.tps');
+        $this->setPermission(Permissions::USER.'tps');
         $this->setDescription('TicksPerSecond');
     }
 
@@ -33,9 +34,9 @@ class TpsCommand extends PluginCommand
      * @param string        $commandLabel
      * @param array         $args
      *
-     * @return bool
+     * @return mixed
      */
-    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         $sender->sendMessage(TextFormat::GREEN.'TPS: '.Server::getInstance()->getTicksPerSecond().'/20');
 

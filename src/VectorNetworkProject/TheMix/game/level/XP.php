@@ -10,8 +10,8 @@ namespace VectorNetworkProject\TheMix\game\level;
 
 use pocketmine\Player;
 use pocketmine\Server;
-use VectorNetworkProject\TheMix\event\game\PlayerMaxXpChangeEvent;
-use VectorNetworkProject\TheMix\event\game\PlayerXpChangeEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerMaxXpChangeEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerXpChangeEvent;
 use VectorNetworkProject\TheMix\provider\JSON;
 
 class XP
