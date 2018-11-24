@@ -20,5 +20,6 @@ class Permissions
     {
         PermissionManager::getInstance()->addPermission(new Permission(self::USER.'ping', '応答速度を計測します。', Permission::DEFAULT_TRUE));
         PermissionManager::getInstance()->addPermission(new Permission(self::USER.'tps', 'TicksPerSecond', Permission::DEFAULT_TRUE));
+        PermissionManager::getInstance()->addPermission(new Permission(self::ADMIN.'moderator', 'ModeratorTools', Permission::DEFAULT_OP));
     }
 }
