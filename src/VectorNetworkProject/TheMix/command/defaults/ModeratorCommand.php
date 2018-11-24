@@ -46,11 +46,9 @@ class ModeratorCommand extends PluginCommand
         if (!$this->testPermission($sender)) {
             return true;
         }
-        if (!$sender instanceof Player) {
-            $sender->sendMessage(TextFormat::RED . 'プレイヤーのみ実行可能です。');
-            return true;
-        }
-        self::sendModeratorUI($sender);
+        $sender instanceof Player
+            ? self::sendModeratorUI($sender)
+            : $sender->sendMessage(TextFormat::RED . 'プレイヤーのみ実行可能です。') ;
         return true;
     }
 
