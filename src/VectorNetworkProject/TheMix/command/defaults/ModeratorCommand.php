@@ -71,7 +71,7 @@ class ModeratorCommand extends PluginCommand
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
             if (FormApi::formCancelled($data)) return;
             switch ($data) {
-                case 0;
+                case 0:
                     $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
                     break;
                 case 1:
