@@ -13,6 +13,7 @@ use pocketmine\command\PluginCommand;
 use pocketmine\plugin\Plugin;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use VectorNetworkProject\TheMix\command\Permissions;
 
 class TpsCommand extends PluginCommand
 {
@@ -24,7 +25,7 @@ class TpsCommand extends PluginCommand
     public function __construct(Plugin $owner)
     {
         parent::__construct('tps', $owner);
-        $this->setPermission('the.mix.commands.user.tps');
+        $this->setPermission(Permissions::USER.'tps');
         $this->setDescription('TicksPerSecond');
     }
 

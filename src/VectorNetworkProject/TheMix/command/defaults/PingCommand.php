@@ -13,6 +13,7 @@ use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
+use VectorNetworkProject\TheMix\command\Permissions;
 
 class PingCommand extends PluginCommand
 {
@@ -25,7 +26,7 @@ class PingCommand extends PluginCommand
     {
         parent::__construct('ping', $owner);
         $this->setDescription('応答速度を計測します。');
-        $this->setPermission('the.mix.commands.user.ping');
+        $this->setPermission(Permissions::USER.'ping');
     }
 
     /**
