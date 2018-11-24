@@ -60,7 +60,7 @@ class ModeratorCommand extends PluginCommand
             if (FormApi::formCancelled($data)) return;
             switch ($data) {
                 case 0:
-                    self::LevelManager($player);
+                    self::sendLevelManagerUI($player);
                     break;
             }
         });
@@ -70,7 +70,7 @@ class ModeratorCommand extends PluginCommand
         $form->sendToPlayer($player);
     }
 
-    public static function LevelManager(Player $player): void
+    public static function sendLevelManagerUI(Player $player): void
     {
         $form = FormApi::makeListForm(function (Player $player, ?int $data) {
             if (FormApi::formCancelled($data)) return;
