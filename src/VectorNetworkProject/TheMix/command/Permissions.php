@@ -13,8 +13,8 @@ use pocketmine\permission\PermissionManager;
 
 class Permissions
 {
-    const USER = 'the.mix.commands.user.';
-    const ADMIN = 'the.mix.commands.admin.';
+    public const USER = 'the.mix.commands.user.';
+    public const ADMIN = 'the.mix.commands.admin.';
 
     public static function registerPermissions(): void
     {
