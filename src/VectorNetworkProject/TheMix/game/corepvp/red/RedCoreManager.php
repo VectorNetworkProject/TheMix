@@ -12,11 +12,15 @@ namespace VectorNetworkProject\TheMix\game\corepvp\red;
 use pocketmine\block\Block;
 use pocketmine\Player;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class RedCoreManager extends CoreManager
 {
     /* @var bool $enabled */
     private static $enabled = true;
+
+    /** @var int $hp */
+    private static $hp = 75;
 
     /**
      * @param Block $block
@@ -46,6 +50,14 @@ class RedCoreManager extends CoreManager
     }
 
     /**
+     * @return int
+     */
+    public static function getHP(): int
+    {
+        return self::$hp;
+    }
+
+    /**
      * @param int $hp
      * @param Player|null $player
      */
@@ -60,7 +72,14 @@ class RedCoreManager extends CoreManager
      */
     public static function isCore(Block $block): bool
     {
-        // TODO: Implement isCore() method.
+        $config = DefaultConfig::getRedConfig();
+        $core = $config['core'];
+        if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) return false;
+        if ($core['x'] === $block->x && $core['y'] === $block->y && $core['z'] === $block->z) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
