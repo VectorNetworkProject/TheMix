@@ -21,10 +21,11 @@
 VectorNetworkの新しいゲームプラグイン！  
 あなたは簡単な作業をするだけでゲームを遊ぶ事が出来る！
 
-# DEVirion
-プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)を使用しています。  
-以下のライブラリを使用しています。
+# Library
+プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)やAPIプラグインを使用しています。  
+以下のライブラリorプラグインを使用しています。
 
-[libform](https://github.com/fuyutsuki/libform) - yuko fuyutsuki
+[libform](https://github.com/fuyutsuki/libform) - yuko fuyutsuki  
+[ScoreboardPE](https://github.com/MisteFr/ScoreboardsPE) - MisteFr
 
 </div>
