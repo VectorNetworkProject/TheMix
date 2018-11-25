@@ -12,6 +12,7 @@ namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 use pocketmine\block\Block;
 use pocketmine\Player;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class BlueCoreManager extends CoreManager
 {
@@ -71,7 +72,14 @@ class BlueCoreManager extends CoreManager
      */
     public static function isCore(Block $block): bool
     {
-        // TODO: Implement isCore() method.
+        $config = DefaultConfig::getBlueConfig();
+        $core = $config['core'];
+        if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) return false;
+        if ($core['x'] === $block->x && $core['y'] === $block->y && $core['z'] === $block->z) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
