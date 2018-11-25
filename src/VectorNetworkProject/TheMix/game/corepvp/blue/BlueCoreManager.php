@@ -11,7 +11,6 @@ namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
 use pocketmine\block\Block;
 use pocketmine\Player;
-use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
