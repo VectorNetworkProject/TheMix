@@ -7,17 +7,17 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/pocketmine/spl" />
-      <path value="$PROJECT_DIR$/vendor/pocketmine/math" />
-      <path value="$PROJECT_DIR$/vendor/pocketmine/binaryutils" />
       <path value="$PROJECT_DIR$/vendor/fgrosse/phpasn1" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/mdanter/ecc" />
+      <path value="$PROJECT_DIR$/vendor/fuyutsuki/libform" />
+      <path value="$PROJECT_DIR$/vendor/pocketmine/nbt" />
+      <path value="$PROJECT_DIR$/vendor/pocketmine/pocketmine-mp" />
       <path value="$PROJECT_DIR$/vendor/pocketmine/raklib" />
       <path value="$PROJECT_DIR$/vendor/pocketmine/snooze" />
-      <path value="$PROJECT_DIR$/vendor/mdanter/ecc" />
-      <path value="$PROJECT_DIR$/vendor/pocketmine/nbt" />
-      <path value="$PROJECT_DIR$/vendor/fuyutsuki/libform" />
-      <path value="$PROJECT_DIR$/vendor/pocketmine/pocketmine-mp" />
+      <path value="$PROJECT_DIR$/vendor/pocketmine/math" />
+      <path value="$PROJECT_DIR$/vendor/pocketmine/binaryutils" />
+      <path value="$PROJECT_DIR$/vendor/pocketmine/spl" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
