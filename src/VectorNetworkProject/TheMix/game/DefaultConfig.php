@@ -77,16 +77,6 @@ class DefaultConfig
         return $db->get(self::STAGE_NAME);
     }
 
-    /**
-     * @return Level|null
-     */
-    public static function getStageWorld(): ?Level
-    {
-        $db = new YAML();
-
-        return Server::getInstance()->getLevelByName($db->get(self::STAGE_NAME));
-    }
-
     public static function isDev(): bool
     {
         $db = new YAML();
