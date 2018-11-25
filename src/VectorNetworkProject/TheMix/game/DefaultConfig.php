@@ -100,4 +100,16 @@ class DefaultConfig
 
         return $db->get(self::EVENT_TIME);
     }
+
+    public static function getRedConfig(): array
+    {
+        $db = new YAML();
+        return $db->get(self::RED);
+    }
+
+    public static function getBlueConfig(): array
+    {
+        $db = new YAML();
+        return $db->get(self::BLUE);
+    }
 }
