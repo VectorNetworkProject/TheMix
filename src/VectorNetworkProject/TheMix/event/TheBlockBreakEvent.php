@@ -10,22 +10,11 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
-use pocketmine\math\Vector2;
-use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheBlockBreakEvent implements Listener
 {
     public function event(BlockBreakEvent $event)
     {
-        $block = $event->getBlock();
-        $red = DefaultConfig::getRedSafe();
-        $blue = DefaultConfig::getBlueSafe();
-        $redsafe = new Vector2($red['x'], $blue['z']);
-        $bluesafe = new Vector2($blue['x'], $blue['z']);
-        if ($redsafe->distance($block->x, $block->z) <= $red['diameter'] || $bluesafe->distance($block->x, $block->z) <= $blue['diameter']) {
-            if (!DefaultConfig::isDev()) {
-                $event->setCancelled();
-            }
-        }
+
     }
 }

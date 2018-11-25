@@ -34,46 +34,36 @@ class DefaultConfig
             'stage-world-name' => 'stage',
             'event-time' => 30,
             'red' => [
-                'safe' => [
-                    'x' => 353,
-                    'z' => 203,
-                    'diameter' => 30,
-                ],
                 'spawn' => [
-                    'x' => -150,
+                    'x' => -152,
                     'y' => 84,
                     'z' => 0,
                 ],
                 'core1' => [
                     'x' => -131,
-                    'y' => 82,
+                    'y' => 81,
                     'z' => 25,
                 ],
                 'core2' => [
                     'x' => -131,
-                    'y' => 82,
+                    'y' => 81,
                     'z' => -25
                 ]
             ],
             'blue' => [
-                'safe' => [
-                    'x' => 157,
-                    'z' => 203,
-                    'diameter' => 30,
-                ],
                 'spawn' => [
-                    'x' => 150,
+                    'x' => 152,
                     'y' => 84,
                     'z' => 0,
                 ],
                 'core1' => [
                     'x' => -131,
-                    'y' => 82,
+                    'y' => 81,
                     'z' => 25,
                 ],
                 'core2' => [
                     'x' => 131,
-                    'y' => 82,
+                    'y' => 81,
                     'z' => -25
                 ]
             ],
@@ -109,21 +99,5 @@ class DefaultConfig
         $db = new YAML();
 
         return $db->get(self::EVENT_TIME);
-    }
-
-    public static function getRedSafe(): array
-    {
-        $db = new YAML();
-        $safe = $db->get(self::RED);
-
-        return $safe['safe'];
-    }
-
-    public static function getBlueSafe(): array
-    {
-        $db = new YAML();
-        $safe = $db->get(self::BLUE);
-
-        return $safe['safe'];
     }
 }
