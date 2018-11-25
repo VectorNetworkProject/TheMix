@@ -18,6 +18,9 @@ class BlueCoreManager extends CoreManager
     /* @var bool $enabled */
     private static $enabled = true;
 
+    /** @var int $hp */
+    private static $hp = 75;
+
     /**
      * @param Block $block
      * @param Player $player
@@ -33,7 +36,7 @@ class BlueCoreManager extends CoreManager
      */
     public static function setHP(int $hp, Player $player = null): void
     {
-        // TODO: Implement setHP() method.
+        self::$hp = $hp;
     }
 
     /**
@@ -42,7 +45,15 @@ class BlueCoreManager extends CoreManager
      */
     public static function addHP(int $hp, Player $player = null): void
     {
-        // TODO: Implement addHP() method.
+        self::$hp += $hp;
+    }
+
+    /**
+     * @return int
+     */
+    public static function getHP(): int
+    {
+        return self::$hp;
     }
 
     /**
@@ -51,7 +62,7 @@ class BlueCoreManager extends CoreManager
      */
     public static function reduceHP(int $hp, Player $player = null): void
     {
-        // TODO: Implement reduceHP() method.
+        self::$hp -= $hp;
     }
 
     /**
