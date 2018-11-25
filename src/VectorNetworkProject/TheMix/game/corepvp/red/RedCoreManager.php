@@ -33,18 +33,16 @@ class RedCoreManager extends CoreManager
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function setHP(int $hp, Player $player = null): void
+    public static function setHP(int $hp): void
     {
         self::$hp = $hp;
     }
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function addHP(int $hp, Player $player = null): void
+    public static function addHP(int $hp): void
     {
         self::$hp += $hp;
     }
@@ -59,9 +57,8 @@ class RedCoreManager extends CoreManager
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function reduceHP(int $hp, Player $player = null): void
+    public static function reduceHP(int $hp): void
     {
         self::$hp -= $hp;
     }

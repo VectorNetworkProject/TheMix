@@ -22,21 +22,18 @@ abstract class CoreManager
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    abstract public static function setHP(int $hp, Player $player = null): void;
+    abstract public static function setHP(int $hp): void;
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    abstract public static function addHP(int $hp, Player $player = null): void;
+    abstract public static function addHP(int $hp): void;
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    abstract public static function reduceHP(int $hp, Player $player = null): void;
+    abstract public static function reduceHP(int $hp): void;
 
     /**
      * @param Block $block

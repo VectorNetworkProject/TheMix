@@ -11,6 +11,7 @@ namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
 use pocketmine\block\Block;
 use pocketmine\Player;
+use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
@@ -33,18 +34,16 @@ class BlueCoreManager extends CoreManager
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function setHP(int $hp, Player $player = null): void
+    public static function setHP(int $hp): void
     {
         self::$hp = $hp;
     }
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function addHP(int $hp, Player $player = null): void
+    public static function addHP(int $hp): void
     {
         self::$hp += $hp;
     }
@@ -59,9 +58,8 @@ class BlueCoreManager extends CoreManager
 
     /**
      * @param int $hp
-     * @param Player|null $player
      */
-    public static function reduceHP(int $hp, Player $player = null): void
+    public static function reduceHP(int $hp): void
     {
         self::$hp -= $hp;
     }
