@@ -15,8 +15,8 @@ use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 
 class BlueCoreManager extends CoreManager
 {
-    /* @var bool $core */
-    private $core = true;
+    /* @var bool $enabled */
+    private static $enabled = true;
 
     /**
      * @param Block $block
@@ -61,5 +61,21 @@ class BlueCoreManager extends CoreManager
     public static function isCore(Block $block): bool
     {
         // TODO: Implement isCore() method.
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isEnabled(): bool
+    {
+        return self::$enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public static function setEnabled(bool $enabled): void
+    {
+        self::$enabled = $enabled;
     }
 }
