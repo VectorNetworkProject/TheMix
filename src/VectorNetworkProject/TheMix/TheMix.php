@@ -11,6 +11,7 @@ namespace VectorNetworkProject\TheMix;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use tokyo\pmmp\libform\FormApi;
+use VectorNetworkProject\TheMix\command\defaults\DiscordCommand;
 use VectorNetworkProject\TheMix\command\defaults\ModeratorCommand;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
@@ -80,6 +81,7 @@ class TheMix extends PluginBase
             new PingCommand($this),
             new TpsCommand($this),
             new ModeratorCommand($this),
+            new DiscordCommand($this)
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }
