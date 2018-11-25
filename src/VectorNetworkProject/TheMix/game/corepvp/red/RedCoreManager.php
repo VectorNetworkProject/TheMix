@@ -15,6 +15,8 @@ use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 
 class RedCoreManager extends CoreManager
 {
+    /* @var bool $enabled */
+    private static $enabled = true;
 
     /**
      * @param Block $block
@@ -59,5 +61,21 @@ class RedCoreManager extends CoreManager
     public static function isCore(Block $block): bool
     {
         // TODO: Implement isCore() method.
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isEnabled(): bool
+    {
+        return self::$enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public static function setEnabled(bool $enabled): void
+    {
+        self::$enabled = $enabled;
     }
 }
