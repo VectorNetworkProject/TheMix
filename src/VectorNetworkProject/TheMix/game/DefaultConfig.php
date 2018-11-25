@@ -29,43 +29,53 @@ class DefaultConfig
     {
         $db = new YAML();
         $db->init([
-            'version'          => TheMix::PLUGIN_CONFIG_VERSION,
-            'develop-mode'     => true,
+            'version' => TheMix::PLUGIN_CONFIG_VERSION,
+            'develop-mode' => true,
             'stage-world-name' => 'stage',
-            'event-time'       => 30,
-            'red'              => [
+            'event-time' => 30,
+            'red' => [
                 'safe' => [
-                    'x'        => 353,
-                    'z'        => 203,
+                    'x' => 353,
+                    'z' => 203,
                     'diameter' => 30,
                 ],
                 'spawn' => [
-                    'x' => 245,
-                    'y' => 424,
-                    'z' => 452,
+                    'x' => -150,
+                    'y' => 84,
+                    'z' => 0,
                 ],
-                'core' => [
-                    'x' => 215,
-                    'y' => 445,
-                    'z' => 455,
+                'core1' => [
+                    'x' => -131,
+                    'y' => 82,
+                    'z' => 25,
                 ],
+                'core2' => [
+                    'x' => -131,
+                    'y' => 82,
+                    'z' => -25
+                ]
             ],
             'blue' => [
                 'safe' => [
-                    'x'        => 157,
-                    'z'        => 203,
+                    'x' => 157,
+                    'z' => 203,
                     'diameter' => 30,
                 ],
                 'spawn' => [
-                    'x' => 245,
-                    'y' => 424,
-                    'z' => 452,
+                    'x' => 150,
+                    'y' => 84,
+                    'z' => 0,
                 ],
-                'core' => [
-                    'x' => 215,
-                    'y' => 445,
-                    'z' => 455,
+                'core1' => [
+                    'x' => -131,
+                    'y' => 82,
+                    'z' => 25,
                 ],
+                'core2' => [
+                    'x' => 131,
+                    'y' => 82,
+                    'z' => -25
+                ]
             ],
         ]);
     }
