@@ -14,24 +14,30 @@ use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 
 class RedTeamManager extends TeamManager
 {
+    /** @var array $list */
+    private static $list = [];
 
     public static function addList(Player $player): void
     {
-        // TODO: Implement addList() method.
+        if (!self::isJoined($player)) {
+            self::$list[$player->getName()];
+        }
     }
 
     public static function removeList(Player $player): void
     {
-        // TODO: Implement removeList() method.
+        if (self::isJoined($player)) {
+            unset(self::$list[$player->getName()]);
+        }
     }
 
     public static function isJoined(Player $player): bool
     {
-        // TODO: Implement isJoined() method.
+        return isset(self::$list[$player->getName()]) ? true : false;
     }
 
     public static function getList(): array
     {
-        // TODO: Implement getList() method.
+        return self::$list;
     }
 }
