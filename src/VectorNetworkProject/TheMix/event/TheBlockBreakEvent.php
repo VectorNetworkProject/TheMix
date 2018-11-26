@@ -10,11 +10,16 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
+use pocketmine\Server;
 
 class TheBlockBreakEvent implements Listener
 {
     public function event(BlockBreakEvent $event)
     {
-
+        $player = $event->getPlayer();
+        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
+            if ($player->isOp()) return;
+            $event->setCancelled();
+        }
     }
 }

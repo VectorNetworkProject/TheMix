@@ -10,11 +10,16 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
+use pocketmine\Server;
 
 class TheBlockPlaceEvent implements Listener
 {
     public function event(BlockPlaceEvent $event)
     {
-
+        $player = $event->getPlayer();
+        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
+            if ($player->isOp()) return;
+            $event->setCancelled();
+        }
     }
 }
