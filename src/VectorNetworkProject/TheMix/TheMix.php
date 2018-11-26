@@ -18,6 +18,8 @@ use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
 use VectorNetworkProject\TheMix\event\TheBlockBreakEvent;
 use VectorNetworkProject\TheMix\event\TheBlockPlaceEvent;
+use VectorNetworkProject\TheMix\event\TheEntityDamageByEntityEvent;
+use VectorNetworkProject\TheMix\event\TheEntityDamageEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
 use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
@@ -94,5 +96,7 @@ class TheMix extends PluginBase
         $plm->registerEvents(new ThePlayerQuitEvent(), $this);
         $plm->registerEvents(new TheBlockBreakEvent(), $this);
         $plm->registerEvents(new TheBlockPlaceEvent(), $this);
+        $plm->registerEvents(new TheEntityDamageEvent(), $this);
+        $plm->registerEvents(new TheEntityDamageByEntityEvent(), $this);
     }
 }
