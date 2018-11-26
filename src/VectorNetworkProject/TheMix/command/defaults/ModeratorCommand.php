@@ -90,7 +90,7 @@ class ModeratorCommand extends PluginCommand
                     $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
                     break;
                 case 1:
-                    $player->teleport(new Position(256, 5, 256, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
+                    $player->teleport(new Position(0, 75, 0, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
                     break;
                 case 2:
                     self::sendModeratorUI($player);
