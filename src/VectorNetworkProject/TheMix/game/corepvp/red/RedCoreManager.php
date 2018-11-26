@@ -23,15 +23,6 @@ class RedCoreManager extends CoreManager
     private static $hp = 75;
 
     /**
-     * @param Block $block
-     * @param Player $player
-     */
-    public static function Break(Block $block, Player $player): void
-    {
-        // TODO: Implement Break() method.
-    }
-
-    /**
      * @param int $hp
      */
     public static function setHP(int $hp): void

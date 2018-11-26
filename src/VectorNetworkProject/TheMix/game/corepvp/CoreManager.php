@@ -11,14 +11,19 @@ namespace VectorNetworkProject\TheMix\game\corepvp;
 
 use pocketmine\block\Block;
 use pocketmine\Player;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 
 abstract class CoreManager
 {
-    /**
-     * @param Block $block
-     * @param Player $player
-     */
-    abstract public static function Break(Block $block, Player $player): void;
+    public static function Break(Block $block, Player $player): void
+    {
+        if (RedCoreManager::isCore($block)) {
+            RedCoreManager::reduceHP(1);
+        } elseif (BlueCoreManager::isCore($block)) {
+            BlueCoreManager::reduceHP(1);
+        }
+    }
 
     /**
      * @param int $hp
