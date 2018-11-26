@@ -6,12 +6,10 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\game\corepvp\red;
+namespace VectorNetworkProject\TheMix\game\corepvp;
 
 
-use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
-
-class RedSpawnManager extends SpawnManager
+class SpawnManager
 {
 
 }

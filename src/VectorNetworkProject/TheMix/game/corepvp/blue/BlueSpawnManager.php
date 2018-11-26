@@ -9,7 +9,9 @@
 namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
 
-class BlueSpawnManager
+use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
+
+class BlueSpawnManager extends SpawnManager
 {
 
 }
