@@ -9,12 +9,7 @@
 namespace VectorNetworkProject\TheMix\game\corepvp;
 
 
-use pocketmine\level\Position;
-
-abstract class SpawnManager
+class SpawnManager
 {
-    /**
-     * @return Position
-     */
-    abstract public static function getPosition(): Position;
+
 }
