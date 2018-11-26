@@ -40,4 +40,9 @@ class RedTeamManager extends TeamManager
     {
         return self::$list;
     }
+
+    public static function getListCount(): int
+    {
+        return count(self::$list);
+    }
 }
