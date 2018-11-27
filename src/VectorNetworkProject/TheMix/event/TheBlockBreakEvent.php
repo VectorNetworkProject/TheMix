@@ -10,7 +10,6 @@ namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
-use pocketmine\math\Math;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
@@ -33,17 +32,17 @@ class TheBlockBreakEvent implements Listener
             $event->setCancelled();
             if (RedTeamManager::isJoined($player)) return;
             RedCoreManager::reduceHP(1);
-            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, Math::floorFloat(mt_rand(8, 10) / 10));
+            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
             foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                LevelSounds::NotePiano($player, 3);
+                LevelSounds::NotePiano($player, 20);
             }
         } elseif (BlueCoreManager::isCore($block)) {
             $event->setCancelled();
             if (BlueTeamManager::isJoined($player)) return;
             BlueCoreManager::reduceHP(1);
-            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, Math::floorFloat(mt_rand(8, 10) / 10));
+            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
             foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                LevelSounds::NotePiano($player, 3);
+                LevelSounds::NotePiano($player, 20);
             }
         }
     }
