@@ -45,4 +45,9 @@ class RedTeamManager extends TeamManager
     {
         return count(self::$list);
     }
+
+    public static function ClearList(): void
+    {
+        self::$list = [];
+    }
 }
