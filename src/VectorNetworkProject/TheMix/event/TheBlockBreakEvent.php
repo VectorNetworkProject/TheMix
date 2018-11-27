@@ -16,6 +16,7 @@ use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 
 class TheBlockBreakEvent implements Listener
@@ -28,21 +29,23 @@ class TheBlockBreakEvent implements Listener
             if ($player->isOp()) return;
             $event->setCancelled();
         }
-        if (RedCoreManager::isCore($block)) {
-            $event->setCancelled();
-            if (RedTeamManager::isJoined($player)) return;
-            RedCoreManager::reduceHP(1);
-            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
-            foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                LevelSounds::NotePiano($player, 20);
-            }
-        } elseif (BlueCoreManager::isCore($block)) {
-            $event->setCancelled();
-            if (BlueTeamManager::isJoined($player)) return;
-            BlueCoreManager::reduceHP(1);
-            $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
-            foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                LevelSounds::NotePiano($player, 20);
+        if (DefaultConfig::isDev()) {
+            if (RedCoreManager::isCore($block)) {
+                $event->setCancelled();
+                if (RedTeamManager::isJoined($player)) return;
+                RedCoreManager::reduceHP(1);
+                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
+                foreach (Server::getInstance()->getOnlinePlayers() as $player) {
+                    LevelSounds::NotePiano($player, 20);
+                }
+            } elseif (BlueCoreManager::isCore($block)) {
+                $event->setCancelled();
+                if (BlueTeamManager::isJoined($player)) return;
+                BlueCoreManager::reduceHP(1);
+                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
+                foreach (Server::getInstance()->getOnlinePlayers() as $player) {
+                    LevelSounds::NotePiano($player, 20);
+                }
             }
         }
     }
