@@ -46,7 +46,7 @@ class DefaultConfig
                 ],
                 'core' => [
                     'x' => -152,
-                    'y' => 84,
+                    'y' => 85,
                     'z' => 0
                 ]
             ],
@@ -63,7 +63,7 @@ class DefaultConfig
                 ],
                 'core' => [
                     'x' => 152,
-                    'y' => 84,
+                    'y' => 85,
                     'z' => 0
                 ]
             ],
