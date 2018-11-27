@@ -153,6 +153,7 @@ class LevelSounds
     public static function Twinklt(Player $player): void
     {
         $packet = new LevelSoundEventPacket();
+        $packet->position = $player->asVector3();
         $packet->sound = LevelSoundEventPacket::SOUND_TWINKLE;
         $player->sendDataPacket($packet);
     }
@@ -164,6 +165,7 @@ class LevelSounds
     public static function NotePiano(Player $player, int $pitch = 1): void
     {
         $packet = new LevelSoundEventPacket();
+        $packet->position = $player->asVector3();
         $packet->sound = LevelSoundEventPacket::SOUND_NOTE;
         $packet->pitch = $pitch;
         $player->sendDataPacket($packet);
