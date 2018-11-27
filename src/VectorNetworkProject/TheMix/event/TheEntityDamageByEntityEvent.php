@@ -24,14 +24,18 @@ class TheEntityDamageByEntityEvent implements Listener
         $entity->extinguish();
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) return;
         if ($event->getFinalDamage() < $entity->getHealth()) return;
-        if ($entity instanceof Player && $damager instanceof Player) {
-            $event->setCancelled();
+        if (!$entity instanceof Player) return;
+        if ($damager instanceof Player) {
             if ($entity->getName() === $damager->getName()) {
-                // 自滅対策
+                $event->setCancelled();
                 SpawnManager::PlayerReSpawn($entity);
             } else {
+                $event->setCancelled();
                 SpawnManager::PlayerReSpawn($entity);
             }
+        } else {
+            $event->setCancelled();
+            SpawnManager::PlayerReSpawn($entity);
         }
     }
 }
