@@ -29,7 +29,7 @@ class TheBlockBreakEvent implements Listener
             if ($player->isOp()) return;
             $event->setCancelled();
         }
-        if (DefaultConfig::isDev()) {
+        if (!DefaultConfig::isDev()) {
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
                 if (RedTeamManager::isJoined($player)) return;
