@@ -23,7 +23,7 @@ class TheEntityDamageByEntityEvent implements Listener
         $damager = $event->getDamager();
         $entity->extinguish();
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) return;
-        if ($event->getFinalDamage() < $entity->getHealth()) return;
+        if ($event->getFinalDamage() <= $entity->getHealth()) return;
         if (!$entity instanceof Player) return;
         if ($damager instanceof Player) {
             if ($entity->getName() === $damager->getName()) {
