@@ -36,6 +36,7 @@ class TheMix extends PluginBase
     {
         self::$instance = $this;
         DefaultConfig::init();
+        date_default_timezone_set('Asia/Tokyo');
         $this->getLogger()->notice('Loading System...');
     }
 
