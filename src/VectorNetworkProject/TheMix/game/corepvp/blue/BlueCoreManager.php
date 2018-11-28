@@ -18,9 +18,6 @@ use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 
 class BlueCoreManager extends CoreManager
 {
-    /* @var bool $enabled */
-    private static $enabled = true;
-
     /** @var int $hp */
     private static $hp = 75;
 
@@ -78,21 +75,5 @@ class BlueCoreManager extends CoreManager
         } else {
             return false;
         }
-    }
-
-    /**
-     * @return bool
-     */
-    public static function isEnabled(): bool
-    {
-        return self::$enabled;
-    }
-
-    /**
-     * @param bool $enabled
-     */
-    public static function setEnabled(bool $enabled): void
-    {
-        self::$enabled = $enabled;
     }
 }
