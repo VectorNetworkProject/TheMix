@@ -11,8 +11,10 @@ namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
 use pocketmine\block\Block;
 use pocketmine\Player;
+use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 
 class BlueCoreManager extends CoreManager
 {
@@ -48,10 +50,18 @@ class BlueCoreManager extends CoreManager
 
     /**
      * @param int $hp
+     * @param Player $player
      */
-    public static function reduceHP(int $hp): void
+    public static function reduceHP(int $hp, Player $player): void
     {
         self::$hp -= $hp;
+        if (self::getHP() === 0) {
+            $event = new GameWinEvent(GameWinEvent::WIN_RED, $player);
+            Server::getInstance()->getPluginManager()->callEvent($event);
+            if ($event->isCancelled()) {
+                self::addHP(1);
+            }
+        }
     }
 
     /**

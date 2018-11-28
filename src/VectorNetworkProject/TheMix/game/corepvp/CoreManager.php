@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\game\corepvp;
 
 
 use pocketmine\block\Block;
+use pocketmine\Player;
 
 abstract class CoreManager
 {
@@ -25,8 +26,9 @@ abstract class CoreManager
 
     /**
      * @param int $hp
+     * @param Player $player
      */
-    abstract public static function reduceHP(int $hp): void;
+    abstract public static function reduceHP(int $hp, Player $player): void;
 
     /**
      * @param Block $block
