@@ -47,6 +47,7 @@ class RedCoreManager extends CoreManager
 
     /**
      * @param int $hp
+     * @param Player $player
      */
     public static function reduceHP(int $hp, Player $player): void
     {
