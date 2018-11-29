@@ -53,8 +53,6 @@ class TheBlockBreakEvent implements Listener
                     LevelSounds::NotePiano($player, 20);
                 }
             }
-        } else {
-            $event->setCancelled();
         }
     }
 }
