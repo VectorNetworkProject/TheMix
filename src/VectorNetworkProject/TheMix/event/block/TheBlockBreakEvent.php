@@ -26,13 +26,17 @@ class TheBlockBreakEvent implements Listener
         $player = $event->getPlayer();
         $block = $event->getBlock();
         if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
-            if ($player->isOp()) return;
+            if ($player->isOp()) {
+                return;
+            }
             $event->setCancelled();
         }
         if (!DefaultConfig::isDev()) {
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (RedTeamManager::isJoined($player)) return;
+                if (RedTeamManager::isJoined($player)) {
+                    return;
+                }
                 RedCoreManager::reduceHP(1, $player);
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
@@ -40,7 +44,9 @@ class TheBlockBreakEvent implements Listener
                 }
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (BlueTeamManager::isJoined($player)) return;
+                if (BlueTeamManager::isJoined($player)) {
+                    return;
+                }
                 BlueCoreManager::reduceHP(1, $player);
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {

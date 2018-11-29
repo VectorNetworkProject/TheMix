@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\command\defaults;
 
-
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\plugin\Plugin;
@@ -30,8 +29,9 @@ class DiscordCommand extends PluginCommand
 
     /**
      * @param CommandSender $sender
-     * @param string $commandLabel
-     * @param array $args
+     * @param string        $commandLabel
+     * @param array         $args
+     *
      * @return bool|mixed
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args)

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\event\game;
 
-
 use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;
 use pocketmine\Player;
@@ -27,7 +26,7 @@ class GameWinEvent extends PlayerEvent implements Cancellable
     /**
      * GameWinEvent constructor.
      *
-     * @param int $type
+     * @param int    $type
      * @param Player $player
      */
     public function __construct(int $type, Player $player)

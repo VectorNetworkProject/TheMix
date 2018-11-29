@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\corepvp\red;
 
-
 use pocketmine\Player;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 

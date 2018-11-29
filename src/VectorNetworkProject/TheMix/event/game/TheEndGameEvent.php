@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\game;
 
-
 use pocketmine\event\Listener;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
@@ -22,10 +21,11 @@ class TheEndGameEvent implements Listener
     {
         if (DefaultConfig::isDev()) {
             $event->setCancelled();
+
             return;
         }
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ResetGameTask(), 30 * 20);
-        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l ' . $event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
+        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l '.$event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
         Server::getInstance()->broadcastMessage('===< END GAME >===');
         Server::getInstance()->broadcastMessage('§l§eGG!');
         Server::getInstance()->broadcastMessage('§lDiscordに参加して遊んだ感想や思った事を書いて下さい！');

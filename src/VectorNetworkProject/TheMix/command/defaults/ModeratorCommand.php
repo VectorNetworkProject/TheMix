@@ -108,7 +108,9 @@ class ModeratorCommand extends PluginCommand
     public static function sendCoreManagerUI(Player $player): void
     {
         $form = FormApi::makeCustomForm(function (Player $player, ?array $data) {
-            if (FormApi::formCancelled($data)) return;
+            if (FormApi::formCancelled($data)) {
+                return;
+            }
             if ($data[0] === 0) {
                 RedCoreManager::setHP($data[1]);
                 Server::getInstance()->broadcastMessage(TextFormat::GRAY.'[MODERATOR] '.$player->getName().'がREDチームのHPを'.$data[1].'に変更しました。');

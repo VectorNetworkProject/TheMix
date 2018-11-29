@@ -30,6 +30,7 @@ class LevelSounds
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function Anvil(Player $player): void
@@ -160,7 +161,7 @@ class LevelSounds
 
     /**
      * @param Player $player
-     * @param int $pitch
+     * @param int    $pitch
      */
     public static function NotePiano(Player $player, int $pitch = 1): void
     {

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\entity;
 
-
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
@@ -20,10 +19,15 @@ class TheEntityDamageEvent implements Listener
     {
         $entity = $event->getEntity();
         $entity->extinguish();
-        if (!$entity instanceof Player) return;
-        if ($event->getFinalDamage() <= $entity->getHealth()) return;
+        if (!$entity instanceof Player) {
+            return;
+        }
+        if ($event->getFinalDamage() <= $entity->getHealth()) {
+            return;
+        }
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
             $event->setCancelled();
+
             return;
         }
         $event->setCancelled();

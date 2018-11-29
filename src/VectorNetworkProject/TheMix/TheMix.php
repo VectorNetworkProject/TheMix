@@ -85,7 +85,7 @@ class TheMix extends PluginBase
             new PingCommand($this),
             new TpsCommand($this),
             new ModeratorCommand($this),
-            new DiscordCommand($this)
+            new DiscordCommand($this),
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }
