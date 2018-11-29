@@ -21,6 +21,9 @@ class TheEndGameEvent implements Listener
 {
     public function event(GameWinEvent $event)
     {
+        if (DefaultConfig::isDev()) {
+            $event->setCancelled();
+        }
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ResetGameTask(), 30 * 20);
         switch ($event->getType()) {
             case GameWinEvent::WIN_RED:
