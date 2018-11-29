@@ -8,8 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game;
 
-use pocketmine\level\Level;
-use pocketmine\Server;
 use VectorNetworkProject\TheMix\provider\YAML;
 use VectorNetworkProject\TheMix\TheMix;
 
@@ -29,43 +27,43 @@ class DefaultConfig
     {
         $db = new YAML();
         $db->init([
-            'version' => TheMix::PLUGIN_CONFIG_VERSION,
-            'develop-mode' => true,
+            'version'          => TheMix::PLUGIN_CONFIG_VERSION,
+            'develop-mode'     => true,
             'stage-world-name' => 'stage',
-            'event-time' => 30,
-            'red' => [
-                'spawn' => [
-                    'x' => -152,
-                    'y' => 84,
-                    'z' => 0,
-                ],
-                'core1' => [
+            'event-time'       => 30,
+            'red'              => [
+                'spawn1' => [
                     'x' => -131,
                     'y' => 81,
                     'z' => 25,
                 ],
-                'core2' => [
+                'spawn2' => [
                     'x' => -131,
                     'y' => 81,
-                    'z' => -25
-                ]
+                    'z' => -25,
+                ],
+                'core' => [
+                    'x' => -152,
+                    'y' => 85,
+                    'z' => 0,
+                ],
             ],
             'blue' => [
-                'spawn' => [
-                    'x' => 152,
-                    'y' => 84,
-                    'z' => 0,
+                'spawn1' => [
+                    'x' => 131,
+                    'y' => 81,
+                    'z' => -25,
                 ],
-                'core1' => [
+                'spawn2' => [
                     'x' => -131,
                     'y' => 81,
                     'z' => 25,
                 ],
-                'core2' => [
-                    'x' => 131,
-                    'y' => 81,
-                    'z' => -25
-                ]
+                'core' => [
+                    'x' => 152,
+                    'y' => 85,
+                    'z' => 0,
+                ],
             ],
         ]);
     }
@@ -89,5 +87,19 @@ class DefaultConfig
         $db = new YAML();
 
         return $db->get(self::EVENT_TIME);
+    }
+
+    public static function getRedConfig(): array
+    {
+        $db = new YAML();
+
+        return $db->get(self::RED);
+    }
+
+    public static function getBlueConfig(): array
+    {
+        $db = new YAML();
+
+        return $db->get(self::BLUE);
     }
 }

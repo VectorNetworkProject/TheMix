@@ -8,58 +8,74 @@
 
 namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
-
 use pocketmine\block\Block;
 use pocketmine\Player;
+use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 
 class BlueCoreManager extends CoreManager
 {
-    /* @var bool $core */
-    private $core = true;
+    /** @var int $hp */
+    private static $hp = 75;
 
     /**
-     * @param Block $block
+     * @param int $hp
+     */
+    public static function setHP(int $hp): void
+    {
+        self::$hp = $hp;
+    }
+
+    /**
+     * @param int $hp
+     */
+    public static function addHP(int $hp): void
+    {
+        self::$hp += $hp;
+    }
+
+    /**
+     * @return int
+     */
+    public static function getHP(): int
+    {
+        return self::$hp;
+    }
+
+    /**
+     * @param int    $hp
      * @param Player $player
      */
-    public static function Break(Block $block, Player $player): void
+    public static function reduceHP(int $hp, Player $player): void
     {
-        // TODO: Implement Break() method.
-    }
-
-    /**
-     * @param int $hp
-     * @param Player|null $player
-     */
-    public static function setHP(int $hp, Player $player = null): void
-    {
-        // TODO: Implement setHP() method.
-    }
-
-    /**
-     * @param int $hp
-     * @param Player|null $player
-     */
-    public static function addHP(int $hp, Player $player = null): void
-    {
-        // TODO: Implement addHP() method.
-    }
-
-    /**
-     * @param int $hp
-     * @param Player|null $player
-     */
-    public static function reduceHP(int $hp, Player $player = null): void
-    {
-        // TODO: Implement reduceHP() method.
+        self::$hp -= $hp;
+        if (self::getHP() === 0) {
+            $event = new GameWinEvent(GameWinEvent::WIN_RED, $player);
+            Server::getInstance()->getPluginManager()->callEvent($event);
+            if ($event->isCancelled()) {
+                self::addHP(1);
+            }
+        }
     }
 
     /**
      * @param Block $block
+     *
      * @return bool
      */
     public static function isCore(Block $block): bool
     {
-        // TODO: Implement isCore() method.
+        $config = DefaultConfig::getBlueConfig();
+        $core = $config['core'];
+        if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) {
+            return false;
+        }
+        if ($core['x'] === $block->x && $core['y'] === $block->y && $core['z'] === $block->z) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

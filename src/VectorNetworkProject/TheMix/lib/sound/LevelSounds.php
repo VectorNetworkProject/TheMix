@@ -8,6 +8,7 @@
 
 namespace VectorNetworkProject\TheMix\lib\sound;
 
+use pocketmine\math\Math;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Player;
 
@@ -37,6 +38,7 @@ class LevelSounds
         $packet = new LevelSoundEventPacket();
         $packet->position = $player->asVector3();
         $packet->sound = LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE;
+        $packet->pitch = Math::floorFloat(mt_rand(8, 10) / 10);
         $player->sendDataPacket($packet);
     }
 
@@ -152,7 +154,21 @@ class LevelSounds
     public static function Twinklt(Player $player): void
     {
         $packet = new LevelSoundEventPacket();
+        $packet->position = $player->asVector3();
         $packet->sound = LevelSoundEventPacket::SOUND_TWINKLE;
+        $player->sendDataPacket($packet);
+    }
+
+    /**
+     * @param Player $player
+     * @param int    $pitch
+     */
+    public static function NotePiano(Player $player, int $pitch = 1): void
+    {
+        $packet = new LevelSoundEventPacket();
+        $packet->position = $player->asVector3();
+        $packet->sound = LevelSoundEventPacket::SOUND_NOTE;
+        $packet->pitch = $pitch;
         $player->sendDataPacket($packet);
     }
 }

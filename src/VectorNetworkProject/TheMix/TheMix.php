@@ -16,11 +16,14 @@ use VectorNetworkProject\TheMix\command\defaults\ModeratorCommand;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
-use VectorNetworkProject\TheMix\event\TheBlockBreakEvent;
-use VectorNetworkProject\TheMix\event\TheBlockPlaceEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
+use VectorNetworkProject\TheMix\event\block\TheBlockBreakEvent;
+use VectorNetworkProject\TheMix\event\block\TheBlockPlaceEvent;
+use VectorNetworkProject\TheMix\event\entity\TheEntityDamageByEntityEvent;
+use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerJoinEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerLoginEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerQuitEvent;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase
@@ -34,6 +37,7 @@ class TheMix extends PluginBase
     {
         self::$instance = $this;
         DefaultConfig::init();
+        date_default_timezone_set('Asia/Tokyo');
         $this->getLogger()->notice('Loading System...');
     }
 
@@ -81,7 +85,7 @@ class TheMix extends PluginBase
             new PingCommand($this),
             new TpsCommand($this),
             new ModeratorCommand($this),
-            new DiscordCommand($this)
+            new DiscordCommand($this),
         ];
         $this->getServer()->getCommandMap()->registerAll($this->getName(), $commands);
     }
@@ -94,5 +98,8 @@ class TheMix extends PluginBase
         $plm->registerEvents(new ThePlayerQuitEvent(), $this);
         $plm->registerEvents(new TheBlockBreakEvent(), $this);
         $plm->registerEvents(new TheBlockPlaceEvent(), $this);
+        $plm->registerEvents(new TheEntityDamageEvent(), $this);
+        $plm->registerEvents(new TheEntityDamageByEntityEvent(), $this);
+        $plm->registerEvents(new TheEndGameEvent(), $this);
     }
 }

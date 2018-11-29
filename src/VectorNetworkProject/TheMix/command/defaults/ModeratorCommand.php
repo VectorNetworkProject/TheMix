@@ -16,8 +16,12 @@ use pocketmine\plugin\Plugin;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use tokyo\pmmp\libform\element\Button;
+use tokyo\pmmp\libform\element\Dropdown;
+use tokyo\pmmp\libform\element\Slider;
 use tokyo\pmmp\libform\FormApi;
 use VectorNetworkProject\TheMix\command\Permissions;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class ModeratorCommand extends PluginCommand
@@ -63,11 +67,15 @@ class ModeratorCommand extends PluginCommand
                 case 0:
                     self::sendLevelManagerUI($player);
                     break;
+                case 1:
+                    self::sendCoreManagerUI($player);
+                    break;
             }
         });
         $form->setTitle('Moderator Menu');
         $form->setContent('行う処理を選んで下さい。');
         $form->addButton(new Button('テレポート'));
+        $form->addButton(new Button('CoreManager'));
         $form->sendToPlayer($player);
     }
 
@@ -82,7 +90,7 @@ class ModeratorCommand extends PluginCommand
                     $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
                     break;
                 case 1:
-                    $player->teleport(new Position(256, 5, 256, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
+                    $player->teleport(new Position(0, 75, 0, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
                     break;
                 case 2:
                     self::sendModeratorUI($player);
@@ -94,6 +102,26 @@ class ModeratorCommand extends PluginCommand
         $form->addButton(new Button('lobby(default world)'));
         $form->addButton(new Button('Stage'));
         $form->addButton(new Button('戻る'));
+        $form->sendToPlayer($player);
+    }
+
+    public static function sendCoreManagerUI(Player $player): void
+    {
+        $form = FormApi::makeCustomForm(function (Player $player, ?array $data) {
+            if (FormApi::formCancelled($data)) {
+                return;
+            }
+            if ($data[0] === 0) {
+                RedCoreManager::setHP($data[1]);
+                Server::getInstance()->broadcastMessage(TextFormat::GRAY.'[MODERATOR] '.$player->getName().'がREDチームのHPを'.$data[1].'に変更しました。');
+            } else {
+                BlueCoreManager::setHP($data[1]);
+                Server::getInstance()->broadcastMessage(TextFormat::GRAY.'[MODERATOR] '.$player->getName().'がBLUEチームのHPを'.$data[1].'に変更しました。');
+            }
+        });
+        $form->setTitle('CoreManager');
+        $form->addElement(new Dropdown('HPを変更するチームを選んで下さい。', ['RED', 'BLUE']));
+        $form->addElement(new Slider('HP', 1, 75));
         $form->sendToPlayer($player);
     }
 }

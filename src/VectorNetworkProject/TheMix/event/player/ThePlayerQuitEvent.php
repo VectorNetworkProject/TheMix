@@ -6,10 +6,12 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event;
+namespace VectorNetworkProject\TheMix\event\player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 
 class ThePlayerQuitEvent implements Listener
 {
@@ -17,5 +19,7 @@ class ThePlayerQuitEvent implements Listener
     {
         $player = $event->getPlayer();
         $event->setQuitMessage('§7[§c退出§7] §e'.$player->getName().'が退出しました。');
+        RedTeamManager::removeList($player);
+        BlueTeamManager::removeList($player);
     }
 }
