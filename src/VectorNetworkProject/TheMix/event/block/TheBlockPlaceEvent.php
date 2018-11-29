@@ -11,6 +11,7 @@ namespace VectorNetworkProject\TheMix\event\block;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 use pocketmine\Server;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheBlockPlaceEvent implements Listener
 {
@@ -21,6 +22,9 @@ class TheBlockPlaceEvent implements Listener
             if ($player->isOp()) {
                 return;
             }
+            $event->setCancelled();
+        } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) {
+            if (DefaultConfig::isDev()) return;
             $event->setCancelled();
         }
     }
