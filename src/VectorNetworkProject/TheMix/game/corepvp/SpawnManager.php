@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\corepvp;
 
-
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\level\Position;

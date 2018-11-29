@@ -18,7 +18,9 @@ class TheBlockPlaceEvent implements Listener
     {
         $player = $event->getPlayer();
         if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
-            if ($player->isOp()) return;
+            if ($player->isOp()) {
+                return;
+            }
             $event->setCancelled();
         }
     }

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\task;
 
-
 use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\scheduler\Task;
