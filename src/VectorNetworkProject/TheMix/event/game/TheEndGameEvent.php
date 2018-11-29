@@ -11,7 +11,6 @@ namespace VectorNetworkProject\TheMix\event\game;
 
 use pocketmine\event\Listener;
 use pocketmine\Server;
-use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 use VectorNetworkProject\TheMix\task\ResetGameTask;
