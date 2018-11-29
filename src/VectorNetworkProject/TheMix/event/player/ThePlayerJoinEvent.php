@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event;
+namespace VectorNetworkProject\TheMix\event\player;
 
 use Miste\scoreboardspe\API\Scoreboard;
 use Miste\scoreboardspe\API\ScoreboardAction;

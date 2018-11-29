@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event;
+namespace VectorNetworkProject\TheMix\event\game;
 
 
 use pocketmine\event\Listener;
@@ -26,6 +26,11 @@ class TheEndGameEvent implements Listener
             return;
         }
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ResetGameTask(), 30 * 20);
-        Server::getInstance()->broadcastMessage('===<');
+        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l ' . $event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
+        Server::getInstance()->broadcastMessage('===< END GAME >===');
+        Server::getInstance()->broadcastMessage('§l§eGG!');
+        Server::getInstance()->broadcastMessage('§lDiscordに参加して遊んだ感想や思った事を書いて下さい！');
+        Server::getInstance()->broadcastMessage('§lDiscord: https://discord.gg/EF2G5dh');
+        Server::getInstance()->broadcastMessage('§c30秒後プレイヤーの再接続とサーバー再起動を開始します。');
     }
 }

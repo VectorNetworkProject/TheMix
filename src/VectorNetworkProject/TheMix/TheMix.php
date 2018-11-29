@@ -16,14 +16,14 @@ use VectorNetworkProject\TheMix\command\defaults\ModeratorCommand;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
-use VectorNetworkProject\TheMix\event\TheBlockBreakEvent;
-use VectorNetworkProject\TheMix\event\TheBlockPlaceEvent;
-use VectorNetworkProject\TheMix\event\TheEndGameEvent;
-use VectorNetworkProject\TheMix\event\TheEntityDamageByEntityEvent;
-use VectorNetworkProject\TheMix\event\TheEntityDamageEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerJoinEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerLoginEvent;
-use VectorNetworkProject\TheMix\event\ThePlayerQuitEvent;
+use VectorNetworkProject\TheMix\event\block\TheBlockBreakEvent;
+use VectorNetworkProject\TheMix\event\block\TheBlockPlaceEvent;
+use VectorNetworkProject\TheMix\event\entity\TheEntityDamageByEntityEvent;
+use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerJoinEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerLoginEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerQuitEvent;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase

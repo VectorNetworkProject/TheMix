@@ -6,7 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event;
+namespace VectorNetworkProject\TheMix\event\block;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
