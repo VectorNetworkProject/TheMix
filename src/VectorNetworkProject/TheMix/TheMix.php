@@ -8,6 +8,7 @@
 
 namespace VectorNetworkProject\TheMix;
 
+use InkoHX\LeveLibrary\LevelAPI;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use tokyo\pmmp\libform\FormApi;
@@ -37,6 +38,7 @@ class TheMix extends PluginBase
     {
         self::$instance = $this;
         DefaultConfig::init();
+        LevelAPI::init();
         date_default_timezone_set('Asia/Tokyo');
         $this->getLogger()->notice('Loading System...');
     }

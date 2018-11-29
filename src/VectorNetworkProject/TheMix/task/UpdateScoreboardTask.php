@@ -8,13 +8,12 @@
 
 namespace VectorNetworkProject\TheMix\task;
 
+use InkoHX\LeveLibrary\LevelAPI;
 use Miste\scoreboardspe\API\Scoreboard;
 use pocketmine\Player;
 use pocketmine\scheduler\Task;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
-use VectorNetworkProject\TheMix\game\level\Level;
-use VectorNetworkProject\TheMix\game\level\XP;
 
 class UpdateScoreboardTask extends Task
 {
@@ -48,7 +47,7 @@ class UpdateScoreboardTask extends Task
         $scoreboard->setLine($this->player, 0, '§7'.date('Y/m/d H:i:s'));
         $scoreboard->setLine($this->player, 2, '§l§cRED§r§7: §a'.RedCoreManager::getHP());
         $scoreboard->setLine($this->player, 3, '§l§bBLUE§r§7: §a'.BlueCoreManager::getHP());
-        $scoreboard->setLine($this->player, 5, 'Level: '.Level::getLevel($this->player));
+        $scoreboard->setLine($this->player, 5, 'Level: '.LevelAPI::getLevel($this->player));
         $scoreboard->setLine($this->player, 6, 'Needed XP: §b0');
         $scoreboard->setLine($this->player, 7, 'Gold: §60g');
         $scoreboard->setLine($this->player, 9, 'Streak: §c0');

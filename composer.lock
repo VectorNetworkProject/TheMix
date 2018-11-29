@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "712bafaaab0cdedd1c43f4f9c4786924",
+    "content-hash": "4dc98d3234095d23072b4156493de863",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -122,6 +122,65 @@
             "description": "It is a virion library that can handle various forms easily.",
             "homepage": "https://github.com/fuyutsuki/libform",
             "time": "2018-09-05T06:02:11+00:00"
+        },
+        {
+            "name": "inkohx/levelibrary",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/InkoHX/LeveLibrary",
+                "reference": "4e86dc528a5935ae0943dfdc0e12e8bc5e72233d"
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-crypto": "^0.3.1",
+                "ext-ctype": "*",
+                "ext-curl": "*",
+                "ext-date": "*",
+                "ext-gmp": "*",
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "ext-phar": "*",
+                "ext-pthreads": ">=3.1.7dev",
+                "ext-reflection": "*",
+                "ext-sockets": "*",
+                "ext-spl": "*",
+                "ext-yaml": ">=2.0.0",
+                "ext-zip": "*",
+                "ext-zlib": ">=1.2.11",
+                "mdanter/ecc": "^0.5.0",
+                "php": ">=7.2.0",
+                "php-64bit": "*",
+                "pocketmine/binaryutils": "^0.1.0",
+                "pocketmine/math": "^0.2.0",
+                "pocketmine/nbt": "^0.2.1",
+                "pocketmine/pocketmine-mp": "^3.3.2",
+                "pocketmine/raklib": "^0.12.0",
+                "pocketmine/snooze": "^0.1.0",
+                "pocketmine/spl": "^0.3.0"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "": [
+                        "src"
+                    ]
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "InkoHX",
+                    "homepage": "https://github.com/InkoHX"
+                }
+            ],
+            "description": "A library that can easily create a level system",
+            "time": "2018-11-29T16:31:30+00:00"
         },
         {
             "name": "mdanter/ecc",

@@ -18,6 +18,7 @@
       <path value="$PROJECT_DIR$/vendor/pocketmine/binaryutils" />
       <path value="$PROJECT_DIR$/vendor/pocketmine/spl" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/inkohx/levelibrary" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
