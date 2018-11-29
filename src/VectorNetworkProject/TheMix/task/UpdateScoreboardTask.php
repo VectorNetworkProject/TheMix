@@ -48,7 +48,7 @@ class UpdateScoreboardTask extends Task
         $scoreboard->setLine($this->player, 2, '§l§cRED§r§7: §a'.RedCoreManager::getHP());
         $scoreboard->setLine($this->player, 3, '§l§bBLUE§r§7: §a'.BlueCoreManager::getHP());
         $scoreboard->setLine($this->player, 5, 'Level: '.LevelAPI::getLevel($this->player));
-        $scoreboard->setLine($this->player, 6, 'Needed XP: §b0');
+        $scoreboard->setLine($this->player, 6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
         $scoreboard->setLine($this->player, 7, 'Gold: §60g');
         $scoreboard->setLine($this->player, 9, 'Streak: §c0');
         $scoreboard->setLine($this->player, 11, '§ewww.vector-network.tk  ');
