@@ -10,7 +10,6 @@ namespace VectorNetworkProject\TheMix\game\event\player;
 
 use pocketmine\event\Cancellable;
 use pocketmine\event\Event;
-use pocketmine\event\player\PlayerEvent;
 use pocketmine\Player;
 
 class PlayerBountyLostEvent extends Event implements Cancellable
