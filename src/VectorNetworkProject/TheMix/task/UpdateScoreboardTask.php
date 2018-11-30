@@ -8,6 +8,7 @@
 
 namespace VectorNetworkProject\TheMix\task;
 
+use InkoHX\GoldLibrary\GoldAPI;
 use InkoHX\LeveLibrary\LevelAPI;
 use Miste\scoreboardspe\API\Scoreboard;
 use pocketmine\Player;
@@ -49,7 +50,7 @@ class UpdateScoreboardTask extends Task
         $scoreboard->setLine($this->player, 3, '§l§bBLUE§r§7: §a'.BlueCoreManager::getHP());
         $scoreboard->setLine($this->player, 5, 'Level: '.LevelAPI::getLevel($this->player));
         $scoreboard->setLine($this->player, 6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
-        $scoreboard->setLine($this->player, 7, 'Gold: §60g');
+        $scoreboard->setLine($this->player, 7, 'Gold: §6'.GoldAPI::getGold($this->player).'g');
         $scoreboard->setLine($this->player, 9, 'Streak: §c0');
         $scoreboard->setLine($this->player, 11, '§ewww.vector-network.tk  ');
     }
