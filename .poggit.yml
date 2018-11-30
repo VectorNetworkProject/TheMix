@@ -9,7 +9,7 @@ projects:
       - src: fuyutsuki/libform/libform
         version: 0.4.0
       - src: InkoHX/LeveLibrary/LeveLibrary
-        version: 0.0.1
+        version: 0.0.2
       - src: InkoHX/GoldLibrary/GoldLibrary
-        version: 0.0.1
+        version: 0.0.2
 ...
