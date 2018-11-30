@@ -28,6 +28,6 @@ VectorNetworkの新しいゲームプラグイン！
 [libform](https://github.com/fuyutsuki/libform) - yuko fuyutsuki  
 [ScoreboardPE](https://github.com/MisteFr/ScoreboardsPE) - MisteFr  
 [LeveLibrary](https://github.com/InkoHX/LeveLibrary) - InkoHX  
-[GoldLibrary](https://github.com/InkoHX/GoldLibrary) - InkoHX
+[GoldLibrary](https://github.com/InkoHX/GoldLibrary) - InkoHX 
 
 </div>
