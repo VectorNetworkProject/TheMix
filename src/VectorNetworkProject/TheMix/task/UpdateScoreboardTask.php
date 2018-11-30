@@ -15,6 +15,7 @@ use pocketmine\Player;
 use pocketmine\scheduler\Task;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
+use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class UpdateScoreboardTask extends Task
 {
@@ -51,7 +52,7 @@ class UpdateScoreboardTask extends Task
         $scoreboard->setLine($this->player, 5, 'Level: '.LevelAPI::getLevel($this->player));
         $scoreboard->setLine($this->player, 6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
         $scoreboard->setLine($this->player, 7, 'Gold: §6'.GoldAPI::getGold($this->player).'g');
-        $scoreboard->setLine($this->player, 9, 'Streak: §c0');
+        $scoreboard->setLine($this->player, 9, 'Streak: §c'.Streak::getStreak($this->player));
         $scoreboard->setLine($this->player, 11, '§ewww.vector-network.tk  ');
     }
 }

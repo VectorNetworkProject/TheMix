@@ -12,6 +12,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\bounty\Bounty;
+use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class ThePlayerLoginEvent implements Listener
 {
@@ -21,5 +22,6 @@ class ThePlayerLoginEvent implements Listener
         $player->setAllowMovementCheats(false);
         $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
         Bounty::init($player);
+        Streak::init($player);
     }
 }

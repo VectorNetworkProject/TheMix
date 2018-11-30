@@ -13,6 +13,7 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
+use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class TheEntityDamageByEntityEvent implements Listener
 {
@@ -31,15 +32,19 @@ class TheEntityDamageByEntityEvent implements Listener
             return;
         }
         if ($damager instanceof Player) {
-            if ($entity->getName() === $damager->getName()) {
+            if ($entity->getName() !== $damager->getName()) {
                 $event->setCancelled();
+                Streak::unsetStreak($entity);
+                Streak::addStreak($damager);
                 SpawnManager::PlayerReSpawn($entity);
             } else {
                 $event->setCancelled();
+                Streak::unsetStreak($entity);
                 SpawnManager::PlayerReSpawn($entity);
             }
         } else {
             $event->setCancelled();
+            Streak::resetStreak($entity);
             SpawnManager::PlayerReSpawn($entity);
         }
     }
