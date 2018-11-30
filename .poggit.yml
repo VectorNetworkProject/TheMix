@@ -10,4 +10,6 @@ projects:
         version: 0.4.0
       - src: InkoHX/LeveLibrary/LeveLibrary
         version: 0.0.1
+      - src: InkoHX/GoldLibrary/GoldLibrary
+        version: 0.0.1
 ...

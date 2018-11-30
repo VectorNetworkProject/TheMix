@@ -56,7 +56,8 @@
     "pocketmine/math": "^0.2.0",
     "pocketmine/snooze": "^0.1.0",
     "fuyutsuki/libform": "^0.4.0",
-    "inkohx/levelibrary": "^0.0.1"
+    "inkohx/levelibrary": "^0.0.1",
+    "inkohx/goldlibrary": "^0.0.1"
   },
   "autoload": {
     "psr-4": {
@@ -101,6 +102,10 @@
     {
       "type": "git",
       "url": "https://github.com/InkoHX/LeveLibrary"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/InkoHX/GoldLibrary"
     }
   ]
 }
