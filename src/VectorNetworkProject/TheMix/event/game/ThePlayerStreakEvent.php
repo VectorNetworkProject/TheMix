@@ -41,6 +41,10 @@ class ThePlayerStreakEvent implements Listener
         }
     }
 
+    /**
+     * @param Player $player
+     * @param int $count
+     */
     private function getStreakMessage(Player $player, int $count): void
     {
         Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$count}回連続でキルしました！");
