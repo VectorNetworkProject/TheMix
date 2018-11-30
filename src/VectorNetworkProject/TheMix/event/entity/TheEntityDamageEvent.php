@@ -11,6 +11,7 @@ namespace VectorNetworkProject\TheMix\event\entity;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 
@@ -20,6 +21,10 @@ class TheEntityDamageEvent implements Listener
     {
         $entity = $event->getEntity();
         $entity->extinguish();
+        if (TheEndGameEvent::isFinish()) {
+            $event->setCancelled();
+            return;
+        }
         if (!$entity instanceof Player) {
             return;
         }

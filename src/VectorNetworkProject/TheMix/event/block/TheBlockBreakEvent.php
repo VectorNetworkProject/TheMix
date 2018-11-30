@@ -13,6 +13,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Server;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
@@ -26,6 +27,10 @@ class TheBlockBreakEvent implements Listener
     {
         $player = $event->getPlayer();
         $block = $event->getBlock();
+        if (TheEndGameEvent::isFinish()) {
+            $event->setCancelled();
+            return;
+        }
         if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
             if ($player->isOp()) {
                 return;

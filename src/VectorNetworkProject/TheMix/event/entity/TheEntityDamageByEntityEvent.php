@@ -14,6 +14,7 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 
@@ -24,6 +25,10 @@ class TheEntityDamageByEntityEvent implements Listener
         $entity = $event->getEntity();
         $damager = $event->getDamager();
         $entity->extinguish();
+        if (TheEndGameEvent::isFinish()) {
+            $event->setCancelled();
+            return;
+        }
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
             return;
         }
