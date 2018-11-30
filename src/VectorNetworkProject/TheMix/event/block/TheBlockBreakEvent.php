@@ -8,6 +8,7 @@
 
 namespace VectorNetworkProject\TheMix\event\block;
 
+use InkoHX\GoldLibrary\GoldAPI;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
@@ -38,6 +39,7 @@ class TheBlockBreakEvent implements Listener
                     return;
                 }
                 RedCoreManager::reduceHP(1, $player);
+                GoldAPI::addGold($player, 30);
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player, 20);
@@ -48,6 +50,7 @@ class TheBlockBreakEvent implements Listener
                     return;
                 }
                 BlueCoreManager::reduceHP(1, $player);
+                GoldAPI::addGold($player, 30);
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player, 20);

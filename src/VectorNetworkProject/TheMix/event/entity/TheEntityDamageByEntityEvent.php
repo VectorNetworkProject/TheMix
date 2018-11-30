@@ -8,6 +8,7 @@
 
 namespace VectorNetworkProject\TheMix\event\entity;
 
+use InkoHX\GoldLibrary\GoldAPI;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
@@ -36,6 +37,7 @@ class TheEntityDamageByEntityEvent implements Listener
                 $event->setCancelled();
                 Streak::unsetStreak($entity);
                 Streak::addStreak($damager);
+                GoldAPI::addGold($damager, mt_rand(10, 15));
                 SpawnManager::PlayerReSpawn($entity);
             } else {
                 $event->setCancelled();
