@@ -8,6 +8,9 @@
 
 namespace VectorNetworkProject\TheMix\event\entity;
 
+use InkoHX\GoldLibrary\GoldAPI;
+use InkoHX\LeveLibrary\LevelAPI;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
@@ -21,23 +24,25 @@ class TheEntityDamageEvent implements Listener
     {
         $entity = $event->getEntity();
         $entity->extinguish();
-        if (TheEndGameEvent::isFinish()) {
+        if (TheEndGameEvent::isFinish()) return;
+        if (!$entity instanceof Player) return;
+        if ($event->getFinalDamage() < $entity->getHealth()) return;
+        if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) return;
+        if ($event instanceof EntityDamageByEntityEvent) {
             $event->setCancelled();
-            return;
-        }
-        if (!$entity instanceof Player) {
-            return;
-        }
-        if ($event->getFinalDamage() <= $entity->getHealth()) {
-            return;
-        }
-        if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
+            SpawnManager::PlayerReSpawn($entity);
+            Streak::resetStreak($entity);
+            $damager = $event->getDamager();
+            if ($damager instanceof Player) {
+                if ($entity->getName() === $damager->getName()) return;
+                Streak::addStreak($damager);
+                GoldAPI::addGold($damager, mt_rand(10, 15));
+                LevelAPI::Auto($damager, mt_rand(10, 15));
+            }
+        } else {
             $event->setCancelled();
-
-            return;
+            Streak::resetStreak($entity);
+            SpawnManager::PlayerReSpawn($entity);
         }
-        $event->setCancelled();
-        Streak::resetStreak($entity);
-        SpawnManager::PlayerReSpawn($entity);
     }
 }
