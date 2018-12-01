@@ -19,7 +19,7 @@ class ThePlayerLoginEvent implements Listener
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
-        $player->setAllowMovementCheats(false);
+        $player->setAllowMovementCheats(true);
         $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
         Bounty::init($player);
         Streak::init($player);
