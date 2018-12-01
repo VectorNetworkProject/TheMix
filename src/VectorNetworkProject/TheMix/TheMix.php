@@ -24,6 +24,7 @@ use VectorNetworkProject\TheMix\event\entity\TheEntityDamageByEntityEvent;
 use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
 use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\event\game\ThePlayerStreakEvent;
+use VectorNetworkProject\TheMix\event\level\TheLevelUpEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerLoginEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerQuitEvent;
@@ -107,5 +108,6 @@ class TheMix extends PluginBase
         $plm->registerEvents(new TheEntityDamageByEntityEvent(), $this);
         $plm->registerEvents(new TheEndGameEvent(), $this);
         $plm->registerEvents(new ThePlayerStreakEvent(), $this);
+        $plm->registerEvents(new TheLevelUpEvent(), $this);
     }
 }
