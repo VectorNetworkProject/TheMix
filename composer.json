@@ -56,7 +56,7 @@
     "pocketmine/math": "^0.2.0",
     "pocketmine/snooze": "^0.1.0",
     "fuyutsuki/libform": "^0.4.0",
-    "inkohx/levelibrary": "^0.0.2",
+    "inkohx/levelibrary": "^0.0.3",
     "inkohx/goldlibrary": "^0.0.2"
   },
   "autoload": {

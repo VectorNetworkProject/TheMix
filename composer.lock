@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5547d5f400197d756e418f664e503a95",
+    "content-hash": "ca7ab12c1e284203fceeb57c4b7125c0",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -184,11 +184,11 @@
         },
         {
             "name": "inkohx/levelibrary",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InkoHX/LeveLibrary",
-                "reference": "a775411961ce7bf6b8b99b7edc318e3e910dc7fd"
+                "reference": "6ddf08c66abcfa52dafa85fde4589099b1d0c927"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -239,7 +239,7 @@
                 }
             ],
             "description": "A library that can easily create a level system",
-            "time": "2018-11-30T15:10:37+00:00"
+            "time": "2018-12-01T10:14:09+00:00"
         },
         {
             "name": "mdanter/ecc",
@@ -393,11 +393,11 @@
         },
         {
             "name": "pocketmine/pocketmine-mp",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/PocketMine-MP",
-                "reference": "f1c071ce7f3bc397530e70925510e81e172ebdaf"
+                "reference": "aa7206126a0f739ff32c93f5539f2988ee469e5c"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -444,7 +444,7 @@
             ],
             "description": "A server software for Minecraft: Pocket Edition written in PHP",
             "homepage": "https://pmmp.io",
-            "time": "2018-11-30T19:41:36+00:00"
+            "time": "2018-12-01T10:00:38+00:00"
         },
         {
             "name": "pocketmine/raklib",
