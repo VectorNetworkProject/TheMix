@@ -43,7 +43,9 @@ class Streak
      */
     public static function getStreak(Player $player): int
     {
-        return self::$streaks[$player->getXuid()];
+        return isset(self::$streaks[$player->getXuid()])
+            ? self::$streaks[$player->getXuid()]
+            : 0;
     }
 
     /**
