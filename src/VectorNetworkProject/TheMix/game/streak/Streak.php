@@ -30,7 +30,7 @@ class Streak
      */
     public static function addStreak(Player $player): void
     {
-        $event = new PlayerStreakEvent($player, self::getStreak($player));
+        $event = new PlayerStreakEvent($player, self::getStreak($player) + 1);
         Server::getInstance()->getPluginManager()->callEvent($event);
         if (!$event->isCancelled()) {
             self::$streaks[$player->getXuid()] += 1;
