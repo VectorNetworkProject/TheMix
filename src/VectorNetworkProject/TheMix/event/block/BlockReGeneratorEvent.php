@@ -24,6 +24,7 @@ class BlockReGeneratorEvent implements Listener
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
         if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) return;
+        $event->setDrops([]);
         switch ($block->getId()) {
             case Block::MELON_BLOCK:
                 $inventory->addItem(Item::get(Item::MELON, 0, 16));

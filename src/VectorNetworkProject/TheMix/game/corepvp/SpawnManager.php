@@ -41,7 +41,7 @@ class SpawnManager
     private static function ReSpawnCooldown(Player $player, Position $position): void
     {
         $player->addTitle('§l§cYOU DIED', 'あなたは死んでしまった！5秒後行動可能になります。', 20, 100, 20);
-        $player->teleport(new Position(0, 151, 0, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
+        $player->teleport(new Position(0, 80, 0, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
         $player->setInvisible();
         $player->setGamemode(Player::SPECTATOR);
         $player->setHealth(20);

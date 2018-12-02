@@ -16,6 +16,6 @@ class ThePlayerAddXpEvent implements Listener
 {
     public function event(PlayerAddXpEvent $event)
     {
-        $event->getPlayer()->sendMessage("§v{$event->getXp()}XP §fを手に入れた");
+        $event->getPlayer()->sendMessage("§b{$event->getXp()}XP §fを手に入れた");
     }
 }
