@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\event\game;
 
 use InkoHX\GoldLibrary\GoldAPI;
 use pocketmine\event\Listener;
+use pocketmine\Player;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
@@ -32,6 +33,8 @@ class TheEndGameEvent implements Listener
         }
         self::setFinish(true);
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {
+            if ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) $player->setFlying(true);
+            $player->getInventory()->clearAll();
             if ($event->getType() === GameWinEvent::WIN_RED) {
                 if (RedTeamManager::isJoined($player)) {
                     GoldAPI::addGold($player, 1000);
