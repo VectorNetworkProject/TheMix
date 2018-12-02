@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\level;
 
-
 use InkoHX\LeveLibrary\event\level\PlayerLevelUpEvent;
 use pocketmine\event\Listener;
 
