@@ -10,7 +10,24 @@ namespace VectorNetworkProject\TheMix\game\event\player;
 
 use pocketmine\event\Cancellable;
 use pocketmine\event\player\PlayerEvent;
+use pocketmine\Player;
 
 class PlayerStreakEvent extends PlayerEvent implements Cancellable
 {
+    /** @var int $count */
+    private $count;
+
+    public function __construct(Player $player, int $count)
+    {
+        $this->player = $player;
+        $this->count = $count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->count;
+    }
 }

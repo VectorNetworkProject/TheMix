@@ -9,13 +9,16 @@
 namespace VectorNetworkProject\TheMix\game\event\player;
 
 use pocketmine\event\Cancellable;
-use pocketmine\event\player\PlayerEvent;
+use pocketmine\event\Event;
 use pocketmine\Player;
 
-class PlayerBountyLostEvent extends PlayerEvent implements Cancellable
+class PlayerBountyLostEvent extends Event implements Cancellable
 {
     public const TYPE_SUICIDE = 0;
     public const TYPE_KILLED = 1;
+
+    /** @var Player $Killed */
+    private $killed;
 
     /* @var Player $killer */
     private $killer = null;
@@ -36,10 +39,18 @@ class PlayerBountyLostEvent extends PlayerEvent implements Cancellable
      */
     public function __construct(Player $killed, int $gold, Player $killer = null, int $type = self::TYPE_SUICIDE)
     {
-        $this->player = $killed;
-        $this->gold = $gold;
+        $this->killed = $killed;
         $this->killer = $killer;
+        $this->gold = $gold;
         $this->type = $type;
+    }
+
+    /**
+     * @return Player
+     */
+    public function getKilled(): Player
+    {
+        return $this->killed;
     }
 
     /**

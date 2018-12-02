@@ -6,20 +6,19 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event;
+namespace VectorNetworkProject\TheMix\event\player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
 use VectorNetworkProject\TheMix\game\bounty\Bounty;
-use VectorNetworkProject\TheMix\game\level\Level;
+use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class ThePlayerLoginEvent implements Listener
 {
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();
-        $player->setAllowMovementCheats(false);
-        Level::init($player);
         Bounty::init($player);
+        Streak::init($player);
     }
 }

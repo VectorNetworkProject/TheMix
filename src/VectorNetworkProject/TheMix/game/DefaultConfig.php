@@ -8,8 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game;
 
-use pocketmine\level\Level;
-use pocketmine\Server;
 use VectorNetworkProject\TheMix\provider\YAML;
 use VectorNetworkProject\TheMix\TheMix;
 
@@ -34,37 +32,37 @@ class DefaultConfig
             'stage-world-name' => 'stage',
             'event-time'       => 30,
             'red'              => [
-                'safe' => [
-                    'x'        => 353,
-                    'z'        => 203,
-                    'diameter' => 30,
+                'spawn1' => [
+                    'x' => -131,
+                    'y' => 81,
+                    'z' => 25,
                 ],
-                'spawn' => [
-                    'x' => 245,
-                    'y' => 424,
-                    'z' => 452,
+                'spawn2' => [
+                    'x' => -131,
+                    'y' => 81,
+                    'z' => -25,
                 ],
                 'core' => [
-                    'x' => 215,
-                    'y' => 445,
-                    'z' => 455,
+                    'x' => -152,
+                    'y' => 85,
+                    'z' => 0,
                 ],
             ],
             'blue' => [
-                'safe' => [
-                    'x'        => 157,
-                    'z'        => 203,
-                    'diameter' => 30,
+                'spawn1' => [
+                    'x' => 131,
+                    'y' => 81,
+                    'z' => -25,
                 ],
-                'spawn' => [
-                    'x' => 245,
-                    'y' => 424,
-                    'z' => 452,
+                'spawn2' => [
+                    'x' => -131,
+                    'y' => 81,
+                    'z' => 25,
                 ],
                 'core' => [
-                    'x' => 215,
-                    'y' => 445,
-                    'z' => 455,
+                    'x' => 152,
+                    'y' => 85,
+                    'z' => 0,
                 ],
             ],
         ]);
@@ -75,16 +73,6 @@ class DefaultConfig
         $db = new YAML();
 
         return $db->get(self::STAGE_NAME);
-    }
-
-    /**
-     * @return Level|null
-     */
-    public static function getStageWorld(): ?Level
-    {
-        $db = new YAML();
-
-        return Server::getInstance()->getLevelByName($db->get(self::STAGE_NAME));
     }
 
     public static function isDev(): bool
@@ -101,19 +89,17 @@ class DefaultConfig
         return $db->get(self::EVENT_TIME);
     }
 
-    public static function getRedSafe(): array
+    public static function getRedConfig(): array
     {
         $db = new YAML();
-        $safe = $db->get(self::RED);
 
-        return $safe['safe'];
+        return $db->get(self::RED);
     }
 
-    public static function getBlueSafe(): array
+    public static function getBlueConfig(): array
     {
         $db = new YAML();
-        $safe = $db->get(self::BLUE);
 
-        return $safe['safe'];
+        return $db->get(self::BLUE);
     }
 }

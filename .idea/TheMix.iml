@@ -6,6 +6,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fgrosse/phpasn1" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fuyutsuki/libform" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/inkohx/goldlibrary" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/inkohx/levelibrary" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mdanter/ecc" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/binaryutils" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pocketmine/math" />
