@@ -27,6 +27,7 @@ use VectorNetworkProject\TheMix\event\game\ThePlayerStreakEvent;
 use VectorNetworkProject\TheMix\event\gold\ThePlayerAddGoldEvent;
 use VectorNetworkProject\TheMix\event\level\TheLevelUpEvent;
 use VectorNetworkProject\TheMix\event\level\ThePlayerAddXpEvent;
+use VectorNetworkProject\TheMix\event\player\ThePlayerInteractEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerJoinEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerLoginEvent;
 use VectorNetworkProject\TheMix\event\player\ThePlayerQuitEvent;
@@ -114,5 +115,6 @@ class TheMix extends PluginBase
         $plm->registerEvents(new ThePlayerAddGoldEvent(), $this);
         $plm->registerEvents(new ThePlayerAddXpEvent(), $this);
         $plm->registerEvents(new BlockReGeneratorEvent(), $this);
+        $plm->registerEvents(new ThePlayerInteractEvent(), $this);
     }
 }
