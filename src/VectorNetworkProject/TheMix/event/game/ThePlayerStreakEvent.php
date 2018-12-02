@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\game;
 
-
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\Server;
@@ -43,7 +42,7 @@ class ThePlayerStreakEvent implements Listener
 
     /**
      * @param Player $player
-     * @param int $count
+     * @param int    $count
      */
     private function getStreakMessage(Player $player, int $count): void
     {

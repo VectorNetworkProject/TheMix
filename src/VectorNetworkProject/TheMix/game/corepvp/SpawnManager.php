@@ -18,6 +18,8 @@ use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedSpawnManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\kit\BlueKit;
+use VectorNetworkProject\TheMix\game\kit\RedKit;
 use VectorNetworkProject\TheMix\task\ReSpawnCooldownTask;
 use VectorNetworkProject\TheMix\TheMix;
 
@@ -27,8 +29,10 @@ class SpawnManager
     {
         if (RedTeamManager::isJoined($player)) {
             self::ReSpawnCooldown($player, RedSpawnManager::getRandomPosition());
+            RedKit::sendItem($player);
         } elseif (BlueTeamManager::isJoined($player)) {
             self::ReSpawnCooldown($player, BlueSpawnManager::getRandomPosition());
+            BlueKit::sendItems($player);
         } else {
             self::ReSpawnCooldown($player, Server::getInstance()->getDefaultLevel()->getSpawnLocation());
         }
@@ -44,6 +48,7 @@ class SpawnManager
         $player->setMaxHealth(20);
         $player->setFood(20);
         $player->getInventory()->clearAll();
+        $player->getArmorInventory()->clearAll();
         $player->removeAllEffects();
         $player->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999 * 20, 11, false));
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ReSpawnCooldownTask($player, $position), 100);
