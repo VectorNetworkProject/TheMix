@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\gold;
 
-
 use InkoHX\GoldLibrary\event\PlayerAddGoldEvent;
 use pocketmine\event\Listener;
 
