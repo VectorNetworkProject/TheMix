@@ -23,7 +23,9 @@ class BlockReGeneratorEvent implements Listener
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
-        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) return;
+        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) {
+            return;
+        }
         $event->setDrops([]);
         switch ($block->getId()) {
             case Block::MELON_BLOCK:
@@ -33,6 +35,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::WOOD:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::WOODEN_PLANKS, 0, 4));
@@ -41,6 +44,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::DIAMOND_ORE:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::DIAMOND));
@@ -49,6 +53,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::EMERALD_ORE:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::EMERALD, 0, mt_rand(1, 3)));
@@ -57,6 +62,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::COAL_ORE:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::COAL));
@@ -65,6 +71,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::IRON_ORE:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::IRON_INGOT));
@@ -73,6 +80,7 @@ class BlockReGeneratorEvent implements Listener
             case Block::GOLD_ORE:
                 if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
                     $event->setCancelled();
+
                     return;
                 }
                 $inventory->addItem(Item::get(Item::GOLD_INGOT));
@@ -81,6 +89,7 @@ class BlockReGeneratorEvent implements Listener
             default:
                 if ($event->getPlayer()->getLevel()->getName() === DefaultConfig::getStageLevelName() && DefaultConfig::isDev() === false) {
                     $event->setCancelled();
+
                     return;
                 }
         }
