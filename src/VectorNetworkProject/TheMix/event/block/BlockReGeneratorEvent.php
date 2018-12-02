@@ -12,6 +12,7 @@ use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\Item;
+use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\task\BlockReGeneratorTask;
 use VectorNetworkProject\TheMix\TheMix;
@@ -22,7 +23,7 @@ class BlockReGeneratorEvent implements Listener
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
-        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) return;
+        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) return;
         switch ($block->getId()) {
             case Block::MELON_BLOCK:
                 $inventory->addItem(Item::get(Item::MELON, 0, 16));
