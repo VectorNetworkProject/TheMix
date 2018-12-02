@@ -39,6 +39,7 @@ class Streak
 
     /**
      * @param Player $player
+     *
      * @return int
      */
     public static function getStreak(Player $player): int

@@ -24,17 +24,27 @@ class TheEntityDamageEvent implements Listener
     {
         $entity = $event->getEntity();
         $entity->extinguish();
-        if (TheEndGameEvent::isFinish()) return;
-        if (!$entity instanceof Player) return;
-        if ($event->getFinalDamage() < $entity->getHealth()) return;
-        if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) return;
+        if (TheEndGameEvent::isFinish()) {
+            return;
+        }
+        if (!$entity instanceof Player) {
+            return;
+        }
+        if ($event->getFinalDamage() < $entity->getHealth()) {
+            return;
+        }
+        if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
+            return;
+        }
         if ($event instanceof EntityDamageByEntityEvent) {
             $event->setCancelled();
             SpawnManager::PlayerReSpawn($entity);
             Streak::resetStreak($entity);
             $damager = $event->getDamager();
             if ($damager instanceof Player) {
-                if ($entity->getName() === $damager->getName()) return;
+                if ($entity->getName() === $damager->getName()) {
+                    return;
+                }
                 Streak::addStreak($damager);
                 GoldAPI::addGold($damager, mt_rand(10, 15));
                 LevelAPI::Auto($damager, mt_rand(10, 15));

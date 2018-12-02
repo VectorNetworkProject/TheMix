@@ -14,7 +14,7 @@ use pocketmine\Player;
 
 class PlayerStreakEvent extends PlayerEvent implements Cancellable
 {
-    /** @var int $count  */
+    /** @var int $count */
     private $count;
 
     public function __construct(Player $player, int $count)

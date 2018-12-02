@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\kit;
 
-
 use pocketmine\item\Armor;
 use pocketmine\item\Durable;
 use pocketmine\item\Item;
@@ -20,17 +19,17 @@ class RedKit
     public static function sendItem(Player $player)
     {
         $armors = [
-            "leather_cap" => Item::get(Item::LEATHER_CAP),
-            "leather_tunic" => Item::get(Item::LEATHER_TUNIC),
-            "leather_pants" => Item::get(Item::LEATHER_PANTS),
-            "leather_boots" => Item::get(Item::LEATHER_BOOTS)
+            'leather_cap'   => Item::get(Item::LEATHER_CAP),
+            'leather_tunic' => Item::get(Item::LEATHER_TUNIC),
+            'leather_pants' => Item::get(Item::LEATHER_PANTS),
+            'leather_boots' => Item::get(Item::LEATHER_BOOTS),
         ];
         $weapons = [
-            "wooden_sword" => Item::get(Item::WOODEN_SWORD),
-            "bow" => Item::get(Item::BOW),
-            "stone_pickaxe" => Item::get(Item::STONE_PICKAXE),
-            "stone_axe" => Item::get(Item::STONE_AXE),
-            "stone_shovel" => Item::get(Item::STONE_SHOVEL)
+            'wooden_sword'  => Item::get(Item::WOODEN_SWORD),
+            'bow'           => Item::get(Item::BOW),
+            'stone_pickaxe' => Item::get(Item::STONE_PICKAXE),
+            'stone_axe'     => Item::get(Item::STONE_AXE),
+            'stone_shovel'  => Item::get(Item::STONE_SHOVEL),
         ];
         foreach ($armors as $armor) {
             if ($armor instanceof Durable and $armor instanceof Armor) {
