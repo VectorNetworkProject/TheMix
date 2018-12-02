@@ -16,18 +16,14 @@ class BlockReGeneratorTask extends Task
     /** @var Block $block */
     private $block;
 
-    /** @var int $id */
-    private $id;
-
-    public function __construct(Block $block, int $id)
+    public function __construct(Block $block)
     {
         $this->block = $block;
-        $this->id = $id;
     }
 
     public function onRun(int $currentTick)
     {
-        $this->getBlock()->getLevel()->setBlock($this->getBlock()->asVector3(), Block::get($this->id));
+        $this->getBlock()->getLevel()->setBlock($this->getBlock()->asVector3(), $this->block);
     }
 
     /**
