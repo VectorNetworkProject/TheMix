@@ -41,8 +41,9 @@ class TheBlockBreakEvent implements Listener
         }
         if (!DefaultConfig::isDev()) {
             if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-                $player->sendMessage("プレイヤーが足りないのでコアを破壊する事が出来ません。");
+                $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
                 $event->setCancelled();
+
                 return;
             }
             if (RedCoreManager::isCore($block)) {

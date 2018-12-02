@@ -29,14 +29,14 @@ abstract class TeamManager
             $player->teleport(BlueSpawnManager::getRandomPosition());
             $player->setNameTag("§b{$player->getName()}§r");
             $player->setDisplayName("§b{$player->getName()}§r");
-            $player->sendMessage("§bBLUE§fに入りました。");
+            $player->sendMessage('§bBLUE§fに入りました。');
         } else {
             RedTeamManager::addList($player);
             RedKit::sendItem($player);
             $player->teleport(RedSpawnManager::getRandomPosition());
             $player->setNameTag("§c{$player->getName()}§r");
             $player->setDisplayName("§c{$player->getName()}§r");
-            $player->sendMessage("§cRED§fに入りました。");
+            $player->sendMessage('§cRED§fに入りました。');
         }
     }
 
