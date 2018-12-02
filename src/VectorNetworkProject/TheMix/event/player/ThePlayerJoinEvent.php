@@ -16,6 +16,7 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\Server;
 use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
 use VectorNetworkProject\TheMix\TheMix;
 
@@ -24,6 +25,8 @@ class ThePlayerJoinEvent implements Listener
     public function event(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
+        $player->setAllowMovementCheats(true);
+        $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
         $player->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999 * 20, 11, false));
         $event->setJoinMessage('§7[§a参加§7] §e'.$player->getName().'が参加しました。');
         $scoreboard = new Scoreboard(TheMix::getInstance()->getServer()->getPluginManager()->getPlugin('ScoreboardsPE')->getPlugin(), '§l§7=== §6THE §aM§cI§eX §7===', ScoreboardAction::CREATE);

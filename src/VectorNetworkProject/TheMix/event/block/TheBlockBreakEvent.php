@@ -9,6 +9,7 @@
 namespace VectorNetworkProject\TheMix\event\block;
 
 use InkoHX\GoldLibrary\GoldAPI;
+use InkoHX\LeveLibrary\LevelAPI;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
@@ -39,14 +40,22 @@ class TheBlockBreakEvent implements Listener
             $event->setCancelled();
         }
         if (!DefaultConfig::isDev()) {
+            if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
+                $player->sendMessage("プレイヤーが足りないのでコアを破壊する事が出来ません。");
+                $event->setCancelled();
+                return;
+            }
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
                 if (RedTeamManager::isJoined($player)) {
                     return;
                 }
                 RedCoreManager::reduceHP(1, $player);
-                GoldAPI::addGold($player, 30);
-                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
+                GoldAPI::addGold($player, 15);
+                LevelAPI::Auto($player, 10);
+                Server::getInstance()->broadcastMessage("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
+                Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
+                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player, 20);
                 }
@@ -56,8 +65,11 @@ class TheBlockBreakEvent implements Listener
                     return;
                 }
                 BlueCoreManager::reduceHP(1, $player);
-                GoldAPI::addGold($player, 30);
-                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE, mt_rand(1, 5));
+                GoldAPI::addGold($player, 15);
+                LevelAPI::Auto($player, 10);
+                Server::getInstance()->broadcastMessage("{$player->getNameTag()}§fが§bBLUE§fのコアを破壊している！");
+                Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
+                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player, 20);
                 }
