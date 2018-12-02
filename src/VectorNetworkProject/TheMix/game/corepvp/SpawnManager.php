@@ -44,6 +44,7 @@ class SpawnManager
         $player->setMaxHealth(20);
         $player->setFood(20);
         $player->getInventory()->clearAll();
+        $player->getArmorInventory()->clearAll();
         $player->removeAllEffects();
         $player->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999 * 20, 11, false));
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ReSpawnCooldownTask($player, $position), 100);
