@@ -42,6 +42,7 @@ class RedKit
                 $weapon->setUnbreakable(true);
             }
         }
+        $player->getInventory()->clearAll();
         $armor = $player->getArmorInventory();
         $armor->setHelmet($armors['leather_cap']);
         $armor->setChestplate($armors['leather_tunic']);
