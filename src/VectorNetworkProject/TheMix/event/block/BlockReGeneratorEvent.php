@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\block;
 
-
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
@@ -30,31 +29,49 @@ class BlockReGeneratorEvent implements Listener
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::MELON_BLOCK), 10 * 20);
                 break;
             case Block::WOOD:
-                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) $event->setCancelled();
+                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
+                    $event->setCancelled();
+                }
                 $inventory->addItem(Item::get(Item::WOODEN_PLANKS, 0, 4));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::WOOD), 15 * 20);
                 break;
             case Block::DIAMOND_ORE:
-                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) $event->setCancelled();
-                if (TieredTool::TIER_IRON >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) $event->setCancelled();
+                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
+                    $event->setCancelled();
+                }
+                if (TieredTool::TIER_IRON >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) {
+                    $event->setCancelled();
+                }
                 $inventory->addItem(Item::get(Item::DIAMOND));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::DIAMOND_ORE), 60 * 20);
                 break;
             case Block::EMERALD_ORE:
-                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) $event->setCancelled();
-                if (TieredTool::TIER_IRON >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) $event->setCancelled();
+                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
+                    $event->setCancelled();
+                }
+                if (TieredTool::TIER_IRON >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) {
+                    $event->setCancelled();
+                }
                 $inventory->addItem(Item::get(Item::EMERALD, 0, mt_rand(1, 3)));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::EMERALD_ORE), 60 * 20);
                 break;
             case Block::COAL_ORE:
-                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) $event->setCancelled();
-                if (TieredTool::TIER_WOODEN >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) $event->setCancelled();
+                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
+                    $event->setCancelled();
+                }
+                if (TieredTool::TIER_WOODEN >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) {
+                    $event->setCancelled();
+                }
                 $inventory->addItem(Item::get(Item::COAL));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::COAL_ORE), 15 * 20);
                 break;
             case Block::IRON_ORE:
-                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) $event->setCancelled();
-                if (TieredTool::TIER_STONE >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) $event->setCancelled();
+                if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
+                    $event->setCancelled();
+                }
+                if (TieredTool::TIER_STONE >= $inventory->getItemInHand()->getBlockToolHarvestLevel()) {
+                    $event->setCancelled();
+                }
                 $inventory->addItem(Item::get(Item::IRON_INGOT));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::IRON_ORE), 20 * 20);
                 break;
