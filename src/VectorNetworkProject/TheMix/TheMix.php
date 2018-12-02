@@ -18,6 +18,7 @@ use VectorNetworkProject\TheMix\command\defaults\ModeratorCommand;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
+use VectorNetworkProject\TheMix\event\block\BlockReGeneratorEvent;
 use VectorNetworkProject\TheMix\event\block\TheBlockBreakEvent;
 use VectorNetworkProject\TheMix\event\block\TheBlockPlaceEvent;
 use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
@@ -108,5 +109,6 @@ class TheMix extends PluginBase
         $plm->registerEvents(new TheEndGameEvent(), $this);
         $plm->registerEvents(new ThePlayerStreakEvent(), $this);
         $plm->registerEvents(new TheLevelUpEvent(), $this);
+        $plm->registerEvents(new BlockReGeneratorEvent(), $this);
     }
 }
