@@ -34,8 +34,8 @@ class TheEndGameEvent implements Listener
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {
             if ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) {
                 $player->setFlying(true);
+                $player->getInventory()->clearAll();
             }
-            $player->getInventory()->clearAll();
             if ($event->getType() === GameWinEvent::WIN_RED) {
                 if (RedTeamManager::isJoined($player)) {
                     GoldAPI::addGold($player, 1000);
