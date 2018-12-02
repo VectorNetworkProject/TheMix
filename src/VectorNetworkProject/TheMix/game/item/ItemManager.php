@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\item;
 
-
 use pocketmine\item\Item;
 use pocketmine\Player;
 

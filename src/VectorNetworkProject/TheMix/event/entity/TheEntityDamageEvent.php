@@ -40,7 +40,9 @@ class TheEntityDamageEvent implements Listener
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
             return;
         }
-        if ($entity->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) $event->setCancelled();
+        if ($entity->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
+            $event->setCancelled();
+        }
         if ($event instanceof EntityDamageByEntityEvent) {
             $event->setCancelled();
             ItemManager::DropItem($entity);
@@ -50,6 +52,7 @@ class TheEntityDamageEvent implements Listener
             if ($damager instanceof Player) {
                 if ($entity->getName() === $damager->getName()) {
                     Server::getInstance()->broadcastMessage("{$entity->getNameTag()} §fは自滅した。");
+
                     return;
                 }
                 Streak::addStreak($damager);
@@ -71,7 +74,9 @@ class TheEntityDamageEvent implements Listener
         if ($event instanceof EntityDamageByEntityEvent) {
             $entity = $event->getEntity();
             $damager = $event->getDamager();
-            if (!$entity instanceof Player && !$damager instanceof Player) return;
+            if (!$entity instanceof Player && !$damager instanceof Player) {
+                return;
+            }
             if (BlueTeamManager::isJoined($entity) === true && BlueTeamManager::isJoined($damager) === true) {
                 $event->setCancelled();
             } elseif (RedTeamManager::isJoined($entity) === true && RedTeamManager::isJoined($damager) === true) {
