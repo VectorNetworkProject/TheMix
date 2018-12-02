@@ -20,11 +20,13 @@ class BlueSpawnManager extends SpawnManager
      */
     public static function getRandomPosition(): ?Position
     {
-        $position1 = DefaultConfig::getBlueConfig()['spawn1'];
-        $position2 = DefaultConfig::getBlueConfig()['spawn2'];
         switch (mt_rand(1, 2)) {
-            case 1: return new Position($position1['x'].$position1['y'], $position1['z'], Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())); break;
-            case 2: return new Position($position2['x'].$position2['y'], $position2['z'], Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())); break;
+            case 1:
+                return new Position(131, 80, 25, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName()));
+                break;
+            case 2:
+                return new Position(131, 80, -25, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName()));
+                break;
             default: return null;
         }
     }

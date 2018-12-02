@@ -9,7 +9,9 @@
 namespace VectorNetworkProject\TheMix\game\corepvp;
 
 use pocketmine\Player;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueSpawnManager;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedSpawnManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\kit\BlueKit;
 use VectorNetworkProject\TheMix\game\kit\RedKit;
@@ -24,9 +26,11 @@ abstract class TeamManager
         if (BlueTeamManager::getListCount() < RedTeamManager::getListCount()) {
             BlueTeamManager::addList($player);
             BlueKit::sendItems($player);
+            $player->teleport(BlueSpawnManager::getRandomPosition());
         } else {
             RedTeamManager::addList($player);
             RedKit::sendItem($player);
+            $player->teleport(RedSpawnManager::getRandomPosition());
         }
     }
 

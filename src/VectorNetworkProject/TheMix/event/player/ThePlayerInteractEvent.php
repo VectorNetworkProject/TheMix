@@ -13,6 +13,7 @@ use pocketmine\block\Block;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class ThePlayerInteractEvent implements Listener
 {
@@ -21,6 +22,7 @@ class ThePlayerInteractEvent implements Listener
         $player = $event->getPlayer();
         $block = $event->getBlock();
         if ($block->getId() === Block::NETHER_REACTOR) {
+            if (DefaultConfig::isDev()) return;
             TeamManager::JoinTeam($player);
         }
     }

@@ -19,7 +19,7 @@ class RedTeamManager extends TeamManager
     public static function addList(Player $player): void
     {
         if (!self::isJoined($player)) {
-            self::$list[$player->getName()];
+            self::$list[$player->getName()] = $player->getName();
         }
     }
 
