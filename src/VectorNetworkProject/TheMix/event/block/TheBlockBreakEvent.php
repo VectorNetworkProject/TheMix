@@ -29,6 +29,7 @@ class TheBlockBreakEvent implements Listener
         $block = $event->getBlock();
         if (TheEndGameEvent::isFinish()) {
             $event->setCancelled();
+
             return;
         }
         if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {

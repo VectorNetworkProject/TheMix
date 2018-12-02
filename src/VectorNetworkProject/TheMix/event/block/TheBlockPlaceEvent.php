@@ -21,6 +21,7 @@ class TheBlockPlaceEvent implements Listener
         $player = $event->getPlayer();
         if (TheEndGameEvent::isFinish()) {
             $event->setCancelled();
+
             return;
         }
         if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
@@ -29,7 +30,9 @@ class TheBlockPlaceEvent implements Listener
             }
             $event->setCancelled();
         } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) {
-            if (DefaultConfig::isDev()) return;
+            if (DefaultConfig::isDev()) {
+                return;
+            }
             $event->setCancelled();
         }
     }
