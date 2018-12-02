@@ -77,7 +77,7 @@ class BlockReGeneratorEvent implements Listener
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block, Block::GOLD_ORE), 30 * 20);
                 break;
             default:
-                if ($event->getPlayer()->getLevel()->getName() === DefaultConfig::getStageLevelName() && DefaultConfig::isDev() === true) {
+                if ($event->getPlayer()->getLevel()->getName() === DefaultConfig::getStageLevelName() && DefaultConfig::isDev() === false) {
                     $event->setCancelled();
                     return;
                 }
