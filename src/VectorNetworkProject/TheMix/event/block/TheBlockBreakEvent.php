@@ -40,15 +40,15 @@ class TheBlockBreakEvent implements Listener
             $event->setCancelled();
         }
         if (!DefaultConfig::isDev()) {
-            if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-                $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
-                $event->setCancelled();
-
-                return;
-            }
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
                 if (RedTeamManager::isJoined($player)) {
+                    return;
+                }
+                if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
+                    $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
+                    $event->setCancelled();
+
                     return;
                 }
                 RedCoreManager::reduceHP(1, $player);
@@ -63,6 +63,12 @@ class TheBlockBreakEvent implements Listener
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
                 if (BlueTeamManager::isJoined($player)) {
+                    return;
+                }
+                if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
+                    $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
+                    $event->setCancelled();
+
                     return;
                 }
                 BlueCoreManager::reduceHP(1, $player);
