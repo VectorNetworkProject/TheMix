@@ -67,8 +67,7 @@ class BlueCoreManager extends CoreManager
      */
     public static function isCore(Block $block): bool
     {
-        $config = DefaultConfig::getBlueConfig();
-        $core = $config['core'];
+        $core = BlueConfig::getCore();
         if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) {
             return false;
         }

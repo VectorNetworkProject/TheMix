@@ -8,98 +8,81 @@
 
 namespace VectorNetworkProject\TheMix\game;
 
-use VectorNetworkProject\TheMix\provider\YAML;
 use VectorNetworkProject\TheMix\TheMix;
 
 class DefaultConfig
 {
-    public const STAGE_NAME = 'stage-world-name';
+    /** @var string */
+    const VERSION = 'version';
 
-    public const DEVELOP_MODE = 'develop-mode';
+    /** @var string */
+    const STAGE_NAME = 'stage-world-name';
 
-    public const EVENT_TIME = 'event-time';
+    /** @var string */
+    const DEVELOP_MODE = 'dev-mode';
 
-    public const RED = 'red';
+    /** @var string */
+    const EVENT_TIME = 'event-time';
 
-    public const BLUE = 'blue';
+    /** @var string */
+    const TIMEZONE = 'timezone';
 
-    public static function init()
+    /** @var string */
+    const RED = 'red';
+
+    /** @var string */
+    const BLUE = 'blue';
+
+    /**
+     * @return int
+     */
+    public static function getVersion(): int
     {
-        $db = new YAML();
-        $db->init([
-            'version'          => TheMix::PLUGIN_CONFIG_VERSION,
-            'develop-mode'     => true,
-            'stage-world-name' => 'stage',
-            'event-time'       => 30,
-            'red'              => [
-                'spawn1' => [
-                    'x' => -131,
-                    'y' => 81,
-                    'z' => 25,
-                ],
-                'spawn2' => [
-                    'x' => -131,
-                    'y' => 81,
-                    'z' => -25,
-                ],
-                'core' => [
-                    'x' => -152,
-                    'y' => 85,
-                    'z' => 0,
-                ],
-            ],
-            'blue' => [
-                'spawn1' => [
-                    'x' => 131,
-                    'y' => 81,
-                    'z' => -25,
-                ],
-                'spawn2' => [
-                    'x' => -131,
-                    'y' => 81,
-                    'z' => 25,
-                ],
-                'core' => [
-                    'x' => 152,
-                    'y' => 85,
-                    'z' => 0,
-                ],
-            ],
-        ]);
+        return TheMix::getInstance()->getConfig()->get(self::VERSION);
     }
 
+    /**
+     * @return string
+     */
     public static function getStageLevelName(): string
     {
-        $db = new YAML();
-
-        return $db->get(self::STAGE_NAME);
+        return TheMix::getInstance()->getConfig()->get(self::STAGE_NAME);
     }
 
+    /**
+     * @return bool
+     */
     public static function isDev(): bool
     {
-        $db = new YAML();
-
-        return $db->get(self::DEVELOP_MODE);
+        return TheMix::getInstance()->getConfig()->get(self::DEVELOP_MODE);
     }
 
+    /**
+     * @return int
+     */
     public static function getEventTime(): int
     {
-        $db = new YAML();
-
-        return $db->get(self::EVENT_TIME);
+        return TheMix::getInstance()->getConfig()->get(self::EVENT_TIME);
     }
 
+    public static function getTimezone(): string
+    {
+        return TheMix::getInstance()->getConfig()->get(self::TIMEZONE);
+    }
+
+    /**
+     * @return array
+     */
     public static function getRedConfig(): array
     {
-        $db = new YAML();
-
-        return $db->get(self::RED);
+        return TheMix::getInstance()->getConfig()->get(self::RED);
     }
 
+    /**
+     * @return array
+     */
     public static function getBlueConfig(): array
     {
-        $db = new YAML();
-
-        return $db->get(self::BLUE);
+        return TheMix::getInstance()->getConfig()->get(self::BLUE);
     }
 }

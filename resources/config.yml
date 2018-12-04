@@ -1,0 +1,32 @@
+version: 0.0.6
+dev-mode: true
+stage-world-name: stage
+event-time: 30
+timezone: Asia/Tokyo
+red:
+  spawn1:
+    x: 1
+    y: 1
+    z: 1
+  spawn2:
+    x: 1
+    y: 1
+    z: 1
+  core:
+    x: 1
+    y: 1
+    z: 1
+
+blue:
+  spawn1:
+    x: 1
+    y: 1
+    z: 1
+  spawn2:
+    x: 1
+    y: 1
+    z: 1
+  core:
+    x: 1
+    y: 1
+    z: 1

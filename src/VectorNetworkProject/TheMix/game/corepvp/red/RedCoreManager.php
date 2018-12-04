@@ -67,8 +67,7 @@ class RedCoreManager extends CoreManager
      */
     public static function isCore(Block $block): bool
     {
-        $config = DefaultConfig::getRedConfig();
-        $core = $config['core'];
+        $core = RedConfig::getCore();
         if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName()) {
             return false;
         }
