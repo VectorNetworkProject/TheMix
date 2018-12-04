@@ -36,19 +36,22 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase
 {
+    public const VERSION = 6;
+
     /* @var TheMix $instance */
     private static $instance = null;
 
-    public const PLUGIN_CONFIG_VERSION = 1;
-
     public function onLoad()
     {
+        $this->getLogger()->notice('Loading System...');
         self::$instance = $this;
-        DefaultConfig::init();
+        $this->saveDefaultConfig();
+        DefaultConfig::getVersion() === self::VERSION
+            ? $this->getLogger()->info('Loaded Config')
+            : $this->getLogger()->alert('Please update config.yml');
         LevelAPI::init();
         GoldAPI::init();
-        date_default_timezone_set('Asia/Tokyo');
-        $this->getLogger()->notice('Loading System...');
+        date_default_timezone_set(DefaultConfig::getTimezone());
     }
 
     public function onEnable()
