@@ -28,7 +28,7 @@ class BlueSpawnManager extends SpawnManager
                 break;
             case 2:
                 $spawn = BlueConfig::getSpawn2();
-                
+
                 return new Position($spawn['x'], $spawn['y'], $spawn['z'], Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName()));
                 break;
             default: return null;
