@@ -1,4 +1,4 @@
-version: 0.0.6
+version: 7
 dev-mode: true
 stage-world-name: stage
 event-time: 30
