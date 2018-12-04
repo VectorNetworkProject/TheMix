@@ -23,10 +23,12 @@ class RedSpawnManager extends SpawnManager
         switch (mt_rand(1, 2)) {
             case 1:
                 $spawn = RedConfig::getSpawn1();
+
                 return new Position($spawn['x'], $spawn['y'], $spawn['z'], Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName()));
                 break;
             case 2:
                 $spawn = RedConfig::getSpawn2();
+
                 return new Position($spawn['x'], $spawn['y'], $spawn['z'], Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName()));
                 break;
             default:

@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\corepvp\blue;
 
-
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class BlueConfig extends DefaultConfig

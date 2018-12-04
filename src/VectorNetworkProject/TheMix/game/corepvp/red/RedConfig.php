@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\corepvp\red;
 
-
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class RedConfig extends DefaultConfig
