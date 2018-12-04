@@ -29,6 +29,8 @@ class TheEntityDamageEvent implements Listener
         $entity = $event->getEntity();
         $entity->extinguish();
         if (TheEndGameEvent::isFinish()) {
+            $event->setCancelled();
+
             return;
         }
         if (!$entity instanceof Player) {
@@ -38,10 +40,14 @@ class TheEntityDamageEvent implements Listener
             return;
         }
         if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
+            $event->setCancelled();
+
             return;
         }
         if ($entity->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
             $event->setCancelled();
+
+            return;
         }
         if ($event instanceof EntityDamageByEntityEvent) {
             $event->setCancelled();
