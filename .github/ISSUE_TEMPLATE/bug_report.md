@@ -18,7 +18,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**  
  - OS: [Windows, Linux, Android]
- - PocketMine-MP Version: 
+ - PocketMine-MP Version: 3.x.x
 
 **Additional context**  
 Add any other context about the problem here.
