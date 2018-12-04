@@ -51,7 +51,7 @@ class BlueCoreManager extends CoreManager
     public static function reduceHP(int $hp, Player $player): void
     {
         self::$hp -= $hp;
-        if (self::getHP() === 0) {
+        if (self::getHP() <= 0) {
             $event = new GameWinEvent(GameWinEvent::WIN_RED, $player);
             Server::getInstance()->getPluginManager()->callEvent($event);
             if ($event->isCancelled()) {
