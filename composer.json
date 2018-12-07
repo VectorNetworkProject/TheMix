@@ -48,7 +48,7 @@
     "ext-zip": "*",
     "ext-zlib": ">=1.2.11",
     "mdanter/ecc": "^0.5.0",
-    "pocketmine/pocketmine-mp": "^3.3.4",
+    "pocketmine/pocketmine-mp": "^3.4.0",
     "pocketmine/raklib": "^0.12.0",
     "pocketmine/spl": "^0.3.0",
     "pocketmine/binaryutils": "^0.1.0",
@@ -56,8 +56,9 @@
     "pocketmine/math": "^0.2.0",
     "pocketmine/snooze": "^0.1.0",
     "fuyutsuki/libform": "^0.4.0",
-    "inkohx/levelibrary": "^0.0.3",
-    "inkohx/goldlibrary": "^0.0.2"
+    "inkohx/levelibrary": "^0.0.4",
+    "inkohx/goldlibrary": "^0.0.3",
+    "daverandom/callback-validator": "dev-master"
   },
   "autoload": {
     "psr-4": {
