@@ -1,8 +1,0 @@
-{
-    "composer.enabled": true,
-    "composer.executablePath": "C:\\remotework\\TheMix\\composer.phar",
-    "composer.workingPath": "C:\\remotework\\TheMix",
-    "php.validate.executablePath": "C:\\php-7.2.13-vc15-x64\\bin\\php\\php.exe",
-    "php.executablePath": "C:\\php-7.2.13-vc15-x64\\bin\\php\\php.exe",
-    "php.suggest.basic": false
-}
