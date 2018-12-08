@@ -9,7 +9,6 @@
 namespace VectorNetworkProject\TheMix\game\bounty;
 
 use pocketmine\Player;
-use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\event\player\PlayerBountyEvent;
 use VectorNetworkProject\TheMix\game\event\player\PlayerBountyLostEvent;
 use VectorNetworkProject\TheMix\provider\JSON;
@@ -32,7 +31,7 @@ class Bounty
     {
         $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->init([
-            'gold'   => 0,
+            'gold' => 0,
             'bounty' => false,
         ]);
     }
@@ -41,7 +40,7 @@ class Bounty
      * プレイヤーに賭ける賞金を設定します。
      *
      * @param Player $player
-     * @param int    $gold
+     * @param int $gold
      *
      * @throws \Error
      */
@@ -70,7 +69,7 @@ class Bounty
 
     /**
      * @param Player $player
-     * @param bool   $bounty
+     * @param bool $bounty
      */
     public static function setBounty(Player $player, bool $bounty): void
     {
@@ -92,18 +91,23 @@ class Bounty
         return $db->get(self::CONFIG_BOUNTY);
     }
 
+    /**
+     * @param Player $player
+     *
+     * @throws \ReflectionException
+     */
     public static function setPlayerBounty(Player $player): void
     {
         if (self::isBounty($player)) {
             $gold = self::getGold($player) + 100;
             $event = new PlayerBountyEvent($player, $gold, PlayerBountyEvent::PLUS_GOLD);
-            Server::getInstance()->getPluginManager()->callEvent($event);
+            $event->call();
             if (!$event->isCancelled()) {
                 self::setGold($player, $gold);
             }
         } else {
             $event = new PlayerBountyEvent($player, 100, PlayerBountyEvent::ENABLE_BOUNTY);
-            Server::getInstance()->getPluginManager()->callEvent($event);
+            $event->call();
             if (!$event->isCancelled()) {
                 self::setBounty($player, true);
                 self::setGold($player, 100);
@@ -112,8 +116,10 @@ class Bounty
     }
 
     /**
-     * @param Player      $player
+     * @param Player $player
      * @param Player|null $killer
+     *
+     * @throws \ReflectionException
      */
     public static function PlayerBountyLost(Player $player, Player $killer = null): void
     {
@@ -122,14 +128,14 @@ class Bounty
         }
         if ($killer) {
             $event = new PlayerBountyLostEvent($player, self::getGold($player));
-            Server::getInstance()->getPluginManager()->callEvent($event);
+            $event->call();
             if (!$event->isCancelled()) {
                 self::setBounty($player, false);
                 self::setGold($player, 0);
             }
         } else {
             $event = new PlayerBountyLostEvent($player, self::getGold($player), $killer, PlayerBountyLostEvent::TYPE_KILLED);
-            Server::getInstance()->getPluginManager()->callEvent($event);
+            $event->call();
             if (!$event->isCancelled()) {
                 self::setBounty($player, false);
                 self::setGold($player, 0);

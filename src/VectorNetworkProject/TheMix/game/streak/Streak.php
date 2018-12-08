@@ -9,7 +9,6 @@
 namespace VectorNetworkProject\TheMix\game\streak;
 
 use pocketmine\Player;
-use pocketmine\Server;
 use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 
 class Streak
@@ -27,11 +26,13 @@ class Streak
 
     /**
      * @param Player $player
+     *
+     * @throws \ReflectionException
      */
     public static function addStreak(Player $player): void
     {
         $event = new PlayerStreakEvent($player, self::getStreak($player) + 1);
-        Server::getInstance()->getPluginManager()->callEvent($event);
+        $event->call();
         if (!$event->isCancelled()) {
             self::$streaks[$player->getXuid()] += 1;
         }
