@@ -12,16 +12,25 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class RedConfig extends DefaultConfig
 {
+    /**
+     * @return array
+     */
     public static function getSpawn1(): array
     {
         return self::getRedConfig()['spawn1'];
     }
 
+    /**
+     * @return array
+     */
     public static function getSpawn2(): array
     {
         return self::getRedConfig()['spawn2'];
     }
 
+    /**
+     * @return array
+     */
     public static function getCore(): array
     {
         return self::getRedConfig()['core'];
