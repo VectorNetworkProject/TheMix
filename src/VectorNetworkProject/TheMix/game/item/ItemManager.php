@@ -13,6 +13,9 @@ use pocketmine\Player;
 
 class ItemManager
 {
+    /**
+     * @param Player $player
+     */
     public static function DropItem(Player $player)
     {
         $contents = $player->getInventory()->getContents();

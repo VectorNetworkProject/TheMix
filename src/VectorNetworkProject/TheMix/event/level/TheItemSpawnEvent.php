@@ -15,6 +15,9 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheItemSpawnEvent implements Listener
 {
+    /**
+     * @param ItemSpawnEvent $event
+     */
     public function event(ItemSpawnEvent $event)
     {
         if (DefaultConfig::isDev()) {

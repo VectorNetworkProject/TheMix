@@ -28,6 +28,9 @@ class DefaultConfig
     const TIMEZONE = 'timezone';
 
     /** @var string */
+    const BLOCK_ID = "join-block-id";
+
+    /** @var string */
     const RED = 'red';
 
     /** @var string */
@@ -65,9 +68,36 @@ class DefaultConfig
         return TheMix::getInstance()->getConfig()->get(self::EVENT_TIME);
     }
 
+    /**
+     * @return string
+     */
     public static function getTimezone(): string
     {
         return TheMix::getInstance()->getConfig()->get(self::TIMEZONE);
+    }
+
+    /**
+     * @return int
+     */
+    public static function getBlockId(): int
+    {
+        return TheMix::getInstance()->getConfig()->get(self::BLOCK_ID);
+    }
+
+    /**
+     * @return string
+     */
+    public static function getIp(): string
+    {
+        return TheMix::getInstance()->getConfig()->get('ip');
+    }
+
+    /**
+     * @return int
+     */
+    public static function getPort(): int
+    {
+        return TheMix::getInstance()->getConfig()->get('port');
     }
 
     /**

@@ -36,7 +36,7 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase
 {
-    public const VERSION = 7;
+    public const VERSION = 8;
 
     /* @var TheMix $instance */
     private static $instance = null;

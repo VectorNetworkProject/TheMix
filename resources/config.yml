@@ -1,8 +1,27 @@
-version: 7
+# It is a setting file of VectorNetwork's original game "The Mix".
+#
+# GitHub: https://github.com/VectorNetworkProject/TheMix
+# Website: https://www.vector-network.tk
+# Discord: https://discord.gg/EF2G5dh
+
+# Config version
+version: 8
+# You can set whether to enable developer mode.
+# Note: Do not forget to disable developer mode when publishing server.
 dev-mode: true
+# Please enter the name of the map.
 stage-world-name: stage
+# Please set the time the event will come. By default, it is held every 30 minutes.
+# This function will be implemented in the future.
 event-time: 30
+# Please set the time zone.
 timezone: Asia/Tokyo
+# Please enter the block ID which can participate in the game when touching the block.
+join-block-id: 247
+# Please configure server address and port.
+ip: play.vector-network.tk
+port: 19132
+
 red:
   spawn1:
     x: 1

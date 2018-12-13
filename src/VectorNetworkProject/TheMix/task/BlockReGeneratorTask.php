@@ -21,6 +21,9 @@ class BlockReGeneratorTask extends Task
         $this->block = $block;
     }
 
+    /**
+     * @param int $currentTick
+     */
     public function onRun(int $currentTick)
     {
         $this->getBlock()->getLevel()->setBlock($this->getBlock()->asVector3(), $this->block);
