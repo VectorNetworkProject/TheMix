@@ -35,6 +35,7 @@ class BlueTeamManager extends TeamManager
 
     /**
      * @param Player $player
+     *
      * @return bool
      */
     public static function isJoined(Player $player): bool
@@ -58,9 +59,6 @@ class BlueTeamManager extends TeamManager
         return count(self::$list);
     }
 
-    /**
-     *
-     */
     public static function ClearList(): void
     {
         self::$list = [];

@@ -42,7 +42,7 @@ class SpawnManager
     }
 
     /**
-     * @param Player $player
+     * @param Player   $player
      * @param Position $position
      */
     private static function ReSpawnCooldown(Player $player, Position $position): void

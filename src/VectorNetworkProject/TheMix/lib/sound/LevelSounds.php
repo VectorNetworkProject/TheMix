@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\lib\sound;
 
-use pocketmine\math\Math;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Player;
 

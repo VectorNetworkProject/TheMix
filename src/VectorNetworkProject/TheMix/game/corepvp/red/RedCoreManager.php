@@ -44,7 +44,7 @@ class RedCoreManager extends CoreManager
     }
 
     /**
-     * @param int $hp
+     * @param int    $hp
      * @param Player $player
      *
      * @throws \ReflectionException

@@ -55,6 +55,7 @@ abstract class TeamManager
 
     /**
      * @param Player $player
+     *
      * @return bool
      */
     abstract public static function isJoined(Player $player): bool;

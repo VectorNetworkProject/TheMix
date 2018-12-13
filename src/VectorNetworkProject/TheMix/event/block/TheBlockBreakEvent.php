@@ -26,6 +26,7 @@ class TheBlockBreakEvent implements Listener
 {
     /**
      * @param BlockBreakEvent $event
+     *
      * @throws \ReflectionException
      */
     public function event(BlockBreakEvent $event)
