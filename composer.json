@@ -49,7 +49,7 @@
     "ext-zip": "*",
     "ext-zlib": ">=1.2.11",
     "mdanter/ecc": "^0.5.0",
-    "pocketmine/pocketmine-mp": "^3.4.0",
+    "pocketmine/pocketmine-mp": "^3.5.0",
     "pocketmine/raklib": "^0.12.0",
     "pocketmine/spl": "^0.3.0",
     "pocketmine/binaryutils": "^0.1.0",

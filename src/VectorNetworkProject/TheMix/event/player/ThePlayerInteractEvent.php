@@ -16,6 +16,9 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class ThePlayerInteractEvent implements Listener
 {
+    /**
+     * @param PlayerInteractEvent $event
+     */
     public function event(PlayerInteractEvent $event)
     {
         $player = $event->getPlayer();

@@ -24,6 +24,9 @@ class TheEndGameEvent implements Listener
     /** @var bool $finish */
     private static $finish = false;
 
+    /**
+     * @param GameWinEvent $event
+     */
     public function event(GameWinEvent $event)
     {
         if (DefaultConfig::isDev()) {

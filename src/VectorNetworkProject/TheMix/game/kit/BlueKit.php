@@ -16,6 +16,9 @@ use pocketmine\utils\Color;
 
 class BlueKit
 {
+    /**
+     * @param Player $player
+     */
     public static function sendItems(Player $player): void
     {
         $armors = [

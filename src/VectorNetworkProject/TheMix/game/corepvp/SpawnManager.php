@@ -25,6 +25,9 @@ use VectorNetworkProject\TheMix\TheMix;
 
 class SpawnManager
 {
+    /**
+     * @param Player $player
+     */
     public static function PlayerReSpawn(Player $player)
     {
         if (RedTeamManager::isJoined($player)) {
@@ -38,6 +41,10 @@ class SpawnManager
         }
     }
 
+    /**
+     * @param Player $player
+     * @param Position $position
+     */
     private static function ReSpawnCooldown(Player $player, Position $position): void
     {
         $player->addTitle('§l§cYOU DIED', 'あなたは死んでしまった！5秒後行動可能になります。', 20, 100, 20);

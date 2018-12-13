@@ -15,6 +15,9 @@ use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class ThePlayerLoginEvent implements Listener
 {
+    /**
+     * @param PlayerLoginEvent $event
+     */
     public function event(PlayerLoginEvent $event)
     {
         $player = $event->getPlayer();

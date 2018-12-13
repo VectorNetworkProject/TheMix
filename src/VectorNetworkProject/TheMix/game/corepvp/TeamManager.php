@@ -18,6 +18,9 @@ use VectorNetworkProject\TheMix\game\kit\RedKit;
 
 abstract class TeamManager
 {
+    /**
+     * @param Player $player
+     */
     public static function JoinTeam(Player $player)
     {
         if (BlueTeamManager::isJoined($player) || RedTeamManager::isJoined($player)) {
@@ -40,11 +43,24 @@ abstract class TeamManager
         }
     }
 
+    /**
+     * @param Player $player
+     */
     abstract public static function addList(Player $player): void;
 
+    /**
+     * @param Player $player
+     */
     abstract public static function removeList(Player $player): void;
 
+    /**
+     * @param Player $player
+     * @return bool
+     */
     abstract public static function isJoined(Player $player): bool;
 
+    /**
+     * @return array
+     */
     abstract public static function getList(): array;
 }

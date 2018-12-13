@@ -13,6 +13,9 @@ use pocketmine\Server;
 
 class ResetGameTask extends Task
 {
+    /**
+     * @param int $currentTick
+     */
     public function onRun(int $currentTick)
     {
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {

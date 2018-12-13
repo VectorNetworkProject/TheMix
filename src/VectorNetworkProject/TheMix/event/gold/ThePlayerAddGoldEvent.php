@@ -13,6 +13,9 @@ use pocketmine\event\Listener;
 
 class ThePlayerAddGoldEvent implements Listener
 {
+    /**
+     * @param PlayerAddGoldEvent $event
+     */
     public function event(PlayerAddGoldEvent $event)
     {
         $event->getPlayer()->sendMessage("§6{$event->getGold()}g §fを手に入れた。");

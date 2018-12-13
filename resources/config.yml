@@ -3,6 +3,8 @@ dev-mode: true
 stage-world-name: stage
 event-time: 30
 timezone: Asia/Tokyo
+join-block-id: 
+
 red:
   spawn1:
     x: 1

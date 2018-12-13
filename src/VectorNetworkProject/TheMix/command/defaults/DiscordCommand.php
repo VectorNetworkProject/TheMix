@@ -36,7 +36,7 @@ class DiscordCommand extends PluginCommand
      */
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $sender->sendMessage('Discord: https://discord.gg/EF2G5dh');
+        $sender->sendMessage('§9Discord: https://discord.gg/EF2G5dh');
 
         return true;
     }

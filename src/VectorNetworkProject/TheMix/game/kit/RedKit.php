@@ -16,6 +16,9 @@ use pocketmine\utils\Color;
 
 class RedKit
 {
+    /**
+     * @param Player $player
+     */
     public static function sendItem(Player $player)
     {
         $armors = [

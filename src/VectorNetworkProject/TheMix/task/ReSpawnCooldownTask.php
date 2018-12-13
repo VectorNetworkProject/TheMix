@@ -21,12 +21,21 @@ class ReSpawnCooldownTask extends Task
     /** @var Position $position */
     private $position;
 
+    /**
+     * ReSpawnCooldownTask constructor.
+     *
+     * @param Player $player
+     * @param Position $position
+     */
     public function __construct(Player $player, Position $position)
     {
         $this->player = $player;
         $this->position = $position;
     }
 
+    /**
+     * @param int $currentTick
+     */
     public function onRun(int $currentTick)
     {
         $this->player->teleport($this->position);

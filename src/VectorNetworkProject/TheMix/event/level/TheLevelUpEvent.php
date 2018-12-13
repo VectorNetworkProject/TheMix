@@ -13,6 +13,9 @@ use pocketmine\event\Listener;
 
 class TheLevelUpEvent implements Listener
 {
+    /**
+     * @param PlayerLevelUpEvent $event
+     */
     public function event(PlayerLevelUpEvent $event)
     {
         $player = $event->getPlayer();

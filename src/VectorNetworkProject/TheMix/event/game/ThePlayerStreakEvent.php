@@ -15,25 +15,23 @@ use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 
 class ThePlayerStreakEvent implements Listener
 {
+    /**
+     * @param PlayerStreakEvent $event
+     */
     public function event(PlayerStreakEvent $event)
     {
         $player = $event->getPlayer();
         switch ($event->getCount()) {
             case 5:
-                $this->getStreakMessage($player, $event->getCount());
-                break;
             case 10:
-                $this->getStreakMessage($player, $event->getCount());
-                break;
             case 20:
-                $this->getStreakMessage($player, $event->getCount());
-                break;
             case 30:
-                $this->getStreakMessage($player, $event->getCount());
-                break;
+            case 40:
             case 50:
-                $this->getStreakMessage($player, $event->getCount());
-                break;
+            case 60:
+            case 70:
+            case 80:
+            case 90:
             case 100:
                 $this->getStreakMessage($player, $event->getCount());
                 break;
