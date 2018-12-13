@@ -5,7 +5,7 @@
 # Discord: https://discord.gg/EF2G5dh
 
 # Config version
-version: 7
+version: 8
 # You can set whether to enable developer mode.
 # Note: Do not forget to disable developer mode when publishing server.
 dev-mode: true
@@ -18,6 +18,9 @@ event-time: 30
 timezone: Asia/Tokyo
 # Please enter the block ID which can participate in the game when touching the block.
 join-block-id: 247
+# Please configure server address and port.
+ip: play.vector-network.tk
+port: 19132
 
 red:
   spawn1:

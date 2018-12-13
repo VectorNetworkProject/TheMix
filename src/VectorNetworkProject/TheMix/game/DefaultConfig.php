@@ -85,6 +85,22 @@ class DefaultConfig
     }
 
     /**
+     * @return string
+     */
+    public static function getIp(): string
+    {
+        return TheMix::getInstance()->getConfig()->get('ip');
+    }
+
+    /**
+     * @return int
+     */
+    public static function getPort(): int
+    {
+        return TheMix::getInstance()->getConfig()->get('port');
+    }
+
+    /**
      * @return array
      */
     public static function getRedConfig(): array
