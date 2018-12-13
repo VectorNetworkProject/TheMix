@@ -24,7 +24,7 @@ class ReSpawnCooldownTask extends Task
     /**
      * ReSpawnCooldownTask constructor.
      *
-     * @param Player $player
+     * @param Player   $player
      * @param Position $position
      */
     public function __construct(Player $player, Position $position)

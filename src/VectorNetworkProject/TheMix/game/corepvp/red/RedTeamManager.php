@@ -35,6 +35,7 @@ class RedTeamManager extends TeamManager
 
     /**
      * @param Player $player
+     *
      * @return bool
      */
     public static function isJoined(Player $player): bool

@@ -31,7 +31,7 @@ class Bounty
     {
         $db = new JSON($player->getXuid(), self::FILE_NAME);
         $db->init([
-            'gold' => 0,
+            'gold'   => 0,
             'bounty' => false,
         ]);
     }
@@ -40,7 +40,7 @@ class Bounty
      * プレイヤーに賭ける賞金を設定します。
      *
      * @param Player $player
-     * @param int $gold
+     * @param int    $gold
      *
      * @throws \Error
      */
@@ -69,7 +69,7 @@ class Bounty
 
     /**
      * @param Player $player
-     * @param bool $bounty
+     * @param bool   $bounty
      */
     public static function setBounty(Player $player, bool $bounty): void
     {
@@ -116,7 +116,7 @@ class Bounty
     }
 
     /**
-     * @param Player $player
+     * @param Player      $player
      * @param Player|null $killer
      *
      * @throws \ReflectionException

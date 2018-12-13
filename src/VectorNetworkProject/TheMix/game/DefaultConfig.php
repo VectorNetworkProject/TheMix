@@ -28,7 +28,7 @@ class DefaultConfig
     const TIMEZONE = 'timezone';
 
     /** @var string */
-    const BLOCK_ID = "join-block-id";
+    const BLOCK_ID = 'join-block-id';
 
     /** @var string */
     const RED = 'red';

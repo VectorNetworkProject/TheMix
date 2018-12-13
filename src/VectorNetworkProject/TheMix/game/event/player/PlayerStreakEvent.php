@@ -19,8 +19,9 @@ class PlayerStreakEvent extends PlayerEvent implements Cancellable
 
     /**
      * PlayerStreakEvent constructor.
+     *
      * @param Player $player
-     * @param int $count
+     * @param int    $count
      */
     public function __construct(Player $player, int $count)
     {
