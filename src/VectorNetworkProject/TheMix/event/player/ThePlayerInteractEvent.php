@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event\player;
 
-use pocketmine\block\Block;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
@@ -23,7 +22,7 @@ class ThePlayerInteractEvent implements Listener
     {
         $player = $event->getPlayer();
         $block = $event->getBlock();
-        if ($block->getId() === Block::NETHER_REACTOR) {
+        if ($block->getId() === DefaultConfig::getBlockId()) {
             if (DefaultConfig::isDev()) {
                 return;
             }
