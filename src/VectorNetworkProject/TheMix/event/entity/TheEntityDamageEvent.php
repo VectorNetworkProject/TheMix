@@ -24,6 +24,11 @@ use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class TheEntityDamageEvent implements Listener
 {
+    /**
+     * @param EntityDamageEvent $event
+     *
+     * @throws \ReflectionException
+     */
     public function event(EntityDamageEvent $event)
     {
         $entity = $event->getEntity();

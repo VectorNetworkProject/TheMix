@@ -19,6 +19,9 @@ use VectorNetworkProject\TheMix\TheMix;
 
 class BlockReGeneratorEvent implements Listener
 {
+    /**
+     * @param BlockBreakEvent $event
+     */
     public function event(BlockBreakEvent $event): void
     {
         $block = $event->getBlock();

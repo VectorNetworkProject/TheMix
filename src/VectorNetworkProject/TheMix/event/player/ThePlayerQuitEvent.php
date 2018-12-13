@@ -16,6 +16,9 @@ use VectorNetworkProject\TheMix\game\streak\Streak;
 
 class ThePlayerQuitEvent implements Listener
 {
+    /**
+     * @param PlayerQuitEvent $event
+     */
     public function event(PlayerQuitEvent $event)
     {
         $player = $event->getPlayer();

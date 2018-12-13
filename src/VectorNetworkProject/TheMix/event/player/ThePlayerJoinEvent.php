@@ -22,6 +22,9 @@ use VectorNetworkProject\TheMix\TheMix;
 
 class ThePlayerJoinEvent implements Listener
 {
+    /**
+     * @param PlayerJoinEvent $event
+     */
     public function event(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();

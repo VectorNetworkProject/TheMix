@@ -24,6 +24,11 @@ use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 
 class TheBlockBreakEvent implements Listener
 {
+    /**
+     * @param BlockBreakEvent $event
+     *
+     * @throws \ReflectionException
+     */
     public function event(BlockBreakEvent $event)
     {
         $player = $event->getPlayer();
@@ -58,7 +63,7 @@ class TheBlockBreakEvent implements Listener
                 Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                    LevelSounds::NotePiano($player, 20);
+                    LevelSounds::NotePiano($player);
                 }
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
@@ -78,7 +83,7 @@ class TheBlockBreakEvent implements Listener
                 Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
                 $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                    LevelSounds::NotePiano($player, 20);
+                    LevelSounds::NotePiano($player);
                 }
             }
         }

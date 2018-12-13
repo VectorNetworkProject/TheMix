@@ -16,6 +16,9 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheBlockPlaceEvent implements Listener
 {
+    /**
+     * @param BlockPlaceEvent $event
+     */
     public function event(BlockPlaceEvent $event)
     {
         $player = $event->getPlayer();

@@ -23,6 +23,9 @@ class RedTeamManager extends TeamManager
         }
     }
 
+    /**
+     * @param Player $player
+     */
     public static function removeList(Player $player): void
     {
         if (self::isJoined($player)) {
@@ -30,21 +33,35 @@ class RedTeamManager extends TeamManager
         }
     }
 
+    /**
+     * @param Player $player
+     *
+     * @return bool
+     */
     public static function isJoined(Player $player): bool
     {
         return isset(self::$list[$player->getName()]) ? true : false;
     }
 
+    /**
+     * @return array
+     */
     public static function getList(): array
     {
         return self::$list;
     }
 
+    /**
+     * @return int
+     */
     public static function getListCount(): int
     {
         return count(self::$list);
     }
 
+    /**
+     * @return void
+     */
     public static function ClearList(): void
     {
         self::$list = [];

@@ -20,6 +20,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/inkohx/levelibrary" />
       <path value="$PROJECT_DIR$/vendor/inkohx/goldlibrary" />
+      <path value="$PROJECT_DIR$/vendor/daverandom/callback-validator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

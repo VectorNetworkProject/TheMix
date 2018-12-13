@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "450a3308919b1702d6a461a1374f1cc6",
+    "content-hash": "a5ca7c6a8e0117df725c80046c89ebfb",
     "packages": [
+        {
+            "name": "daverandom/callback-validator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DaveRandom/CallbackValidator.git",
+                "reference": "d87a08cddbc6099816ed01e50ce25cdfc43b542f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DaveRandom/CallbackValidator/zipball/d87a08cddbc6099816ed01e50ce25cdfc43b542f",
+                "reference": "d87a08cddbc6099816ed01e50ce25cdfc43b542f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-reflection": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DaveRandom\\CallbackValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Wright",
+                    "email": "cw@daverandom.com"
+                }
+            ],
+            "description": "Tools for validating callback signatures",
+            "time": "2017-04-03T15:22:41+00:00"
+        },
         {
             "name": "fgrosse/phpasn1",
             "version": "v2.1.1",
@@ -77,7 +117,7 @@
         },
         {
             "name": "fuyutsuki/libform",
-            "version": "v0.4.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fuyutsuki/libform",
@@ -125,11 +165,11 @@
         },
         {
             "name": "inkohx/goldlibrary",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InkoHX/GoldLibrary",
-                "reference": "19c5948ed9e610256f0c7182a7640d2171d0fcb5"
+                "reference": "358c467b005ae72316d80c9edbbb3590b9025d3c"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -157,7 +197,7 @@
                 "pocketmine/binaryutils": "^0.1.0",
                 "pocketmine/math": "^0.2.0",
                 "pocketmine/nbt": "^0.2.1",
-                "pocketmine/pocketmine-mp": "^3.0",
+                "pocketmine/pocketmine-mp": "^3.4.0",
                 "pocketmine/raklib": "^0.12.0",
                 "pocketmine/snooze": "^0.1.0",
                 "pocketmine/spl": "^0.3.0"
@@ -180,15 +220,15 @@
                 }
             ],
             "description": "A library that can easily create a gold system",
-            "time": "2018-11-30T15:08:24+00:00"
+            "time": "2018-12-07T12:48:54+00:00"
         },
         {
             "name": "inkohx/levelibrary",
-            "version": "v0.0.3",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InkoHX/LeveLibrary",
-                "reference": "6ddf08c66abcfa52dafa85fde4589099b1d0c927"
+                "reference": "46fb8c148d6c414d4d89b89512b851a3efc6a2d7"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -216,7 +256,7 @@
                 "pocketmine/binaryutils": "^0.1.0",
                 "pocketmine/math": "^0.2.0",
                 "pocketmine/nbt": "^0.2.1",
-                "pocketmine/pocketmine-mp": "^3.0",
+                "pocketmine/pocketmine-mp": "^3.4.0",
                 "pocketmine/raklib": "^0.12.0",
                 "pocketmine/snooze": "^0.1.0",
                 "pocketmine/spl": "^0.3.0"
@@ -239,20 +279,20 @@
                 }
             ],
             "description": "A library that can easily create a level system",
-            "time": "2018-12-01T10:14:09+00:00"
+            "time": "2018-12-07T12:47:27+00:00"
         },
         {
             "name": "mdanter/ecc",
-            "version": "v0.5.1",
+            "version": "v0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpecc/phpecc.git",
-                "reference": "9a3aca17c6dfc04bdaad2e7ddab3b8df656ffc5b"
+                "reference": "b95f25cc1bacc83a9f0ccd375900b7cfd343029e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/9a3aca17c6dfc04bdaad2e7ddab3b8df656ffc5b",
-                "reference": "9a3aca17c6dfc04bdaad2e7ddab3b8df656ffc5b",
+                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/b95f25cc1bacc83a9f0ccd375900b7cfd343029e",
+                "reference": "b95f25cc1bacc83a9f0ccd375900b7cfd343029e",
                 "shasum": ""
             },
             "require": {
@@ -311,7 +351,7 @@
                 "secp256k1",
                 "secp256r1"
             ],
-            "time": "2018-12-01T23:35:23+00:00"
+            "time": "2018-12-03T18:17:01+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -363,13 +403,14 @@
         },
         {
             "name": "pocketmine/nbt",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/NBT",
-                "reference": "474f0cf0a47656d0122b4f3f71302e694ed6977b"
+                "reference": "291bf5cc2a94500eada1edbda51d15bed25a1e1c"
             },
             "require": {
+                "ext-zlib": "*",
                 "php": ">=7.2.0",
                 "php-64bit": "*",
                 "pocketmine/binaryutils": "^0.1.0"
@@ -389,17 +430,18 @@
                 "LGPL-3.0"
             ],
             "description": "PHP library for working with Named Binary Tags",
-            "time": "2018-10-12T08:26:44+00:00"
+            "time": "2018-12-03T16:08:28+00:00"
         },
         {
             "name": "pocketmine/pocketmine-mp",
-            "version": "3.3.4",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/PocketMine-MP",
-                "reference": "aa7206126a0f739ff32c93f5539f2988ee469e5c"
+                "reference": "2323601f98bf5f48901cd57b96d0e680a7d5e56e"
             },
             "require": {
+                "daverandom/callback-validator": "dev-master",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
                 "ext-curl": "*",
@@ -444,7 +486,7 @@
             ],
             "description": "A server software for Minecraft: Pocket Edition written in PHP",
             "homepage": "https://pmmp.io",
-            "time": "2018-12-01T10:00:38+00:00"
+            "time": "2018-12-12T19:03:07+00:00"
         },
         {
             "name": "pocketmine/raklib",
@@ -529,7 +571,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ext-pthreads": 20
+        "ext-pthreads": 20,
+        "daverandom/callback-validator": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
