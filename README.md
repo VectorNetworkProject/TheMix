@@ -16,6 +16,7 @@
 
 [![HitCount](http://hits.dwyl.io/VectorNetworkProject/TheMix.svg)](http://hits.dwyl.io/VectorNetworkProject/TheMix)
 [![StyleCI](https://github.styleci.io/repos/157084851/shield?branch=master)](https://github.styleci.io/repos/157084851)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/?branch=develop)
 
 # The Mix
 VectorNetworkの新しいゲームプラグイン！  
