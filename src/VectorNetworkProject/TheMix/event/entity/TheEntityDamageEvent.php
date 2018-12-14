@@ -80,6 +80,9 @@ class TheEntityDamageEvent implements Listener
         }
     }
 
+    /**
+     * @param EntityDamageEvent $event
+     */
     public function BlockTeamPvP(EntityDamageEvent $event)
     {
         if ($event instanceof EntityDamageByEntityEvent) {
