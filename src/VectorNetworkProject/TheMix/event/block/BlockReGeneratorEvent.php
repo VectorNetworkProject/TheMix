@@ -27,11 +27,9 @@ class BlockReGeneratorEvent implements Listener
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
         if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) {
-            $event->setCancelled();
-
             return;
         }
-        if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType() && DefaultConfig::isDev()) {
+        if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType() && !DefaultConfig::isDev()) {
             $event->setCancelled();
 
             return;
