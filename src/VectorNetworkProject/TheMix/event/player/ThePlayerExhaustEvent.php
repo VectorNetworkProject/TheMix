@@ -15,6 +15,6 @@ class ThePlayerExhaustEvent implements Listener
 {
     public function event(PlayerExhaustEvent $event)
     {
-        var_dump($event->getAmount());
+        // todo
     }
 }
