@@ -38,9 +38,8 @@ class ReSpawnCooldownTask extends Task
      */
     public function onRun(int $currentTick)
     {
-        $this->player->teleport($this->position);
         $this->player->setGamemode(Player::SURVIVAL);
-        $this->player->setInvisible(false);
+        $this->player->teleport($this->position);
         $this->player->sendMessage(TextFormat::GREEN.'行動可能になりました。');
     }
 }
