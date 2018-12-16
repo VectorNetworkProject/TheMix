@@ -13,6 +13,8 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\Item;
 use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\task\BlockReGeneratorTask;
 use VectorNetworkProject\TheMix\TheMix;
@@ -30,6 +32,12 @@ class BlockReGeneratorEvent implements Listener
             return;
         }
         if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType() && !DefaultConfig::isDev()) {
+            $event->setCancelled();
+
+            return;
+        }
+        if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
+            $event->getPlayer()->sendMessage('プレイヤーが足りないのでブロックの採掘が不可能です。');
             $event->setCancelled();
 
             return;
