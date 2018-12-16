@@ -28,7 +28,6 @@ class ThePlayerJoinEvent implements Listener
     public function event(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
-        $player->setAllowMovementCheats(true);
         $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
         $player->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999 * 20, 11, false));
         $event->setJoinMessage('§7[§a参加§7] §e'.$player->getName().'が参加しました。');

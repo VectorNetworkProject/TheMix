@@ -123,7 +123,5 @@ class TheMix extends PluginBase
         $plm->registerEvents(new BlockReGeneratorEvent(), $this);
         $plm->registerEvents(new ThePlayerInteractEvent(), $this);
         $plm->registerEvents(new TheItemSpawnEvent(), $this);
-        $plm->registerEvents(new TheEntityShootBowEvent(), $this);
-        $plm->registerEvents(new ThePlayerExhaustEvent(), $this);
     }
 }
