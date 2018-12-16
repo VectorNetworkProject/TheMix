@@ -101,6 +101,7 @@ class TheEntityDamageEvent implements Listener
 
     /**
      * @param Player $player
+     *
      * @return void
      */
     public static function dropItem(Player $player): void
