@@ -22,6 +22,7 @@ use VectorNetworkProject\TheMix\event\block\BlockReGeneratorEvent;
 use VectorNetworkProject\TheMix\event\block\TheBlockBreakEvent;
 use VectorNetworkProject\TheMix\event\block\TheBlockPlaceEvent;
 use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
+use VectorNetworkProject\TheMix\event\entity\TheEntityShootBowEvent;
 use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\event\game\ThePlayerStreakEvent;
 use VectorNetworkProject\TheMix\event\gold\ThePlayerAddGoldEvent;
@@ -121,5 +122,6 @@ class TheMix extends PluginBase
         $plm->registerEvents(new BlockReGeneratorEvent(), $this);
         $plm->registerEvents(new ThePlayerInteractEvent(), $this);
         $plm->registerEvents(new TheItemSpawnEvent(), $this);
+        $plm->registerEvents(new TheEntityShootBowEvent(), $this);
     }
 }
