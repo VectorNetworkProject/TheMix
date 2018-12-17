@@ -20,6 +20,7 @@ use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\event\game\BreakCoreEvent;
 use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 
 class TheBlockBreakEvent implements Listener
@@ -47,43 +48,19 @@ class TheBlockBreakEvent implements Listener
         if (!DefaultConfig::isDev()) {
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (RedTeamManager::isJoined($player)) {
-                    return;
-                }
-                if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-                    $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
-                    $event->setCancelled();
-
-                    return;
-                }
-                RedCoreManager::reduceHP(1, $player);
-                GoldAPI::addGold($player, 15);
-                LevelAPI::Auto($player, 10);
-                Server::getInstance()->broadcastMessage("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
-                Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
-                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
-                foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                    LevelSounds::NotePiano($player);
+                if (RedTeamManager::isJoined($player)) return;
+                $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
+                $revent->call();
+                if (!$revent->isCancelled()) {
+                    RedCoreManager::reduceHP($revent->getDamage(), $player);
                 }
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (BlueTeamManager::isJoined($player)) {
-                    return;
-                }
-                if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-                    $player->sendMessage('プレイヤーが足りないのでコアを破壊する事が出来ません。');
-                    $event->setCancelled();
-
-                    return;
-                }
-                BlueCoreManager::reduceHP(1, $player);
-                GoldAPI::addGold($player, 15);
-                LevelAPI::Auto($player, 10);
-                Server::getInstance()->broadcastMessage("{$player->getNameTag()}§fが§bBLUE§fのコアを破壊している！");
-                Server::getInstance()->getLogger()->info("{$player->getNameTag()}§fが§cRED§fのコアを破壊している！");
-                $block->getLevel()->broadcastLevelSoundEvent($block->asVector3(), LevelSoundEventPacket::SOUND_RANDOM_ANVIL_USE);
-                foreach (Server::getInstance()->getOnlinePlayers() as $player) {
-                    LevelSounds::NotePiano($player);
+                if (BlueTeamManager::isJoined($player)) return;
+                $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
+                $bevent->call();
+                if (!$bevent->isCancelled()) {
+                    BlueCoreManager::reduceHP($bevent->getDamage(), $player);
                 }
             }
         }

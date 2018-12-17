@@ -53,6 +53,7 @@ class UpdateScoreboardTask extends Task
         $scoreboard->setLine($this->player, 6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
         $scoreboard->setLine($this->player, 7, 'Gold: §6'.GoldAPI::getGold($this->player).'g');
         $scoreboard->setLine($this->player, 9, 'Streak: §c'.Streak::getStreak($this->player));
-        $scoreboard->setLine($this->player, 11, '§ewww.vector-network.tk  ');
+        $scoreboard->setLine($this->player, 10, 'Event: none');
+        $scoreboard->setLine($this->player, 12, '§ewww.vector-network.tk  ');
     }
 }
