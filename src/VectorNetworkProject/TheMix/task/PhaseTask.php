@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\task;
 
-
 use pocketmine\scheduler\Task;
 
 class PhaseTask extends Task

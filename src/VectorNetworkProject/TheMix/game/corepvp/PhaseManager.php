@@ -6,15 +6,7 @@
  * Website: https://www.vector-network.tk
  */
 
-/**
- * Created by PhpStorm.
- * User: InkoHX
- * Date: 2018/12/18
- * Time: 0:53
- */
-
 namespace VectorNetworkProject\TheMix\game\corepvp;
-
 
 class PhaseManager
 {
