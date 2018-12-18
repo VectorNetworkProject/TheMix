@@ -48,7 +48,9 @@ class TheBlockBreakEvent implements Listener
         if (!DefaultConfig::isDev()) {
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (RedTeamManager::isJoined($player)) return;
+                if (RedTeamManager::isJoined($player)) {
+                    return;
+                }
                 $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
                 $revent->call();
                 if (!$revent->isCancelled()) {
@@ -56,7 +58,9 @@ class TheBlockBreakEvent implements Listener
                 }
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (BlueTeamManager::isJoined($player)) return;
+                if (BlueTeamManager::isJoined($player)) {
+                    return;
+                }
                 $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
                 $bevent->call();
                 if (!$bevent->isCancelled()) {
