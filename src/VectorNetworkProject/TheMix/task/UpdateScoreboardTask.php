@@ -44,6 +44,7 @@ class UpdateScoreboardTask extends Task
     {
         if (!$this->player->isOnline()) {
             $this->getHandler()->cancel();
+            return;
         }
         $scoreboard = $this->scoreboard;
         $scoreboard->setLine($this->player, 0, '§7'.date('Y/m/d H:i:s'));
