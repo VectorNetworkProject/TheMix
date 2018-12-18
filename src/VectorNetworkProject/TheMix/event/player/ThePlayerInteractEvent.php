@@ -10,6 +10,7 @@ namespace VectorNetworkProject\TheMix\event\player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\Player;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
@@ -27,6 +28,7 @@ class ThePlayerInteractEvent implements Listener
                 return;
             }
             TeamManager::JoinTeam($player);
+            $player->setGamemode(Player::SURVIVAL);
         }
     }
 }
