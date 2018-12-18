@@ -8,11 +8,8 @@
 
 namespace VectorNetworkProject\TheMix\event\block;
 
-use InkoHX\GoldLibrary\GoldAPI;
-use InkoHX\LeveLibrary\LevelAPI;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
-use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
@@ -21,7 +18,6 @@ use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\game\event\game\BreakCoreEvent;
-use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 
 class TheBlockBreakEvent implements Listener
 {
@@ -48,7 +44,9 @@ class TheBlockBreakEvent implements Listener
         if (!DefaultConfig::isDev()) {
             if (RedCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (RedTeamManager::isJoined($player)) return;
+                if (RedTeamManager::isJoined($player)) {
+                    return;
+                }
                 $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
                 $revent->call();
                 if (!$revent->isCancelled()) {
@@ -56,7 +54,9 @@ class TheBlockBreakEvent implements Listener
                 }
             } elseif (BlueCoreManager::isCore($block)) {
                 $event->setCancelled();
-                if (BlueTeamManager::isJoined($player)) return;
+                if (BlueTeamManager::isJoined($player)) {
+                    return;
+                }
                 $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
                 $bevent->call();
                 if (!$bevent->isCancelled()) {

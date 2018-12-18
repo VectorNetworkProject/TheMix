@@ -10,7 +10,7 @@
  * Created by PhpStorm.
  * User: InkoHX
  * Date: 2018/12/17
- * Time: 23:59
+ * Time: 23:59.
  */
 
 namespace VectorNetworkProject\TheMix\event\game;
@@ -29,6 +29,7 @@ class TheBreakCoreEvent implements Listener
 {
     /**
      * @param BreakCoreEvent $event
+     *
      * @throws \ErrorException
      */
     public function event(BreakCoreEvent $event)
@@ -37,6 +38,7 @@ class TheBreakCoreEvent implements Listener
         if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
             $player->sendMessage(TextFormat::RED.'プレイヤーが足りないのでコアを破壊する事が出来ません。');
             $event->setCancelled();
+
             return;
         }
         switch ($event->getTeam()) {
