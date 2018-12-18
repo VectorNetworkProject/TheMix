@@ -11,13 +11,15 @@ namespace VectorNetworkProject\TheMix\game\corepvp;
 class PhaseManager
 {
     /** @var int */
-    public const MAX_PHASE  = 5;
+    public const MAX_PHASE = 5;
     /** @var int $phase */
     private static $phase = 1;
 
     public static function addPhase(): void
     {
-        if (self::$phase <= self::MAX_PHASE) return;
+        if (self::$phase <= self::MAX_PHASE) {
+            return;
+        }
         self::$phase++;
     }
 
