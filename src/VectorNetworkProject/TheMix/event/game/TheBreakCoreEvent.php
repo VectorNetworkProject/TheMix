@@ -6,13 +6,6 @@
  * Website: https://www.vector-network.tk
  */
 
-/**
- * Created by PhpStorm.
- * User: InkoHX
- * Date: 2018/12/17
- * Time: 23:59
- */
-
 namespace VectorNetworkProject\TheMix\event\game;
 
 use InkoHX\GoldLibrary\GoldAPI;
