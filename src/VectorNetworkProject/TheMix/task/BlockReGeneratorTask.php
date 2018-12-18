@@ -27,7 +27,7 @@ class BlockReGeneratorTask extends Task
      */
     public function onRun(int $currentTick)
     {
-        if (TheMix::getInstance()->getServer()->getLevelByName($this->getBlock()->getLevel()->getName())->getId() === $this->getBlock()->getLevel()->getId()) {
+        if (TheMix::getInstance()->getServer()->getLevelByName($this->getBlock()->getLevel()->getName())->getId() !== $this->getBlock()->getLevel()->getId()) {
             $this->getHandler()->cancel();
 
             return;
