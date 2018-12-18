@@ -9,6 +9,7 @@
 namespace VectorNetworkProject\TheMix\task;
 
 use pocketmine\scheduler\Task;
+use VectorNetworkProject\TheMix\game\corepvp\PhaseManager;
 use VectorNetworkProject\TheMix\game\event\game\PhaseTimeUpdateEvent;
 
 class PhaseTask extends Task
@@ -33,7 +34,7 @@ class PhaseTask extends Task
      */
     public function onRun(int $currentTick)
     {
-        $event = new PhaseTimeUpdateEvent($this->getTime() - 1);
+        $event = new PhaseTimeUpdateEvent($this->getTime() - 1, PhaseManager::getPhase());
         $event->call();
         if (!$event->isCancelled()) {
             $this->setTime($this->getTime() - 1);

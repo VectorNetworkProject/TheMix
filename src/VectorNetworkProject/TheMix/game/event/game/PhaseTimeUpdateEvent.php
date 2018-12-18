@@ -16,15 +16,19 @@ class PhaseTimeUpdateEvent extends Event implements Cancellable
 {
     /** @var int $time */
     private $time;
+    /** @var int $phase */
+    private $phase;
 
     /**
      * PhaseTimeUpdateEvent constructor.
      *
      * @param int $time
+     * @param int $phase
      */
-    public function __construct(int $time)
+    public function __construct(int $time, int $phase)
     {
         $this->time = $time;
+        $this->phase = $phase;
     }
 
     /**
@@ -33,5 +37,13 @@ class PhaseTimeUpdateEvent extends Event implements Cancellable
     public function getTime(): int
     {
         return $this->time;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPhase(): int
+    {
+        return $this->phase;
     }
 }
