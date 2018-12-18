@@ -38,6 +38,9 @@ class ReSpawnCooldownTask extends Task
      */
     public function onRun(int $currentTick)
     {
+        if (!$this->player->isOnline()) {
+            return;
+        }
         $this->player->setGamemode(Player::SURVIVAL);
         $this->player->teleport($this->position);
         $this->player->sendMessage(TextFormat::GREEN.'行動可能になりました。');

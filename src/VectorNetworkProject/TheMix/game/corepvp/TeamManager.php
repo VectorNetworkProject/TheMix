@@ -43,6 +43,12 @@ abstract class TeamManager
         }
     }
 
+    public static function resetTeam(): void
+    {
+        RedTeamManager::ClearList();
+        BlueTeamManager::ClearList();
+    }
+
     /**
      * @param Player $player
      */
