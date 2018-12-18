@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\game\event\game;
 
-
 use pocketmine\event\Cancellable;
 use pocketmine\event\Event;
 
