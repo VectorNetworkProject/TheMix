@@ -22,6 +22,7 @@ class TheBreakCoreEvent implements Listener
 {
     /**
      * @param BreakCoreEvent $event
+     *
      * @throws \ErrorException
      */
     public function event(BreakCoreEvent $event)
@@ -30,6 +31,7 @@ class TheBreakCoreEvent implements Listener
         if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
             $player->sendMessage(TextFormat::RED.'プレイヤーが足りないのでコアを破壊する事が出来ません。');
             $event->setCancelled();
+
             return;
         }
         switch ($event->getTeam()) {
