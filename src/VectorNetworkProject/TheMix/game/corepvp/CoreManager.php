@@ -10,9 +10,19 @@ namespace VectorNetworkProject\TheMix\game\corepvp;
 
 use pocketmine\block\Block;
 use pocketmine\Player;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 
 abstract class CoreManager
 {
+    const MAX_HP = 100;
+
+    public static function resetHP(): void
+    {
+        RedCoreManager::setHP(self::MAX_HP);
+        BlueCoreManager::setHP(self::MAX_HP);
+    }
+
     /**
      * @param int $hp
      */
