@@ -6,13 +6,6 @@
  * Website: https://www.vector-network.tk
  */
 
-/**
- * Created by PhpStorm.
- * User: InkoHX
- * Date: 2018/12/19
- * Time: 4:54
- */
-
 namespace VectorNetworkProject\TheMix\game\event\game;
 
 
