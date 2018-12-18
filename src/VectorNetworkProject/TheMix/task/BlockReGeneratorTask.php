@@ -29,6 +29,7 @@ class BlockReGeneratorTask extends Task
     {
         if (TheMix::getInstance()->getServer()->getLevelByName($this->getBlock()->getLevel()->getName())->getId() === $this->getBlock()->getLevel()->getId()) {
             $this->getHandler()->cancel();
+
             return;
         }
         $this->getBlock()->getLevel()->setBlock($this->getBlock()->asVector3(), $this->block);
