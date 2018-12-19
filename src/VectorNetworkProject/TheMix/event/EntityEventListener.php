@@ -6,34 +6,33 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event\entity;
+namespace VectorNetworkProject\TheMix\event;
 
 use InkoHX\GoldLibrary\GoldAPI;
 use InkoHX\LeveLibrary\LevelAPI;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
+use pocketmine\item\Item;
 use pocketmine\Player;
 use pocketmine\Server;
-use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
-use VectorNetworkProject\TheMix\game\item\ItemManager;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 
-class TheEntityDamageEvent implements Listener
+class EntityEventListener implements Listener
 {
     /**
      * @param EntityDamageEvent $event
      *
      * @throws \ReflectionException
      */
-    public function event(EntityDamageEvent $event)
+    public function onEntityDamage(EntityDamageEvent $event)
     {
         $entity = $event->getEntity();
         $entity->extinguish();
-        if (TheEndGameEvent::isFinish()) {
+        if (GameEventListener::isFinish()) {
             $event->setCancelled();
 
             return;
@@ -56,10 +55,10 @@ class TheEntityDamageEvent implements Listener
         }
         if ($event instanceof EntityDamageByEntityEvent) {
             $event->setCancelled();
-            ItemManager::DropItem($entity);
+            $damager = $event->getDamager();
+            self::dropItem($entity);
             SpawnManager::PlayerReSpawn($entity);
             Streak::resetStreak($entity);
-            $damager = $event->getDamager();
             if ($damager instanceof Player) {
                 if ($entity->getName() === $damager->getName()) {
                     Server::getInstance()->broadcastMessage("{$entity->getNameTag()} §fは自滅した。");
@@ -73,13 +72,16 @@ class TheEntityDamageEvent implements Listener
             }
         } else {
             $event->setCancelled();
+            self::dropItem($entity);
             Streak::resetStreak($entity);
-            ItemManager::DropItem($entity);
             SpawnManager::PlayerReSpawn($entity);
             Server::getInstance()->broadcastMessage("{$entity->getNameTag()} §fは自滅した。");
         }
     }
 
+    /**
+     * @param EntityDamageEvent $event
+     */
     public function BlockTeamPvP(EntityDamageEvent $event)
     {
         if ($event instanceof EntityDamageByEntityEvent) {
@@ -93,6 +95,34 @@ class TheEntityDamageEvent implements Listener
             } elseif (RedTeamManager::isJoined($entity) === true && RedTeamManager::isJoined($damager) === true) {
                 $event->setCancelled();
             }
+        }
+    }
+
+    /**
+     * @param Player $player
+     *
+     * @return void
+     */
+    private static function dropItem(Player $player): void
+    {
+        $contents = $player->getInventory()->getContents();
+        foreach ($contents as $slot => $item) {
+            switch ($item->getId()) {
+                case Item::STONE_AXE:
+                case Item::STONE_PICKAXE:
+                case Item::STONE_SHOVEL:
+                case Item::WOODEN_SWORD:
+                case Item::LEATHER_CAP:
+                case Item::LEATHER_CHESTPLATE:
+                case Item::LEATHER_LEGGINGS:
+                case Item::LEATHER_BOOTS:
+                case Item::BOW:
+                    unset($contents[$slot]);
+                    break;
+            }
+        }
+        foreach ($contents as $item) {
+            $player->getLevel()->dropItem($player->asVector3(), $item);
         }
     }
 }

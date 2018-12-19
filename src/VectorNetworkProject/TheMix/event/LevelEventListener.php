@@ -6,19 +6,19 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event\level;
+namespace VectorNetworkProject\TheMix\event;
 
 use pocketmine\event\entity\ItemSpawnEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\Item;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
-class TheItemSpawnEvent implements Listener
+class LevelEventListener implements Listener
 {
     /**
      * @param ItemSpawnEvent $event
      */
-    public function event(ItemSpawnEvent $event)
+    public function onItemSpawn(ItemSpawnEvent $event)
     {
         if (DefaultConfig::isDev()) {
             return;

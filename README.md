@@ -12,10 +12,11 @@
 [![GitHub All Releases](https://img.shields.io/github/downloads/VectorNetworkProject/TheMix/total.svg?style=for-the-badge)](https://github.com/VectorNetworkProject/TheMix/releases)
 [![Twitter Tweet](https://img.shields.io/badge/Twitter-tweet-blue.svg?style=for-the-badge)](https://twitter.com/intent/tweet?text=VectorNetwork:&url=https%3A%2F%2Fgithub.com%2FVectorNetworkProject)
 [![Discord](https://img.shields.io/discord/439355544063705088.svg?style=for-the-badge)](https://discord.gg/EF2G5dh)
-[![ServerAdd](https://img.shields.io/badge/Server-Add-brightgreen.svg?style=for-the-badge)](minecraft://?addExternalServer=VectorNetwork|play.vector-network.tk:19132)
+[![ServerAdd](https://img.shields.io/badge/Server-Add-brightgreen.svg?style=for-the-badge)](minecraft://?addExternalServer=VectorNetwork|play.vector-network.tk:56333)
 
 [![HitCount](http://hits.dwyl.io/VectorNetworkProject/TheMix.svg)](http://hits.dwyl.io/VectorNetworkProject/TheMix)
 [![StyleCI](https://github.styleci.io/repos/157084851/shield?branch=master)](https://github.styleci.io/repos/157084851)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/?branch=develop)
 
 # The Mix
 VectorNetworkの新しいゲームプラグイン！  
