@@ -49,6 +49,7 @@ class SpawnManager
     {
         $player->addTitle('§l§cYOU DIED', 'あなたは死んでしまった！5秒後行動可能になります。', 20, 100, 20);
         $player->teleport(new Position(0, 80, 0, Server::getInstance()->getLevelByName(DefaultConfig::getStageLevelName())));
+        $player->setInvisible();
         $player->setGamemode(Player::SPECTATOR);
         $player->setHealth(20);
         $player->setMaxHealth(20);

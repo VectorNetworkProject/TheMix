@@ -17,7 +17,7 @@ use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 class BlueCoreManager extends CoreManager
 {
     /** @var int $hp */
-    private static $hp = self::MAX_HP;
+    private static $hp = 75;
 
     /**
      * @param int $hp

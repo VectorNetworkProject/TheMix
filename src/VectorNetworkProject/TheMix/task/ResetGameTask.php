@@ -9,7 +9,8 @@
 namespace VectorNetworkProject\TheMix\task;
 
 use pocketmine\scheduler\Task;
-use VectorNetworkProject\TheMix\game\GameManager;
+use pocketmine\Server;
+use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class ResetGameTask extends Task
 {
@@ -18,6 +19,9 @@ class ResetGameTask extends Task
      */
     public function onRun(int $currentTick)
     {
-        GameManager::resetGame();
+        foreach (Server::getInstance()->getOnlinePlayers() as $player) {
+            $player->transfer(DefaultConfig::getIp(), DefaultConfig::getPort(), '再接続');
+        }
+        Server::getInstance()->shutdown();
     }
 }

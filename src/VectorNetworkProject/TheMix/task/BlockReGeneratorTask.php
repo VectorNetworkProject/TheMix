@@ -10,7 +10,6 @@ namespace VectorNetworkProject\TheMix\task;
 
 use pocketmine\block\Block;
 use pocketmine\scheduler\Task;
-use VectorNetworkProject\TheMix\TheMix;
 
 class BlockReGeneratorTask extends Task
 {
@@ -27,11 +26,6 @@ class BlockReGeneratorTask extends Task
      */
     public function onRun(int $currentTick)
     {
-        if (TheMix::getInstance()->getServer()->getLevelByName($this->getBlock()->getLevel()->getName())->getId() !== $this->getBlock()->getLevel()->getId()) {
-            $this->getHandler()->cancel();
-
-            return;
-        }
         $this->getBlock()->getLevel()->setBlock($this->getBlock()->asVector3(), $this->block);
     }
 
