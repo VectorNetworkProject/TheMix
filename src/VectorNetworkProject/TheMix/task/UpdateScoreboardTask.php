@@ -44,6 +44,7 @@ class UpdateScoreboardTask extends Task
     {
         if (!$this->player->isOnline()) {
             $this->getHandler()->cancel();
+
             return;
         }
         $scoreboard = $this->scoreboard;

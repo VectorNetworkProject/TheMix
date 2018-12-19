@@ -8,7 +8,10 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
+use Miste\scoreboardspe\API\Scoreboard;
+use Miste\scoreboardspe\API\ScoreboardAction;
+use Miste\scoreboardspe\API\ScoreboardDisplaySlot;
+use Miste\scoreboardspe\API\ScoreboardSort;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\event\Listener;
@@ -26,10 +29,6 @@ use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
 use VectorNetworkProject\TheMix\TheMix;
-use Miste\scoreboardspe\API\Scoreboard;
-use Miste\scoreboardspe\API\ScoreboardAction;
-use Miste\scoreboardspe\API\ScoreboardDisplaySlot;
-use Miste\scoreboardspe\API\ScoreboardSort;
 
 class PlayerEventListener implements Listener
 {
