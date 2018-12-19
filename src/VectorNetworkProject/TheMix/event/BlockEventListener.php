@@ -6,29 +6,34 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event\block;
+namespace VectorNetworkProject\TheMix\event;
+
 
 use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\Item;
-use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
+use pocketmine\Server;
+use VectorNetworkProject\TheMix\game\corepvp\blue\BlueCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
+use VectorNetworkProject\TheMix\game\corepvp\red\RedCoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\event\game\BreakCoreEvent;
 use VectorNetworkProject\TheMix\task\BlockReGeneratorTask;
 use VectorNetworkProject\TheMix\TheMix;
 
-class BlockReGeneratorEvent implements Listener
+class BlockEventListener implements Listener
 {
     /**
      * @param BlockBreakEvent $event
      */
-    public function event(BlockBreakEvent $event): void
+    public function onOreBreak(BlockBreakEvent $event): void
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
-        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || TheEndGameEvent::isFinish()) {
+        if (DefaultConfig::isDev() || $block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || GameEventListener::isFinish()) {
             $event->setCancelled();
 
             return;
@@ -80,6 +85,75 @@ class BlockReGeneratorEvent implements Listener
 
                     return;
                 }
+        }
+    }
+
+    /**
+     * @param BlockBreakEvent $event
+     *
+     * @throws \ReflectionException
+     */
+    public function onBlockBreak(BlockBreakEvent $event)
+    {
+        $player = $event->getPlayer();
+        $block = $event->getBlock();
+        if (GameEventListener::isFinish()) {
+            $event->setCancelled();
+
+            return;
+        }
+        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
+            if ($player->isOp()) {
+                return;
+            }
+            $event->setCancelled();
+        }
+        if (!DefaultConfig::isDev()) {
+            if (RedCoreManager::isCore($block)) {
+                $event->setCancelled();
+                if (RedTeamManager::isJoined($player)) {
+                    return;
+                }
+                $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
+                $revent->call();
+                if (!$revent->isCancelled()) {
+                    RedCoreManager::reduceHP($revent->getDamage(), $player);
+                }
+            } elseif (BlueCoreManager::isCore($block)) {
+                $event->setCancelled();
+                if (BlueTeamManager::isJoined($player)) {
+                    return;
+                }
+                $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
+                $bevent->call();
+                if (!$bevent->isCancelled()) {
+                    BlueCoreManager::reduceHP($bevent->getDamage(), $player);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param BlockPlaceEvent $event
+     */
+    public function onBlockPlace(BlockPlaceEvent $event)
+    {
+        $player = $event->getPlayer();
+        if (GameEventListener::isFinish()) {
+            $event->setCancelled();
+
+            return;
+        }
+        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
+            if ($player->isOp()) {
+                return;
+            }
+            $event->setCancelled();
+        } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) {
+            if (DefaultConfig::isDev()) {
+                return;
+            }
+            $event->setCancelled();
         }
     }
 }

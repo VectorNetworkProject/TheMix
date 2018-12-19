@@ -18,21 +18,12 @@ use VectorNetworkProject\TheMix\command\defaults\ModeratorCommand;
 use VectorNetworkProject\TheMix\command\defaults\PingCommand;
 use VectorNetworkProject\TheMix\command\defaults\TpsCommand;
 use VectorNetworkProject\TheMix\command\Permissions;
-use VectorNetworkProject\TheMix\event\block\BlockReGeneratorEvent;
-use VectorNetworkProject\TheMix\event\block\TheBlockBreakEvent;
-use VectorNetworkProject\TheMix\event\block\TheBlockPlaceEvent;
-use VectorNetworkProject\TheMix\event\entity\TheEntityDamageEvent;
-use VectorNetworkProject\TheMix\event\game\TheBreakCoreEvent;
-use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
-use VectorNetworkProject\TheMix\event\game\ThePlayerStreakEvent;
-use VectorNetworkProject\TheMix\event\gold\ThePlayerAddGoldEvent;
-use VectorNetworkProject\TheMix\event\level\TheItemSpawnEvent;
-use VectorNetworkProject\TheMix\event\level\TheLevelUpEvent;
-use VectorNetworkProject\TheMix\event\level\ThePlayerAddXpEvent;
-use VectorNetworkProject\TheMix\event\player\ThePlayerInteractEvent;
-use VectorNetworkProject\TheMix\event\player\ThePlayerJoinEvent;
-use VectorNetworkProject\TheMix\event\player\ThePlayerLoginEvent;
-use VectorNetworkProject\TheMix\event\player\ThePlayerQuitEvent;
+use VectorNetworkProject\TheMix\event\BlockEventListener;
+use VectorNetworkProject\TheMix\event\EntityEventListener;
+use VectorNetworkProject\TheMix\event\GameEventListener;
+use VectorNetworkProject\TheMix\event\LevelEventListener;
+use VectorNetworkProject\TheMix\event\LibraryEventListener;
+use VectorNetworkProject\TheMix\event\PlayerEventListener;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 
 class TheMix extends PluginBase
@@ -108,20 +99,11 @@ class TheMix extends PluginBase
     private function registerEvents(): void
     {
         $plm = $this->getServer()->getPluginManager();
-        $plm->registerEvents(new ThePlayerLoginEvent(), $this);
-        $plm->registerEvents(new ThePlayerJoinEvent(), $this);
-        $plm->registerEvents(new ThePlayerQuitEvent(), $this);
-        $plm->registerEvents(new TheBlockBreakEvent(), $this);
-        $plm->registerEvents(new TheBlockPlaceEvent(), $this);
-        $plm->registerEvents(new TheEntityDamageEvent(), $this);
-        $plm->registerEvents(new TheEndGameEvent(), $this);
-        $plm->registerEvents(new ThePlayerStreakEvent(), $this);
-        $plm->registerEvents(new TheLevelUpEvent(), $this);
-        $plm->registerEvents(new ThePlayerAddGoldEvent(), $this);
-        $plm->registerEvents(new ThePlayerAddXpEvent(), $this);
-        $plm->registerEvents(new BlockReGeneratorEvent(), $this);
-        $plm->registerEvents(new ThePlayerInteractEvent(), $this);
-        $plm->registerEvents(new TheItemSpawnEvent(), $this);
-        $plm->registerEvents(new TheBreakCoreEvent(), $this);
+        $plm->registerEvents(new BlockEventListener(), $this);
+        $plm->registerEvents(new EntityEventListener(), $this);
+        $plm->registerEvents(new GameEventListener(), $this);
+        $plm->registerEvents(new LevelEventListener(), $this);
+        $plm->registerEvents(new LibraryEventListener(), $this);
+        $plm->registerEvents(new PlayerEventListener(), $this);
     }
 }

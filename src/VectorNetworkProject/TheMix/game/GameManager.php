@@ -12,7 +12,7 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\Player;
 use pocketmine\Server;
-use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
+use VectorNetworkProject\TheMix\event\GameEventListener;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 use VectorNetworkProject\TheMix\TheMix;
@@ -23,7 +23,7 @@ class GameManager
     {
         TeamManager::resetTeam();
         CoreManager::resetHP();
-        TheEndGameEvent::setFinish(false);
+        GameEventListener::setFinish(false);
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {
             $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
             $player->setGamemode(Player::ADVENTURE);

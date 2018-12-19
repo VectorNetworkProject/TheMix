@@ -6,7 +6,8 @@
  * Website: https://www.vector-network.tk
  */
 
-namespace VectorNetworkProject\TheMix\event\entity;
+namespace VectorNetworkProject\TheMix\event;
+
 
 use InkoHX\GoldLibrary\GoldAPI;
 use InkoHX\LeveLibrary\LevelAPI;
@@ -16,24 +17,23 @@ use pocketmine\event\Listener;
 use pocketmine\item\Item;
 use pocketmine\Player;
 use pocketmine\Server;
-use VectorNetworkProject\TheMix\event\game\TheEndGameEvent;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 
-class TheEntityDamageEvent implements Listener
+class EntityEventListener implements Listener
 {
     /**
      * @param EntityDamageEvent $event
      *
      * @throws \ReflectionException
      */
-    public function event(EntityDamageEvent $event)
+    public function onEntityDamage(EntityDamageEvent $event)
     {
         $entity = $event->getEntity();
         $entity->extinguish();
-        if (TheEndGameEvent::isFinish()) {
+        if (GameEventListener::isFinish()) {
             $event->setCancelled();
 
             return;
@@ -104,7 +104,7 @@ class TheEntityDamageEvent implements Listener
      *
      * @return void
      */
-    public static function dropItem(Player $player): void
+    private static function dropItem(Player $player): void
     {
         $contents = $player->getInventory()->getContents();
         foreach ($contents as $slot => $item) {
