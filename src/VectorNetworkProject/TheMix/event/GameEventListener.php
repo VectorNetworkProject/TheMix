@@ -96,7 +96,7 @@ class GameEventListener implements Listener
     /**
      * @param GameWinEvent $event
      */
-    public function event(GameWinEvent $event)
+    public function onGameWin(GameWinEvent $event)
     {
         if (DefaultConfig::isDev()) {
             $event->setCancelled();
