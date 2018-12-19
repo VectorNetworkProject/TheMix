@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
 use InkoHX\GoldLibrary\GoldAPI;
 use InkoHX\LeveLibrary\LevelAPI;
 use pocketmine\event\entity\EntityDamageByEntityEvent;

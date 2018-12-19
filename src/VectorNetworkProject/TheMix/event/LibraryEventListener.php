@@ -8,7 +8,6 @@
 
 namespace VectorNetworkProject\TheMix\event;
 
-
 use InkoHX\GoldLibrary\event\PlayerAddGoldEvent;
 use InkoHX\LeveLibrary\event\level\PlayerLevelUpEvent;
 use InkoHX\LeveLibrary\event\xp\PlayerAddXpEvent;
