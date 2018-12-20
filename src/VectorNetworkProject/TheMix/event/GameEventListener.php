@@ -144,7 +144,7 @@ class GameEventListener implements Listener
         Server::getInstance()->broadcastMessage('§l§eGG! TheMix v0.0.8-BETA');
         Server::getInstance()->broadcastMessage('§lDiscordに参加して遊んだ感想や改善してほしい点などを書いて下さい！');
         Server::getInstance()->broadcastMessage('§lDiscord: https://discord.gg/EF2G5dh');
-        Server::getInstance()->broadcastMessage('§c30秒後プレイヤーの再接続とサーバー再起動を開始します。');
+        Server::getInstance()->broadcastMessage('§c30秒後ゲームをリセットします。');
     }
 
     /**
