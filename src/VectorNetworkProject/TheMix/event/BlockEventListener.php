@@ -174,7 +174,8 @@ class BlockEventListener implements Listener
     }
 
     /**
-     * ダイヤモンドの破壊を許可するかどうか
+     * ダイヤモンドの破壊を許可するかどうか.
+     *
      * @param bool $diamond
      */
     public static function setDiamond(bool $diamond): void
