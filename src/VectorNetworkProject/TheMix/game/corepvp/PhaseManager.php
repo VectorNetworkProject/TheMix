@@ -9,14 +9,23 @@
 namespace VectorNetworkProject\TheMix\game\corepvp;
 
 use VectorNetworkProject\TheMix\game\event\game\PhaseUpdateEvent;
+use VectorNetworkProject\TheMix\task\PhaseTask;
 
 class PhaseManager
 {
     /** @var int */
-    public const MAX_PHASE = 5;
+    public const MAX_PHASE = 3;
 
     /** @var int $phase */
     private static $phase = 1;
+
+    /**
+     * @param int $phase
+     */
+    public static function setPhase(int $phase): void
+    {
+        self::$phase = $phase;
+    }
 
     /**
      * @throws \ReflectionException
@@ -27,6 +36,7 @@ class PhaseManager
         $event->call();
         if (!$event->isCancelled()) {
             self::$phase++;
+            PhaseTask::setTime();
         }
     }
 

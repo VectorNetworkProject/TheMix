@@ -25,6 +25,9 @@ use VectorNetworkProject\TheMix\TheMix;
 
 class BlockEventListener implements Listener
 {
+    /** @var bool $diamond */
+    private static $diamond = true;
+
     /**
      * @param BlockBreakEvent $event
      */
@@ -59,6 +62,12 @@ class BlockEventListener implements Listener
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block), 15 * 20);
                 break;
             case Block::DIAMOND_ORE:
+                if (!self::isDiamond()) {
+                    $event->getPlayer()->sendMessage('§cRASH TIME§fになるまでダイヤモンドは破壊出来ません。');
+                    $event->setCancelled();
+
+                    return;
+                }
                 $inventory->addItem(Item::get(Item::DIAMOND));
                 TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new BlockReGeneratorTask($block), 60 * 20);
                 break;
@@ -154,5 +163,22 @@ class BlockEventListener implements Listener
             }
             $event->setCancelled();
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isDiamond(): bool
+    {
+        return self::$diamond;
+    }
+
+    /**
+     * ダイヤモンドの破壊を許可するかどうか
+     * @param bool $diamond
+     */
+    public static function setDiamond(bool $diamond): void
+    {
+        self::$diamond = $diamond;
     }
 }

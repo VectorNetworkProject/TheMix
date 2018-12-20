@@ -15,10 +15,13 @@ use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
+use VectorNetworkProject\TheMix\game\corepvp\PhaseManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\game\event\game\BreakCoreEvent;
 use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
+use VectorNetworkProject\TheMix\game\event\game\PhaseTimeUpdateEvent;
+use VectorNetworkProject\TheMix\game\event\game\PhaseUpdateEvent;
 use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 use VectorNetworkProject\TheMix\task\ResetGameTask;
@@ -28,6 +31,9 @@ class GameEventListener implements Listener
 {
     /** @var bool $finish */
     private static $finish = false;
+
+    /** @var bool $break */
+    private $break = false;
 
     /**
      * @param BreakCoreEvent $event
@@ -45,6 +51,12 @@ class GameEventListener implements Listener
         }
         switch ($event->getTeam()) {
             case BreakCoreEvent::RED:
+                if (!$this->isBreak()) {
+                    $event->setCancelled();
+                    $event->getPlayer()->sendMessage('§6WAR TIME §fになるまでコアは破壊出来ません。HAHAHA');
+
+                    return;
+                }
                 Server::getInstance()->broadcastMessage("§l§cRED§rのコアが§b{$player->getName()}§rによって攻撃を受けています。");
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player);
@@ -55,6 +67,12 @@ class GameEventListener implements Listener
                 }
                 break;
             case BreakCoreEvent::BLUE:
+                if (!$this->isBreak()) {
+                    $event->setCancelled();
+                    $event->getPlayer()->sendMessage('§6WAR TIME §fになるまでコアは破壊出来ません。HAHAHA');
+
+                    return;
+                }
                 Server::getInstance()->broadcastMessage("§l§bBLUR§rのコアが§c{$player->getName()}§rによって攻撃を受けています。");
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player);
@@ -130,6 +148,46 @@ class GameEventListener implements Listener
     }
 
     /**
+     * @param PhaseTimeUpdateEvent $event
+     *
+     * @throws \ReflectionException
+     */
+    public function onPhaseTimeUpdate(PhaseTimeUpdateEvent $event)
+    {
+        if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1 || PhaseManager::MAX_PHASE === $event->getPhase() || self::isFinish()) {
+            Server::getInstance()->broadcastPopup("§l§cTIME: {$event->getTime()} : Phase: {$event->getPhase()}");
+            $event->setCancelled();
+
+            return;
+        } elseif ($event->getTime() === 0) {
+            PhaseManager::addPhase();
+        }
+        Server::getInstance()->broadcastPopup("§l{$event->getTime()} : Phase: {$event->getPhase()}");
+    }
+
+    /**
+     * @param PhaseUpdateEvent $event
+     */
+    public function onPhaseUpdate(PhaseUpdateEvent $event)
+    {
+        if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount()) {
+            $event->setCancelled();
+
+            return;
+        }
+        switch ($event->getPhase()) {
+            case 2:
+                $this->setBreak(true);
+                Server::getInstance()->broadcastTitle('§l§6WAR TIME', 'コアの破壊が可能になりました。', 20, 100, 20);
+                break;
+            case 3:
+                BlockEventListener::setDiamond(true);
+                Server::getInstance()->broadcastTitle('§l§cRUSH TIME', '攻め時だ！ダイヤを確保し敵陣へ乗り込め！', 20, 100, 20);
+                break;
+        }
+    }
+
+    /**
      * @param bool $finish
      */
     public static function setFinish(bool $finish): void
@@ -143,5 +201,21 @@ class GameEventListener implements Listener
     public static function isFinish(): bool
     {
         return self::$finish;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isBreak(): bool
+    {
+        return $this->break;
+    }
+
+    /**
+     * @param bool $break
+     */
+    private function setBreak(bool $break): void
+    {
+        $this->break = $break;
     }
 }
