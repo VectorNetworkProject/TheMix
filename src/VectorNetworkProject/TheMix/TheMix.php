@@ -25,6 +25,7 @@ use VectorNetworkProject\TheMix\event\LevelEventListener;
 use VectorNetworkProject\TheMix\event\LibraryEventListener;
 use VectorNetworkProject\TheMix\event\PlayerEventListener;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\task\PhaseTask;
 
 class TheMix extends PluginBase
 {
@@ -52,6 +53,7 @@ class TheMix extends PluginBase
         FormApi::register($this);
         $this->registerCommands();
         $this->registerEvents();
+        $this->getScheduler()->scheduleRepeatingTask(new PhaseTask(), 20);
         $this->getServer()->loadLevel(DefaultConfig::getStageLevelName())
             ? $this->getLogger()->notice('Loaded stage.')
             : $this->getServer()->generateLevel(DefaultConfig::getStageLevelName());

@@ -14,7 +14,9 @@ use pocketmine\Player;
 use pocketmine\Server;
 use VectorNetworkProject\TheMix\event\GameEventListener;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
+use VectorNetworkProject\TheMix\game\corepvp\PhaseManager;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
+use VectorNetworkProject\TheMix\task\PhaseTask;
 use VectorNetworkProject\TheMix\TheMix;
 
 class GameManager
@@ -24,6 +26,8 @@ class GameManager
         TeamManager::resetTeam();
         CoreManager::resetHP();
         GameEventListener::setFinish(false);
+        PhaseManager::setPhase(1);
+        PhaseTask::setTime();
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {
             $player->teleport(Server::getInstance()->getDefaultLevel()->getSpawnLocation());
             $player->setGamemode(Player::ADVENTURE);
