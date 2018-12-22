@@ -154,15 +154,16 @@ class GameEventListener implements Listener
      */
     public function onPhaseTimeUpdate(PhaseTimeUpdateEvent $event)
     {
+        $time = date('i:s', $event->getTime());
         if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1 || PhaseManager::MAX_PHASE === $event->getPhase() || self::isFinish()) {
-            Server::getInstance()->broadcastPopup("§l§cTIME: {$event->getTime()} : Phase: {$event->getPhase()}");
+            Server::getInstance()->broadcastPopup("§l§cTIME: {$time} : Phase: {$event->getPhase()}");
             $event->setCancelled();
 
             return;
         } elseif ($event->getTime() === 0) {
             PhaseManager::addPhase();
         }
-        Server::getInstance()->broadcastPopup("§l{$event->getTime()} : Phase: {$event->getPhase()}");
+        Server::getInstance()->broadcastPopup("§l{$time} : Phase: {$event->getPhase()}");
     }
 
     /**
