@@ -171,11 +171,6 @@ class GameEventListener implements Listener
      */
     public function onPhaseUpdate(PhaseUpdateEvent $event)
     {
-        if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount()) {
-            $event->setCancelled();
-
-            return;
-        }
         switch ($event->getPhase()) {
             case 2:
                 $this->setBreak(true);
