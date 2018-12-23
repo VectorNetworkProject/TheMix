@@ -22,6 +22,10 @@
 VectorNetworkの新しいゲームプラグイン！  
 あなたは簡単な作業をするだけでゲームを遊ぶ事が出来る！
 
+# issues
+不具合を見つけたら報告お願いします
+機能の提案なども気軽にissuesを立てて下さい！
+
 # Library
 プラグインをスムーズに開発する為に[DEVirion](https://github.com/poggit/devirion)やAPIプラグインを使用しています。  
 以下のライブラリorプラグインを使用しています。
