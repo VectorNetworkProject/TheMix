@@ -37,6 +37,8 @@ class PhaseManager
         if (!$event->isCancelled()) {
             self::$phase++;
             PhaseTask::setTime();
+        } else {
+            PhaseTask::setTime();
         }
     }
 

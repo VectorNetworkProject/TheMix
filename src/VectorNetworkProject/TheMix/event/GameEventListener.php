@@ -180,6 +180,9 @@ class GameEventListener implements Listener
                 BlockEventListener::setDiamond(true);
                 Server::getInstance()->broadcastTitle('§l§cRUSH TIME', '攻め時だ！ダイヤを確保し敵陣へ乗り込め！', 20, 100, 20);
                 break;
+            default:
+                $event->setCancelled();
+                break;
         }
     }
 
