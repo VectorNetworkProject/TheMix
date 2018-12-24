@@ -26,7 +26,7 @@ use VectorNetworkProject\TheMix\TheMix;
 class BlockEventListener implements Listener
 {
     /** @var bool $diamond */
-    private static $diamond = true;
+    private static $diamond = false;
 
     /**
      * @param BlockBreakEvent $event
