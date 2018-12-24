@@ -60,7 +60,7 @@ class GameEventListener implements Listener
                 Server::getInstance()->broadcastMessage("§l§cRED§rのコアが§b{$player->getName()}§rによって攻撃を受けています。");
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player);
-                    if (RedTeamManager::isJoined($player)) {
+                    if (BlueTeamManager::isJoined($player)) {
                         LevelAPI::Auto($player, 5);
                         GoldAPI::addGold($player, 5);
                     }
@@ -76,7 +76,7 @@ class GameEventListener implements Listener
                 Server::getInstance()->broadcastMessage("§l§bBLUR§rのコアが§c{$player->getName()}§rによって攻撃を受けています。");
                 foreach (Server::getInstance()->getOnlinePlayers() as $player) {
                     LevelSounds::NotePiano($player);
-                    if (BlueTeamManager::isJoined($player)) {
+                    if (RedTeamManager::isJoined($player)) {
                         LevelAPI::Auto($player, 5);
                         GoldAPI::addGold($player, 5);
                     }
