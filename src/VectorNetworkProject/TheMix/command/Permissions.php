@@ -19,7 +19,7 @@ class Permissions
     /**
      * @return void
      */
-    public static function registerPermissions(): void
+    public static function registers(): void
     {
         PermissionManager::getInstance()->addPermission(new Permission(self::USER.'ping', '応答速度を計測します。', Permission::DEFAULT_TRUE));
         PermissionManager::getInstance()->addPermission(new Permission(self::USER.'tps', 'TicksPerSecond', Permission::DEFAULT_TRUE));

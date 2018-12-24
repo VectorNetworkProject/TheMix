@@ -49,7 +49,7 @@ class TheMix extends PluginBase
 
     public function onEnable()
     {
-        Permissions::registerPermissions();
+        Permissions::registers();
         FormApi::register($this);
         $this->registerCommands();
         $this->registerEvents();
