@@ -44,7 +44,7 @@ class GameEventListener implements Listener
     {
         $player = $event->getPlayer();
         if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-            $player->sendMessage(TextFormat::RED . 'プレイヤーが足りないのでコアを破壊する事が出来ません。');
+            $player->sendMessage(TextFormat::RED.'プレイヤーが足りないのでコアを破壊する事が出来ません。');
             $event->setCancelled();
 
             return;
@@ -130,7 +130,7 @@ class GameEventListener implements Listener
             }
         }
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ResetGameTask(), 30 * 20);
-        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l ' . $event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
+        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l '.$event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
         Server::getInstance()->broadcastMessage('===< END GAME >===');
         Server::getInstance()->broadcastMessage('§l§eGG! TheMix v0.0.9-BETA');
         Server::getInstance()->broadcastMessage('§lDiscordに参加して遊んだ感想や改善してほしい点などを書いて下さい！');
