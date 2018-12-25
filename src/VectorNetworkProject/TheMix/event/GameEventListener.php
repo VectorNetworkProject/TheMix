@@ -44,7 +44,7 @@ class GameEventListener implements Listener
     {
         $player = $event->getPlayer();
         if (RedTeamManager::getListCount() < 1 || BlueTeamManager::getListCount() < 1) {
-            $player->sendMessage(TextFormat::RED.'プレイヤーが足りないのでコアを破壊する事が出来ません。');
+            $player->sendMessage(TextFormat::RED . 'プレイヤーが足りないのでコアを破壊する事が出来ません。');
             $event->setCancelled();
 
             return;
@@ -94,20 +94,11 @@ class GameEventListener implements Listener
     public function onStreak(PlayerStreakEvent $event)
     {
         $player = $event->getPlayer();
-        switch ($event->getCount()) {
-            case 5:
-            case 10:
-            case 20:
-            case 30:
-            case 40:
-            case 50:
-            case 60:
-            case 70:
-            case 80:
-            case 90:
-            case 100:
-            Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$event->getCount()}回連続でキルしました！");
-                break;
+        $streakTable = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        foreach ($streakTable as $value) {
+            if ($value === $event->getCount()) {
+                Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$event->getCount()}回連続でキルしました！");
+            }
         }
     }
 
@@ -139,7 +130,7 @@ class GameEventListener implements Listener
             }
         }
         TheMix::getInstance()->getScheduler()->scheduleDelayedTask(new ResetGameTask(), 30 * 20);
-        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l '.$event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
+        Server::getInstance()->broadcastTitle('§l§f===< §6決着 §f>===', '§aWin:§l ' . $event->getType() === GameWinEvent::WIN_RED ? '§cRED' : '§bBLUE', 20, 5 * 20, 20);
         Server::getInstance()->broadcastMessage('===< END GAME >===');
         Server::getInstance()->broadcastMessage('§l§eGG! TheMix v0.0.9-BETA');
         Server::getInstance()->broadcastMessage('§lDiscordに参加して遊んだ感想や改善してほしい点などを書いて下さい！');
