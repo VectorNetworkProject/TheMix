@@ -12,6 +12,7 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\Player;
 use pocketmine\Server;
+use VectorNetworkProject\TheMix\event\BlockEventListener;
 use VectorNetworkProject\TheMix\event\GameEventListener;
 use VectorNetworkProject\TheMix\game\corepvp\CoreManager;
 use VectorNetworkProject\TheMix\game\corepvp\PhaseManager;
@@ -26,6 +27,8 @@ class GameManager
         TeamManager::resetTeam();
         CoreManager::resetHP();
         GameEventListener::setFinish(false);
+        GameEventListener::setBreak(false);
+        BlockEventListener::setDiamond(false);
         PhaseManager::setPhase(1);
         PhaseTask::setTime();
         foreach (Server::getInstance()->getOnlinePlayers() as $player) {

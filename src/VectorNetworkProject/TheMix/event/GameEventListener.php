@@ -33,7 +33,7 @@ class GameEventListener implements Listener
     private static $finish = false;
 
     /** @var bool $break */
-    private $break = false;
+    private static $break = false;
 
     /**
      * @param BreakCoreEvent $event
@@ -51,7 +51,7 @@ class GameEventListener implements Listener
         }
         switch ($event->getTeam()) {
             case BreakCoreEvent::RED:
-                if (!$this->isBreak()) {
+                if (!self::isBreak()) {
                     $event->setCancelled();
                     $event->getPlayer()->sendMessage('§6WAR TIME §fになるまでコアは破壊出来ません。HAHAHA');
 
@@ -67,7 +67,7 @@ class GameEventListener implements Listener
                 }
                 break;
             case BreakCoreEvent::BLUE:
-                if (!$this->isBreak()) {
+                if (!self::isBreak()) {
                     $event->setCancelled();
                     $event->getPlayer()->sendMessage('§6WAR TIME §fになるまでコアは破壊出来ません。HAHAHA');
 
@@ -196,16 +196,16 @@ class GameEventListener implements Listener
     /**
      * @return bool
      */
-    private function isBreak(): bool
+    public static function isBreak(): bool
     {
-        return $this->break;
+        return self::$break;
     }
 
     /**
      * @param bool $break
      */
-    private function setBreak(bool $break): void
+    public static function setBreak(bool $break): void
     {
-        $this->break = $break;
+        self::$break = $break;
     }
 }
