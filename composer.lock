@@ -7,6 +7,50 @@
     "content-hash": "a5ca7c6a8e0117df725c80046c89ebfb",
     "packages": [
         {
+            "name": "adhocore/json-comment",
+            "version": "v0.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adhocore/php-json-comment.git",
+                "reference": "135356c7e7336ef59924f1d921c770045f937a76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adhocore/php-json-comment/zipball/135356c7e7336ef59924f1d921c770045f937a76",
+                "reference": "135356c7e7336ef59924f1d921c770045f937a76",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ahc\\Json\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jitendra Adhikari",
+                    "email": "jiten.adhikary@gmail.com"
+                }
+            ],
+            "description": "Lightweight JSON comment stripper library for PHP",
+            "keywords": [
+                "comment",
+                "json",
+                "strip-comment"
+            ],
+            "time": "2018-08-01T12:27:26+00:00"
+        },
+        {
             "name": "daverandom/callback-validator",
             "version": "dev-master",
             "source": {
@@ -434,13 +478,14 @@
         },
         {
             "name": "pocketmine/pocketmine-mp",
-            "version": "3.5.2",
+            "version": "3.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/PocketMine-MP",
-                "reference": "fc0782df0218fa4b926060e0ee2b37f1a1cc91eb"
+                "reference": "9abaa42cd77b962fe3963516205c0b0638368068"
             },
             "require": {
+                "adhocore/json-comment": "^0.0.7",
                 "daverandom/callback-validator": "dev-master",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
@@ -486,7 +531,7 @@
             ],
             "description": "A server software for Minecraft: Pocket Edition written in PHP",
             "homepage": "https://pmmp.io",
-            "time": "2018-12-22T17:29:31+00:00"
+            "time": "2018-12-30T18:44:16+00:00"
         },
         {
             "name": "pocketmine/raklib",
