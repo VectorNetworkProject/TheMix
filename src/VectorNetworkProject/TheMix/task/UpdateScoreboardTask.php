@@ -48,14 +48,14 @@ class UpdateScoreboardTask extends Task
             return;
         }
         $scoreboard = $this->scoreboard;
-        $scoreboard->setLine(0, '§7'.date('Y/m/d H:i:s'));
-        $scoreboard->setLine(2, '§l§cRED§r§7: §a'.RedCoreManager::getHP());
-        $scoreboard->setLine(3, '§l§bBLUE§r§7: §a'.BlueCoreManager::getHP());
-        $scoreboard->setLine(5, 'Level: '.LevelAPI::getLevel($this->player));
-        $scoreboard->setLine(6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
-        $scoreboard->setLine(7, 'Gold: §6'.GoldAPI::getGold($this->player).'g');
-        $scoreboard->setLine(9, 'Streak: §c'.Streak::getStreak($this->player));
-        $scoreboard->setLine(10, 'Event: none');
-        $scoreboard->setLine(12, '§ewww.vector-network.tk  ');
+        $scoreboard->setLine($this->player, 0, '§7'.date('Y/m/d H:i:s'));
+        $scoreboard->setLine($this->player, 2, '§l§cRED§r§7: §a'.RedCoreManager::getHP());
+        $scoreboard->setLine($this->player, 3, '§l§bBLUE§r§7: §a'.BlueCoreManager::getHP());
+        $scoreboard->setLine($this->player, 5, 'Level: '.LevelAPI::getLevel($this->player));
+        $scoreboard->setLine($this->player, 6, 'Needed XP: §b'.LevelAPI::NeededXP($this->player));
+        $scoreboard->setLine($this->player, 7, 'Gold: §6'.GoldAPI::getGold($this->player).'g');
+        $scoreboard->setLine($this->player, 9, 'Streak: §c'.Streak::getStreak($this->player));
+        $scoreboard->setLine($this->player, 10, 'Event: none');
+        $scoreboard->setLine($this->player, 12, '§ewww.vector-network.tk  ');
     }
 }
