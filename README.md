@@ -31,7 +31,7 @@ VectorNetworkの新しいゲームプラグイン！
 以下のライブラリorプラグインを使用しています。
 
 [libform](https://github.com/fuyutsuki/libform) - yuko fuyutsuki  
-[ScoreboardPE](https://github.com/MisteFr/ScoreboardsPE) v1.0.5 - MisteFr  
+[ScoreboardPE](https://github.com/MisteFr/ScoreboardsPE) v1.0.3 - MisteFr  
 [LeveLibrary](https://github.com/InkoHX/LeveLibrary) - InkoHX  
 [GoldLibrary](https://github.com/InkoHX/GoldLibrary) - InkoHX 
 
