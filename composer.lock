@@ -478,11 +478,11 @@
         },
         {
             "name": "pocketmine/pocketmine-mp",
-            "version": "3.5.3",
+            "version": "3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/PocketMine-MP",
-                "reference": "9abaa42cd77b962fe3963516205c0b0638368068"
+                "reference": "d33acc4fd0b7e7a19d6016939b01cb33e51272ed"
             },
             "require": {
                 "adhocore/json-comment": "^0.0.7",
@@ -531,7 +531,7 @@
             ],
             "description": "A server software for Minecraft: Pocket Edition written in PHP",
             "homepage": "https://pmmp.io",
-            "time": "2018-12-30T18:44:16+00:00"
+            "time": "2019-01-01T12:33:17+00:00"
         },
         {
             "name": "pocketmine/raklib",
