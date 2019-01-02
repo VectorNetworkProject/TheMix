@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2018 VectorNetworkProject. All rights reserved. MIT license.
+ * Copyright (c) 2018 - 2019 VectorNetworkProject. All rights reserved. MIT license.
  *
  * GitHub: https://github.com/VectorNetworkProject/TheMix
  * Website: https://www.vector-network.tk
@@ -35,7 +35,9 @@ class BlockEventListener implements Listener
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
-        if (DefaultConfig::isDev()) return;
+        if (DefaultConfig::isDev()) {
+            return;
+        }
         if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || GameEventListener::isFinish()) {
             $event->setCancelled();
 
