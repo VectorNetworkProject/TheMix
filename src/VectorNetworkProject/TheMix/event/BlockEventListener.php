@@ -35,12 +35,13 @@ class BlockEventListener implements Listener
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
+        if (DefaultConfig::isDev()) return;
         if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || GameEventListener::isFinish()) {
             $event->setCancelled();
 
             return;
         }
-        if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType() && !DefaultConfig::isDev()) {
+        if ($block->getToolType() !== $inventory->getItemInHand()->getBlockToolType()) {
             $event->setCancelled();
 
             return;
@@ -109,34 +110,30 @@ class BlockEventListener implements Listener
             $event->setCancelled();
 
             return;
+        } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName() || Server::getInstance()->getDefaultLevel()->getName() === $player->getPlayer()->getLevel()->getName()) {
+            if (!DefaultConfig::isDev()) {
+                $event->setCancelled();
+            }
         }
-        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
-            if ($player->isOp()) {
+        if (RedCoreManager::isCore($block)) {
+            $event->setCancelled();
+            if (RedTeamManager::isJoined($player)) {
                 return;
             }
+            $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
+            $revent->call();
+            if (!$revent->isCancelled()) {
+                RedCoreManager::reduceHP($revent->getDamage(), $player);
+            }
+        } elseif (BlueCoreManager::isCore($block)) {
             $event->setCancelled();
-        }
-        if (!DefaultConfig::isDev()) {
-            if (RedCoreManager::isCore($block)) {
-                $event->setCancelled();
-                if (RedTeamManager::isJoined($player)) {
-                    return;
-                }
-                $revent = new BreakCoreEvent($player, BreakCoreEvent::RED);
-                $revent->call();
-                if (!$revent->isCancelled()) {
-                    RedCoreManager::reduceHP($revent->getDamage(), $player);
-                }
-            } elseif (BlueCoreManager::isCore($block)) {
-                $event->setCancelled();
-                if (BlueTeamManager::isJoined($player)) {
-                    return;
-                }
-                $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
-                $bevent->call();
-                if (!$bevent->isCancelled()) {
-                    BlueCoreManager::reduceHP($bevent->getDamage(), $player);
-                }
+            if (BlueTeamManager::isJoined($player)) {
+                return;
+            }
+            $bevent = new BreakCoreEvent($player, BreakCoreEvent::BLUE);
+            $bevent->call();
+            if (!$bevent->isCancelled()) {
+                BlueCoreManager::reduceHP($bevent->getDamage(), $player);
             }
         }
     }
@@ -151,17 +148,10 @@ class BlockEventListener implements Listener
             $event->setCancelled();
 
             return;
-        }
-        if ($player->getLevel()->getName() === Server::getInstance()->getDefaultLevel()->getName()) {
-            if ($player->isOp()) {
-                return;
+        } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName() || Server::getInstance()->getDefaultLevel()->getName() === $player->getPlayer()->getLevel()->getName()) {
+            if (!DefaultConfig::isDev()) {
+                $event->setCancelled();
             }
-            $event->setCancelled();
-        } elseif ($player->getLevel()->getName() === DefaultConfig::getStageLevelName()) {
-            if (DefaultConfig::isDev()) {
-                return;
-            }
-            $event->setCancelled();
         }
     }
 
