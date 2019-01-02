@@ -35,7 +35,9 @@ class BlockEventListener implements Listener
     {
         $block = $event->getBlock();
         $inventory = $event->getPlayer()->getInventory();
-        if (DefaultConfig::isDev()) return;
+        if (DefaultConfig::isDev()) {
+            return;
+        }
         if ($block->getLevel()->getName() !== DefaultConfig::getStageLevelName() || GameEventListener::isFinish()) {
             $event->setCancelled();
 
