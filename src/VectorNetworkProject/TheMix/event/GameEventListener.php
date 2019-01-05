@@ -22,7 +22,6 @@ use VectorNetworkProject\TheMix\game\event\game\BreakCoreEvent;
 use VectorNetworkProject\TheMix\game\event\game\GameWinEvent;
 use VectorNetworkProject\TheMix\game\event\game\PhaseTimeUpdateEvent;
 use VectorNetworkProject\TheMix\game\event\game\PhaseUpdateEvent;
-use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 use VectorNetworkProject\TheMix\lib\sound\LevelSounds;
 use VectorNetworkProject\TheMix\task\ResetGameTask;
 use VectorNetworkProject\TheMix\TheMix;
@@ -85,20 +84,6 @@ class GameEventListener implements Listener
             default:
                 throw new \ErrorException('The core was destroyed by a team that does not exist.');
                 break;
-        }
-    }
-
-    /**
-     * @param PlayerStreakEvent $event
-     */
-    public function onStreak(PlayerStreakEvent $event)
-    {
-        $player = $event->getPlayer();
-        $streakTable = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-        foreach ($streakTable as $value) {
-            if ($value === $event->getCount()) {
-                Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$event->getCount()}回連続でキルしました！");
-            }
         }
     }
 

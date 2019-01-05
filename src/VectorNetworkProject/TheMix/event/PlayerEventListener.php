@@ -26,6 +26,8 @@ use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
+use VectorNetworkProject\TheMix\game\event\player\PlayerBountyEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
 use VectorNetworkProject\TheMix\TheMix;
@@ -70,6 +72,36 @@ class PlayerEventListener implements Listener
             }
             TeamManager::JoinTeam($player);
             $player->setGamemode(Player::SURVIVAL);
+        }
+    }
+
+    /**
+     * @param PlayerStreakEvent $event
+     */
+    public function onStreak(PlayerStreakEvent $event)
+    {
+        $player = $event->getPlayer();
+        $streakTable = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        foreach ($streakTable as $value) {
+            if ($value === $event->getCount()) {
+                Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$event->getCount()}回連続でキルしました！");
+            }
+        }
+    }
+
+    /**
+     * @param PlayerBountyEvent $event
+     */
+    public function onBounty(PlayerBountyEvent $event)
+    {
+        $player = $event->getPlayer();
+        switch ($event->getType()) {
+            case PlayerBountyEvent::ENABLE_BOUNTY:
+                Server::getInstance()->broadcastMessage("§l§6BOUNTY! §r{$player->getName()}に§6{$event->getGold()}g§rの懸賞金が掛けられた。");
+                break;
+            case PlayerBountyEvent::PLUS_GOLD:
+                Server::getInstance()->broadcastMessage("§l§6BOUNTY! §r{$player->getName()}の懸賞金が§6{$event->getGold()}g§rプラスされた！");
+                break;
         }
     }
 
