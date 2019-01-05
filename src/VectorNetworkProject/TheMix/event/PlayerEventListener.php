@@ -27,6 +27,7 @@ use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\TeamManager;
 use VectorNetworkProject\TheMix\game\DefaultConfig;
 use VectorNetworkProject\TheMix\game\event\player\PlayerBountyEvent;
+use VectorNetworkProject\TheMix\game\event\player\PlayerBountyLostEvent;
 use VectorNetworkProject\TheMix\game\event\player\PlayerStreakEvent;
 use VectorNetworkProject\TheMix\game\streak\Streak;
 use VectorNetworkProject\TheMix\task\UpdateScoreboardTask;
@@ -108,6 +109,21 @@ class PlayerEventListener implements Listener
                 Server::getInstance()->broadcastMessage("§l§6BOUNTY! §r{$player->getName()}の懸賞金が§6{$event->getGold()}g§rプラスされた！");
                 break;
         }
+    }
+
+    /**
+     * @param PlayerBountyLostEvent $event
+     */
+    public function onLostBounty(PlayerBountyLostEvent $event)
+    {
+        $player = $event->getKilled();
+        $killer = $event->getKiller();
+        if (!$killer) {
+            Server::getInstance()->broadcastMessage("§l§6BOUNTY! §r{$player->getName()}は自滅し懸賞金が0になった。");
+
+            return;
+        }
+        Server::getInstance()->broadcastMessage("§l§6BOUNTY! §r{$killer->getName()}は{$player->getName()}をキルし賞金を得た！");
     }
 
     /**
