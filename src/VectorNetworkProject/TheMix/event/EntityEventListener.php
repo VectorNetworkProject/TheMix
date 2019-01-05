@@ -16,6 +16,7 @@ use pocketmine\event\Listener;
 use pocketmine\item\Item;
 use pocketmine\Player;
 use pocketmine\Server;
+use VectorNetworkProject\TheMix\game\bounty\Bounty;
 use VectorNetworkProject\TheMix\game\corepvp\blue\BlueTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\red\RedTeamManager;
 use VectorNetworkProject\TheMix\game\corepvp\SpawnManager;
@@ -59,12 +60,17 @@ class EntityEventListener implements Listener
             self::dropItem($entity);
             SpawnManager::PlayerReSpawn($entity);
             Streak::resetStreak($entity);
+            if (!$damager) {
+                Bounty::PlayerBountyLost($entity);
+            }
             if ($damager instanceof Player) {
                 if ($entity->getName() === $damager->getName()) {
+                    Bounty::PlayerBountyLost($entity);
                     Server::getInstance()->broadcastMessage("{$entity->getNameTag()} §fは自滅した。");
 
                     return;
                 }
+                Bounty::PlayerBountyLost($entity, $damager);
                 Streak::addStreak($damager);
                 GoldAPI::addGold($damager, mt_rand(10, 15));
                 LevelAPI::Auto($damager, mt_rand(10, 15));
@@ -73,6 +79,7 @@ class EntityEventListener implements Listener
         } else {
             $event->setCancelled();
             self::dropItem($entity);
+            Bounty::PlayerBountyLost($entity);
             Streak::resetStreak($entity);
             SpawnManager::PlayerReSpawn($entity);
             Server::getInstance()->broadcastMessage("{$entity->getNameTag()} §fは自滅した。");

@@ -87,6 +87,11 @@ class PlayerEventListener implements Listener
                 Server::getInstance()->broadcastMessage("§l§cSTREAK! §r{$player->getName()}が{$event->getCount()}回連続でキルしました！");
             }
         }
+        if ($event->getCount() > 5) {
+            if (mt_rand(1, 25) === mt_rand(1, 25)) {
+                Bounty::setBounty($player, true);
+            }
+        }
     }
 
     /**
