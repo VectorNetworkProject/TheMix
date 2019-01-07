@@ -566,11 +566,11 @@
         },
         {
             "name": "pocketmine/snooze",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/Snooze",
-                "reference": "3cc9d0164230889acb08e22cc126133809e9d346"
+                "reference": "b7bd231bdb75e69300cac89ccd515fc731c38c40"
             },
             "require": {
                 "ext-pthreads": ">=3.1.7dev",
@@ -586,7 +586,7 @@
                 "LGPL-3.0"
             ],
             "description": "Thread notification management library for code using the pthreads extension",
-            "time": "2018-06-13T09:36:11+00:00"
+            "time": "2019-01-04T15:54:45+00:00"
         },
         {
             "name": "pocketmine/spl",
