@@ -447,11 +447,11 @@
         },
         {
             "name": "pocketmine/nbt",
-            "version": "0.2.4",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/NBT",
-                "reference": "05dddb51830fd8f3b6c93e553abe07643ec96fc5"
+                "reference": "0b290fa0f5b44835ebeea8146c9ac960cac833f5"
             },
             "require": {
                 "ext-zlib": "*",
@@ -474,7 +474,7 @@
                 "LGPL-3.0"
             ],
             "description": "PHP library for working with Named Binary Tags",
-            "time": "2019-01-04T15:28:44+00:00"
+            "time": "2019-01-07T17:28:16+00:00"
         },
         {
             "name": "pocketmine/pocketmine-mp",
