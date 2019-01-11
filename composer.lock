@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef770ae5dc2def280df237e6f99c201b",
+    "content-hash": "c4d3b5ae3cb31b43425d1808d5c4750d",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -161,7 +161,7 @@
         },
         {
             "name": "fuyutsuki/libform",
-            "version": "0.4.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fuyutsuki/libform",
@@ -399,11 +399,11 @@
         },
         {
             "name": "pocketmine/binaryutils",
-            "version": "0.1.6",
+            "version": "0.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BinaryUtils",
-                "reference": "53cbb5a958130a6c6b5a4c511e623f4d401c1476"
+                "reference": "3403751da9d39853b43426085cd242173baadd2b"
             },
             "require": {
                 "php": ">=7.2",
@@ -419,7 +419,7 @@
                 "LGPL-3.0"
             ],
             "description": "Classes and methods for conveniently handling binary data",
-            "time": "2019-01-06T15:20:40+00:00"
+            "time": "2019-01-07T15:59:50+00:00"
         },
         {
             "name": "pocketmine/math",
@@ -447,11 +447,11 @@
         },
         {
             "name": "pocketmine/nbt",
-            "version": "0.2.4",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/NBT",
-                "reference": "05dddb51830fd8f3b6c93e553abe07643ec96fc5"
+                "reference": "0b290fa0f5b44835ebeea8146c9ac960cac833f5"
             },
             "require": {
                 "ext-zlib": "*",
@@ -474,7 +474,7 @@
                 "LGPL-3.0"
             ],
             "description": "PHP library for working with Named Binary Tags",
-            "time": "2019-01-04T15:28:44+00:00"
+            "time": "2019-01-07T17:28:16+00:00"
         },
         {
             "name": "pocketmine/pocketmine-mp",
