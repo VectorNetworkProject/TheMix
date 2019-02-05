@@ -18,6 +18,9 @@
 [![StyleCI](https://github.styleci.io/repos/157084851/shield?branch=master)](https://github.styleci.io/repos/157084851)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/VectorNetworkProject/TheMix/?branch=develop)
 
+> Next Project  
+> https://github.com/VectorNetworkProject/Vex
+
 # The Mix
 VectorNetworkの新しいゲームプラグイン！  
 あなたは簡単な作業をするだけでゲームを遊ぶ事が出来る！
